@@ -52,13 +52,6 @@ jobs:
           wget https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2020.04.1-x86_64-linux-ubuntu14.tar.gz
           tar -xzf riscv64-unknown-elf-gcc-8.3.0-2020.04.1-x86_64-linux-ubuntu14.tar.gz
 
-      # install oss fpga tools for cocotb and iverilog
-      - name: install oss-cad-suite
-        uses: YosysHQ/setup-oss-cad-suite@v2
-        with:
-          version: '2022-09-03' # pin the version, latest one fails to work with caravel
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
       # Set Python up
       - name: setup python
         uses: actions/setup-python@v4
@@ -66,6 +59,12 @@ jobs:
           python-version: '3.10'
       - run: pip install -r tt-multiplexer/py/requirements.txt
       - run: pip install -r tt/requirements.txt
+
+      # install oss cad suite for cocotb and iverilog
+      - name: install oss-cad-suite
+        uses: YosysHQ/setup-oss-cad-suite@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       # fetch the repos - test mode
       - name: fetch all
@@ -91,11 +90,11 @@ jobs:
       #     make clean test_mux
 
       - name: Caravel simulations
+        working-directory: verilog/dv/mux_ext
         run: |
           python -m venv ~/venv/dv
           source ~/venv/dv/bin/activate
-          pip install cocotb
-          cd verilog/dv/mux_ext
+          pip install -r requirements.txt
           make clean coco_test
         env:
           DESIGNS: ${{ github.workspace }}

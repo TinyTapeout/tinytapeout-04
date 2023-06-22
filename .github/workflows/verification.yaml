@@ -29,7 +29,7 @@ jobs:
         with:
           repository: tinytapeout/tt-multiplexer
           path: tt-multiplexer
-      
+
       - name: Clone caravel
         uses: actions/checkout@v3
         with:
@@ -60,11 +60,8 @@ jobs:
       - run: pip install -r tt-multiplexer/py/requirements.txt
       - run: pip install -r tt/requirements.txt
 
-      # install oss cad suite for cocotb and iverilog
-      - name: install oss-cad-suite
-        uses: YosysHQ/setup-oss-cad-suite@v2
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: install iverilog
+        run: sudo apt-get update && sudo apt-get install -y iverilog
 
       # fetch the repos - test mode
       - name: fetch all

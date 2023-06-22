@@ -6,14 +6,7 @@ jobs:
     env:
       SKY130_PDK_VERSION: 12df12e2e74145e31c5a13de02f9a1e176b56e67
       PDK_ROOT: /home/runner/pdk
-      DESIGNS: ${{ github.workspace }}
-      TARGET_PATH: ${{ github.workspace }}
-      MGMT_AREA_ROOT: ${{ github.workspace }}/mgmt_core_wrapper
-      MCW_ROOT: ${{ github.workspace }}/mgmt_core_wrapper
-      CARAVEL_ROOT: ${{ github.workspace }}/caravel
-      CORE_VERILOG_PATH: ${{ github.workspace }}/mgmt_core_wrapper/verilog
-      GCC_PATH: ${{ github.workspace }}/riscv64-unknown-elf-gcc-8.3.0-2020.04.1-x86_64-linux-ubuntu14/bin/
-      GCC_PREFIX: riscv64-unknown-elf
+      MPW_TAG: mpw-9a
 
     # ubuntu
     runs-on: ubuntu-latest
@@ -36,6 +29,13 @@ jobs:
         with:
           repository: tinytapeout/tt-multiplexer
           path: tt-multiplexer
+      
+      - name: Clone caravel
+        uses: actions/checkout@v3
+        with:
+          repository: efabless/caravel-lite
+          ref: ${{ env.MPW_TAG }}
+          path: caravel
 
       - name: Install sky130A PDK
         uses: TinyTapeOut/volare-action@v1
@@ -43,10 +43,9 @@ jobs:
           pdk_version: ${{ env.SKY130_PDK_VERSION }}
           pdk_root: ${{ env.PDK_ROOT }}
 
-      # get caravel makefile and management core for sims. need PDK for some of the verification
-      - name: caravel & PDK
-        run: |
-          make install install_mcw
+      - name: Install management core wrapper
+        working-directory: caravel
+        run: make install_mcw
 
       - name: Install RISC-V GCC
         run: |
@@ -91,8 +90,19 @@ jobs:
       #     cd verilog/dv/mux
       #     make clean test_mux
 
-      # run caravel level test (currently disabled, as it fails because of Python setup)
-      - name: caravel simulations
+      - name: Caravel simulations
         run: |
+          python -m venv ~/venv/dv
+          source ~/venv/dv/bin/activate
+          pip install cocotb
           cd verilog/dv/mux_ext
           make clean coco_test
+        env:
+          DESIGNS: ${{ github.workspace }}
+          TARGET_PATH: ${{ github.workspace }}
+          MGMT_AREA_ROOT: ${{ github.workspace }}/caravel/mgmt_core_wrapper
+          MCW_ROOT: ${{ github.workspace }}/caravel/mgmt_core_wrapper
+          CARAVEL_ROOT: ${{ github.workspace }}/caravel
+          CORE_VERILOG_PATH: ${{ github.workspace }}/caravel/mgmt_core_wrapper/verilog
+          GCC_PATH: ${{ github.workspace }}/riscv64-unknown-elf-gcc-8.3.0-2020.04.1-x86_64-linux-ubuntu14/bin/
+          GCC_PREFIX: riscv64-unknown-elf

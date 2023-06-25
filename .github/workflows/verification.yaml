@@ -57,8 +57,8 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
-      - run: pip install -r tt-multiplexer/py/requirements.txt
-      - run: pip install -r tt/requirements.txt
+      - run: pip install -r tt/requirements.txt -r tt-multiplexer/py/requirements.txt -r verilog/dv/mux_ext/requirements.txt
+
 
       - name: install iverilog
         run: sudo apt-get update && sudo apt-get install -y iverilog
@@ -81,18 +81,13 @@ jobs:
           make gensrc
 
       # run first set of tests
-      - name: basic simulations
-        run: |
-          cd verilog/dv/mux
-          make clean test_mux
+      - name: Mux simulation (without caravel)
+        working-directory: verilog/dv/mux
+        run: make clean test_mux
 
-      - name: Caravel simulations
+      - name: Mux + caravel simulation
         working-directory: verilog/dv/mux_ext
-        run: |
-          python -m venv ~/venv/dv
-          source ~/venv/dv/bin/activate
-          pip install -r requirements.txt
-          make clean coco_test
+        run: make clean coco_test
         env:
           DESIGNS: ${{ github.workspace }}
           TARGET_PATH: ${{ github.workspace }}

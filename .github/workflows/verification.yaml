@@ -80,11 +80,11 @@ jobs:
           cp ../test_modules.yaml cfg/modules.yaml
           make gensrc
 
-      # # run first set of tests
-      # - name: basic simulations
-      #   run: |
-      #     cd verilog/dv/mux
-      #     make clean test_mux
+      # run first set of tests
+      - name: basic simulations
+        run: |
+          cd verilog/dv/mux
+          make clean test_mux
 
       - name: Caravel simulations
         working-directory: verilog/dv/mux_ext

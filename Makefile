@@ -346,8 +346,9 @@ caravel-sta: ./env/spef-mapping.tcl
 
 .PHONY: copy-macros
 copy-macros:
-	cp gds/*.gds tt-multiplexer/ol2/tt_top/gds
-	cp lef/*.lef tt-multiplexer/ol2/tt_top/lef
+	cp projects/*/*.gds tt-multiplexer/ol2/tt_top/gds
+	cp projects/*/*.lef tt-multiplexer/ol2/tt_top/lef
+	cp projects/*/*.v tt-multiplexer/ol2/tt_top/verilog
 	cp tt-multiplexer/ol2/tt_ctrl/runs/RUN_*/final/gds/tt_ctrl.magic.gds tt-multiplexer/ol2/tt_top/gds/tt_ctrl.gds
 	cp tt-multiplexer/ol2/tt_ctrl/runs/RUN_*/final/lef/tt_ctrl.lef tt-multiplexer/ol2/tt_top/lef
 	cp tt-multiplexer/ol2/tt_mux/runs/RUN_*/final/gds/tt_mux.magic.gds tt-multiplexer/ol2/tt_top/gds/tt_mux.gds

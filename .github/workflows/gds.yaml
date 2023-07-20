@@ -45,10 +45,8 @@ jobs:
           version: '2023-05-27'
           github-token: ${{ secrets.GITHUB_TOKEN }}
    
-    - name: Fetch user project, update caravel configuration
-      run: python ./tt/configure.py --clone-all --fetch-gds --update-caravel
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Update caravel configuration
+      run: python ./tt/configure.py --update-caravel
 
     - uses: cachix/install-nix-action@v20
       

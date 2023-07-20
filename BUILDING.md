@@ -39,10 +39,10 @@ pip install -r tt-multiplexer/py/requirements.txt -r tt/requirements.txt
 Set `GH_USERNAME` and `GH_TOKEN` environment variables with your GitHub username and a personal access token, respectively.
 To generate your GH_TOKEN go to https://github.com/settings/tokens/new . Set the checkboxes for repo and workflow.
 
-Finally, run the following commands to fetch the user projects and generate the configuration for the user_project_wrapper:
+Finally, run the following commands to generate the configuration for the user_project_wrapper:
 
 ```bash
-python tt/configure.py --clone-all --fetch-gds --update-caravel
+python tt/configure.py --update-caravel
 ```
 
 ## Harden

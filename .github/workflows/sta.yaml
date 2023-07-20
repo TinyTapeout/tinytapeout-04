@@ -44,12 +44,8 @@ jobs:
           version: '2023-05-27'
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Use modules_sta.yaml for user module placement
-        run: |
-          cp modules_sta.yaml modules.yaml
-
       - name: Update caravel configuration
-        run: python ./tt/configure.py --update-caravel
+        run: python ./tt/configure.py --update-caravel --sta-projects
 
       - uses: cachix/install-nix-action@v20
 

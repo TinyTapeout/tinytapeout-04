@@ -1,3 +1,4 @@
 precheck_results/
 venv/
 sta.log
+mux_index.json

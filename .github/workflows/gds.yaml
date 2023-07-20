@@ -65,9 +65,6 @@ jobs:
 #    - name: uncompress gds files
 #      run: gunzip -v gds/*.gds.gz
 
-    - name: Generate sources from user macro configuration
-      run: make gen-module-placement
-
     # run OpenLane to build the GDS
     - name: Harden tt_ctrl
       working-directory: tt-multiplexer/ol2/tt_ctrl
@@ -106,3 +103,10 @@ jobs:
             lef/*
             spef/*
             verilog/gl/*
+
+    - name: upload mux_index.json
+      if: success() || failure()
+      uses: actions/upload-artifact@v3
+      with:
+          name: mux_index
+          path: mux_index.json

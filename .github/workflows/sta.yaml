@@ -68,9 +68,6 @@ jobs:
       #    - name: uncompress gds files
       #      run: gunzip -v gds/*.gds.gz
 
-      - name: Generate sources from user macro configuration
-        run: make gen-module-placement
-
       - name: Harden tt_ctrl
         working-directory: tt-multiplexer/ol2/tt_ctrl
         run: nix-shell $GITHUB_WORKSPACE/openlane2/shell.nix --run "python build.py"

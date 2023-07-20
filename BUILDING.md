@@ -48,7 +48,6 @@ python tt/configure.py --update-caravel
 ## Harden
 
 ```bash
-make gen-module-placement
 cd tt-multiplexer/ol2/tt_ctrl && nix-shell ${OPENLANE2_ROOT}/shell.nix --run "python build.py"
 cd tt-multiplexer/ol2/tt_mux && nix-shell ${OPENLANE2_ROOT}/shell.nix --run "python build.py"
 make copy-macros

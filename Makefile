@@ -354,11 +354,6 @@ copy-macros:
 	cp tt-multiplexer/ol2/tt_mux/runs/RUN_*/final/gds/tt_mux.magic.gds tt-multiplexer/ol2/tt_top/gds/tt_mux.gds
 	cp tt-multiplexer/ol2/tt_mux/runs/RUN_*/final/lef/tt_mux.lef tt-multiplexer/ol2/tt_top/lef
 
-.PHONY: gen-module-placement
-gen-module-placement:
-	cp modules.yaml tt-multiplexer/cfg/modules.yaml
-	@make -C tt-multiplexer gensrc
-
 .PHONY: copy-final-results
 copy-final-results:
 	@python3 copy_final_results.py

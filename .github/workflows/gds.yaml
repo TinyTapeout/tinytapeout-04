@@ -75,16 +75,14 @@ jobs:
       run: nix-shell $GITHUB_WORKSPACE/openlane2/shell.nix --run "python build.py"
 
     - name: Copy macros
-      run: |
-        make copy-macros
-        cp verilog/rtl/tt_um_*.v tt-multiplexer/ol2/tt_top/verilog
+      run: python ./tt/configure.py --copy-macros
 
     - name: Harden tt_top
       working-directory: tt-multiplexer/ol2/tt_top
       run: nix-shell $GITHUB_WORKSPACE/openlane2/shell.nix --run "python build.py --skip-xor-checks"
 
     - name: Copy final results
-      run: make copy-final-results
+      run: python ./tt/configure.py --copy-final-results
 
     - name: upload GDS artifact
       if: success() || failure()

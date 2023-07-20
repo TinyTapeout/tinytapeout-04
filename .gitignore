@@ -1,4 +1,5 @@
 precheck_results/
+verilog/includes/rom_tile.vmem
 venv/
 sta.log
 mux_index.json

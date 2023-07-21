@@ -112,9 +112,9 @@ jobs:
             spef/*
             verilog/gl/*
 
-      - name: upload mux_index.json
+      - name: upload shuttle_index.json
         if: success() || failure()
         uses: actions/upload-artifact@v3
         with:
-          name: mux_index
-          path: mux_index.json
+          name: shuttle_index
+          path: shuttle_index.json

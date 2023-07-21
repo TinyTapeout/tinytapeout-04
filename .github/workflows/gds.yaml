@@ -1,6 +1,16 @@
 name: gds
-# either manually started, or on a schedule
-on: [push, workflow_dispatch]
+
+on:
+  workflow_dispatch:
+  push:
+    # Don't run on project submissions:
+    branches-ignore:
+      - projects/tt_um_*
+  pull_request:
+    # Don't run on project submissions:
+    paths-ignore:
+      - projects/tt_um_*/**
+
 jobs:
   gds:
     env:

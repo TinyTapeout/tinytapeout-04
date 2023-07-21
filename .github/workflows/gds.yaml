@@ -94,6 +94,9 @@ jobs:
       - name: Copy final results
         run: python ./tt/configure.py --copy-final-results
 
+      - name: Create eFabless submission
+        run: python ./tt/configure.py --create-efabless-submission
+
       - name: upload GDS artifact
         if: success() || failure()
         uses: actions/upload-artifact@v3
@@ -118,3 +121,9 @@ jobs:
         with:
           name: shuttle_index
           path: shuttle_index.json
+
+      - name: upload Efabless submission directory
+        uses: actions/upload-artifact@v3
+        with:
+          name: efabless_submission
+          path: efabless

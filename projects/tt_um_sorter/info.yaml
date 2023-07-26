@@ -1,0 +1,74 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    0        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+  source_files:        
+    - tt_sorter.v
+    - top_sorter.v
+    - swap_cell.v
+  top_module:  "tt_um_sorter"      # put the name of your top module here, make it unique by prepending your github username
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+# Before changing this, please reach out to us on discord to discuss your design.
+  tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Vasileios Titopoulos"
+  title:        "Odd even sorter"
+  language:     "Verilog"
+  description:  "An odd even sorter of four 2-bit values"
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+    The sorter takes the inputs from ui_in[7:0] signals and rearranges them properly to uo_out[7:0] signals after they pass from the four internal pipeline registers. 
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+      Connect a clock for the internal registers and use the inputs ui_in[7:0] to assign the values to the design. The sorted values are provided through uo_out[7:0] signals 
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:
+    - I0/In1[0]
+    - I1/In1[1]
+    - I2/In2[0]
+    - I3/In2[1]
+    - I4/In3[0]
+    - I5/In3[1]
+    - I6/In4[0]
+    - I7/In4[1]
+    
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - O0/Out1[0]/segment a
+    - O1/Out1[1]/segment b
+    - O2/Out2[0]/segment c
+    - O3/Out2[1]/segment d
+    - O4/Out3[0]/segment e
+    - O5/Out3[1]/segment f
+    - O6/Out4[0]/segment g
+    - O7/Out4[1]/dot
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+# The following fields are optional
+  tag:          "sorter"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  ""      # Describe any external hardware needed
+  discord:      "vtitopou"      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     "https://github.com/Vasitito/Odd_even_sorter/blob/main/README.md"      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     25 000 000       # Clock frequency in Hz (if required)
+  picture:      "./figures/figure1.png"      # relative path to a picture in your repository

@@ -1,0 +1,43 @@
+
+63. Printing statistics.
+
+=== tt_um_devinatkin_arduino_vga ===
+
+   Number of wires:                 87
+   Number of wire bits:            122
+   Number of public wires:          18
+   Number of public wire bits:      53
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                103
+     sky130_fd_sc_hd__a2111o_2       1
+     sky130_fd_sc_hd__a21o_2         1
+     sky130_fd_sc_hd__a221o_2        3
+     sky130_fd_sc_hd__a221oi_2       1
+     sky130_fd_sc_hd__a22o_2         2
+     sky130_fd_sc_hd__a2bb2o_2       1
+     sky130_fd_sc_hd__a311o_2        1
+     sky130_fd_sc_hd__a31o_2         1
+     sky130_fd_sc_hd__and2_2         2
+     sky130_fd_sc_hd__and2b_2        2
+     sky130_fd_sc_hd__and3_2         5
+     sky130_fd_sc_hd__and3b_2        3
+     sky130_fd_sc_hd__and4_2         2
+     sky130_fd_sc_hd__buf_1          9
+     sky130_fd_sc_hd__buf_2          1
+     sky130_fd_sc_hd__conb_1        23
+     sky130_fd_sc_hd__dfxtp_2       10
+     sky130_fd_sc_hd__inv_2         12
+     sky130_fd_sc_hd__nand2_2        7
+     sky130_fd_sc_hd__nor2_2         1
+     sky130_fd_sc_hd__o221ai_2       1
+     sky130_fd_sc_hd__o22a_2         2
+     sky130_fd_sc_hd__o2bb2a_2       2
+     sky130_fd_sc_hd__o31a_2         1
+     sky130_fd_sc_hd__or2_2          7
+     sky130_fd_sc_hd__or2b_2         1
+     sky130_fd_sc_hd__xor2_2         1
+
+   Chip area for module '\tt_um_devinatkin_arduino_vga': 810.777600
+

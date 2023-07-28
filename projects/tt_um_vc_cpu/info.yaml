@@ -1,0 +1,74 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    0        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+  source_files:        
+    - tt_um_vc_cpu.v
+    - vc.v
+  top_module:  "tt_um_vc_cpu"      # put the name of your top module here, make it unique by prepending your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x2"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Paul Campbell"
+  title:        "VC 16-bit CPU"
+  language:     "Verilog"
+  description:  "VC 16-bit CPU - RISV-C cpu"
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+      See the README.MD for more info
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+      Included is an assembler and a memory image for executing
+
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - ReadData0
+    - ReadData1
+    - ReadData2
+    - ReadData3
+    - ReadData4
+    - ReadData5
+    - ReadData6
+    - ReadData7
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - AddressData0
+    - AddressData1
+    - AddressData2
+    - AddressData3
+    - AddressData4
+    - AddressData5
+    - AddressData6
+    - AddressData7
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - AddressLSB
+    - WriteStrobe
+    - AddressLatchHi
+    - AddressLatchLo
+    - unused4
+    - unused5
+    - unused6
+    - InterruptIn
+
+# The following fields are optional
+  tag:          "microprocessor, risc, riscv"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  ""      # Describe any external hardware needed
+  discord:      "Taniwha"      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     10000000       # Clock frequency in Hz (if required)
+  picture:      ""      # relative path to a picture in your repository

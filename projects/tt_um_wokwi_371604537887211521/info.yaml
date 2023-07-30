@@ -28,7 +28,7 @@ documentation:
 
 # Longer description of how the project works. You can use standard markdown format.
   how_it_works: |
-       Can be used as a simple puzzle demo or as a safety chain/interlock on equipment.  Being hardware interlocks without microcontroller logic it should be acceptable in some industry certifications. The high or low input can be tied to the sensors and switches in the safety chain. Only when all are in the desired state will the output be OKAY/HIGH.  NO and NC switches/sensors can be tied to the appropriate pins.
+       Can be used as a simple puzzle demo or as a safety chain/interlock on equipment.  Being hardware interlocks without microcontroller logic it mimics a standalone safety relay function which is used to verify all subsystems are online before allowing machinery to run. The high or low input can be tied to the sensors and switches in the safety chain. Only when all are in the desired state will the output be OKAY/HIGH.  NO and NC switches/sensors can be tied to the appropriate pins. Feedback signals are provided from gate outputs by FB1 through FB7 
 
 # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
   how_to_test:  |
@@ -46,14 +46,14 @@ documentation:
     - HIGH
 # A description of what the outputs do (e.g. status LED, SPI MISO, etc)
   outputs:
-    - HIGH
-    - NA
-    - NA
-    - NA
-    - NA
-    - NA
-    - NA
-    - NA
+    - HIGH All Chain Unlocked
+    - FB1 Feedback signal
+    - FB2 Feedback signal
+    - FB3 Feedback signal
+    - FB4 Feedback signal
+    - FB5 Feedback signal
+    - FB6 Feedback signal
+    - FB7 Feedback signal
 # A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
   bidirectional:
     - none

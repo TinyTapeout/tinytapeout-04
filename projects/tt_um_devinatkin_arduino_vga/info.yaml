@@ -7,7 +7,10 @@ project:
 # Source files must be in ./src and you must list each source file separately
   source_files:
     - tt_um_devinatkin_arduino_vga.v
+    - vga_timing.v
     - pwm_module.v
+    - rgb_active.v
+    - frame.v
   top_module:  "tt_um_devinatkin_arduino_vga"
 # How many tiles your design occupies? A single tile is about 167x108 uM.
   tiles: "1x2"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
@@ -35,24 +38,24 @@ documentation:
 
 # A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
   inputs:               
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
+    - SPI MOSI  # ui_in[0]
+    - SPI MISO  # ui_in[1]
+    - SPI CLK   # ui_in[2]
+    - SPI CS    # ui_in[3]
+    - none      # ui_in[4]
+    - none      # ui_in[5]
+    - none      # ui_in[6]
+    - none      # ui_in[7]
 # A description of what the outputs do (e.g. status LED, SPI MISO, etc)
   outputs:
-    - segment a
-    - segment b
-    - segment c
-    - segment d
-    - segment e
-    - segment f
-    - segment g
-    - dot
+    - VGA HSync   # uo_out[0]
+    - VGA VSync   # uo_out[1]
+    - VGA Red 0   # uo_out[2]
+    - VGA Red 1   # uo_out[3]
+    - VGA Green 0 # uo_out[4]
+    - VGA Green 1 # uo_out[5]
+    - VGA Blue 0  # uo_out[6]
+    - VGA Blue 1  # uo_out[7]
 # A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
   bidirectional:
     - none
@@ -69,5 +72,5 @@ documentation:
   external_hw:  ""      # Describe any external hardware needed
   discord:      "devinatkin"      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
   doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
-  clock_hz:     25000000       # Clock frequency in Hz (if required)
+  clock_hz:     25175000       # Clock frequency in Hz (if required)
   picture:      ""      # relative path to a picture in your repository

@@ -67,7 +67,7 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN rst_n
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
+    ANTENNAGATEAREA 0.213000 ;
     PORT
       LAYER met4 ;
         RECT 154.870 224.760 155.170 225.760 ;
@@ -76,7 +76,6 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN ui_in[0]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 151.190 224.760 151.490 225.760 ;
@@ -85,7 +84,6 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN ui_in[1]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 147.510 224.760 147.810 225.760 ;
@@ -94,7 +92,6 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN ui_in[2]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 143.830 224.760 144.130 225.760 ;
@@ -103,7 +100,6 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN ui_in[3]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 140.150 224.760 140.450 225.760 ;
@@ -112,7 +108,6 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN ui_in[4]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 136.470 224.760 136.770 225.760 ;
@@ -121,7 +116,6 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN ui_in[5]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 132.790 224.760 133.090 225.760 ;
@@ -130,7 +124,6 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN ui_in[6]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 129.110 224.760 129.410 225.760 ;
@@ -139,7 +132,6 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN ui_in[7]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 125.430 224.760 125.730 225.760 ;
@@ -148,7 +140,6 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN uio_in[0]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 121.750 224.760 122.050 225.760 ;
@@ -157,7 +148,6 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN uio_in[1]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 118.070 224.760 118.370 225.760 ;
@@ -166,7 +156,6 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN uio_in[2]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 114.390 224.760 114.690 225.760 ;
@@ -175,7 +164,6 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN uio_in[3]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 110.710 224.760 111.010 225.760 ;
@@ -184,7 +172,6 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN uio_in[4]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 107.030 224.760 107.330 225.760 ;
@@ -193,7 +180,6 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN uio_in[5]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 103.350 224.760 103.650 225.760 ;
@@ -202,7 +188,6 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN uio_in[6]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 99.670 224.760 99.970 225.760 ;
@@ -211,7 +196,6 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN uio_in[7]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 95.990 224.760 96.290 225.760 ;
@@ -348,7 +332,7 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN uo_out[0]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 0.795200 ;
+    ANTENNADIFFAREA 0.445500 ;
     PORT
       LAYER met4 ;
         RECT 92.310 224.760 92.610 225.760 ;
@@ -357,6 +341,7 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN uo_out[1]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
+    ANTENNADIFFAREA 0.795200 ;
     PORT
       LAYER met4 ;
         RECT 88.630 224.760 88.930 225.760 ;
@@ -365,6 +350,7 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN uo_out[2]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
+    ANTENNADIFFAREA 0.795200 ;
     PORT
       LAYER met4 ;
         RECT 84.950 224.760 85.250 225.760 ;
@@ -381,6 +367,7 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN uo_out[4]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
+    ANTENNADIFFAREA 0.795200 ;
     PORT
       LAYER met4 ;
         RECT 77.590 224.760 77.890 225.760 ;
@@ -397,6 +384,8 @@ MACRO tt_um_devinatkin_arduino_vga
   PIN uo_out[6]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
+    ANTENNAGATEAREA 0.426000 ;
+    ANTENNADIFFAREA 0.795200 ;
     PORT
       LAYER met4 ;
         RECT 70.230 224.760 70.530 225.760 ;
@@ -504,14 +493,14 @@ MACRO tt_um_devinatkin_arduino_vga
         RECT 151.890 224.360 154.470 224.760 ;
         RECT 155.570 224.360 158.150 224.760 ;
         RECT 7.655 223.680 158.865 224.360 ;
-        RECT 7.655 205.535 21.915 223.680 ;
-        RECT 24.315 205.535 42.270 223.680 ;
-        RECT 44.670 205.535 62.625 223.680 ;
-        RECT 65.025 205.535 82.980 223.680 ;
-        RECT 85.380 205.535 103.335 223.680 ;
-        RECT 105.735 205.535 123.690 223.680 ;
-        RECT 126.090 205.535 144.045 223.680 ;
-        RECT 146.445 205.535 158.865 223.680 ;
+        RECT 7.655 206.215 21.915 223.680 ;
+        RECT 24.315 206.215 42.270 223.680 ;
+        RECT 44.670 206.215 62.625 223.680 ;
+        RECT 65.025 206.215 82.980 223.680 ;
+        RECT 85.380 206.215 103.335 223.680 ;
+        RECT 105.735 206.215 123.690 223.680 ;
+        RECT 126.090 206.215 144.045 223.680 ;
+        RECT 146.445 206.215 158.865 223.680 ;
   END
 END tt_um_devinatkin_arduino_vga
 END LIBRARY

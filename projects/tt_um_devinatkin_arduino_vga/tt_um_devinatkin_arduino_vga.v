@@ -19,29 +19,25 @@ module tt_um_devinatkin_arduino_vga (VGND,
  output [7:0] uio_out;
  output [7:0] uo_out;
 
+ wire net3;
+ wire net4;
+ wire net5;
+ wire net6;
+ wire net7;
+ wire net8;
+ wire net9;
+ wire net10;
+ wire net11;
+ wire net12;
+ wire net13;
+ wire net14;
+ wire net15;
+ wire net16;
+ wire net17;
  wire net18;
  wire net19;
  wire net20;
  wire net21;
- wire net22;
- wire net23;
- wire net24;
- wire net25;
- wire net26;
- wire net27;
- wire net28;
- wire net29;
- wire net30;
- wire net31;
- wire net32;
- wire net33;
- wire net34;
- wire net35;
- wire net36;
- wire net37;
- wire net38;
- wire net39;
- wire net40;
  wire _000_;
  wire _001_;
  wire _002_;
@@ -111,38 +107,171 @@ module tt_um_devinatkin_arduino_vga (VGND,
  wire _066_;
  wire _067_;
  wire _068_;
+ wire _069_;
+ wire _070_;
+ wire _071_;
+ wire _072_;
+ wire _073_;
+ wire _074_;
+ wire _075_;
+ wire _076_;
+ wire _077_;
+ wire _078_;
+ wire _079_;
+ wire _080_;
+ wire _081_;
+ wire _082_;
+ wire _083_;
+ wire _084_;
+ wire _085_;
+ wire _086_;
+ wire _087_;
+ wire _088_;
+ wire _089_;
+ wire _090_;
+ wire _091_;
+ wire _092_;
+ wire _093_;
+ wire _094_;
+ wire _095_;
+ wire _096_;
+ wire _097_;
+ wire _098_;
+ wire _099_;
+ wire _100_;
+ wire _101_;
+ wire _102_;
+ wire _103_;
+ wire _104_;
+ wire _105_;
+ wire _106_;
+ wire _107_;
+ wire _108_;
+ wire _109_;
+ wire _110_;
+ wire _111_;
+ wire _112_;
+ wire _113_;
+ wire _114_;
+ wire _115_;
+ wire _116_;
+ wire _117_;
+ wire _118_;
+ wire _119_;
+ wire _120_;
+ wire _121_;
+ wire _122_;
+ wire _123_;
+ wire _124_;
+ wire _125_;
+ wire _126_;
+ wire _127_;
+ wire _128_;
+ wire _129_;
+ wire _130_;
+ wire _131_;
+ wire _132_;
+ wire _133_;
+ wire _134_;
+ wire _135_;
+ wire _136_;
+ wire _137_;
+ wire _138_;
+ wire _139_;
+ wire _140_;
+ wire _141_;
+ wire _142_;
+ wire _143_;
+ wire _144_;
+ wire _145_;
+ wire _146_;
+ wire _147_;
+ wire _148_;
+ wire _149_;
+ wire _150_;
+ wire _151_;
+ wire _152_;
+ wire _153_;
+ wire _154_;
+ wire _155_;
+ wire _156_;
+ wire _157_;
+ wire blue_pixel;
  wire clknet_0_clk;
- wire clknet_1_0__leaf_clk;
- wire clknet_1_1__leaf_clk;
+ wire clknet_2_0__leaf_clk;
+ wire clknet_2_1__leaf_clk;
+ wire clknet_2_2__leaf_clk;
+ wire clknet_2_3__leaf_clk;
+ wire \memory_array.memory[112][0] ;
  wire net1;
- wire net10;
- wire net11;
- wire net12;
- wire net13;
- wire net14;
- wire net15;
- wire net16;
- wire net17;
  wire net2;
- wire net3;
- wire net4;
+ wire net22;
+ wire net23;
+ wire net24;
+ wire net25;
+ wire net26;
+ wire net27;
+ wire net28;
+ wire net29;
+ wire net30;
+ wire net31;
+ wire net32;
+ wire net33;
+ wire net34;
+ wire net35;
+ wire net36;
+ wire net37;
+ wire net38;
+ wire net39;
+ wire net40;
  wire net41;
  wire net42;
- wire net5;
- wire net6;
- wire net7;
- wire net8;
- wire net9;
- wire \pwm_inst.counter[0] ;
- wire \pwm_inst.counter[1] ;
- wire \pwm_inst.counter[2] ;
- wire \pwm_inst.counter[3] ;
- wire \pwm_inst.counter[4] ;
- wire \pwm_inst.counter[5] ;
- wire \pwm_inst.counter[6] ;
- wire \pwm_inst.counter[7] ;
- wire \pwm_inst.counter[8] ;
- wire \pwm_inst.pwm_out ;
+ wire net43;
+ wire net44;
+ wire \vga_timing.h_count[0] ;
+ wire \vga_timing.h_count[1] ;
+ wire \vga_timing.h_count[2] ;
+ wire \vga_timing.h_count[3] ;
+ wire \vga_timing.h_count[4] ;
+ wire \vga_timing.h_count[5] ;
+ wire \vga_timing.h_count[6] ;
+ wire \vga_timing.h_count[7] ;
+ wire \vga_timing.h_count[8] ;
+ wire \vga_timing.h_count[9] ;
+ wire \vga_timing.hs ;
+ wire \vga_timing.hs_pwm_gen.counter[0] ;
+ wire \vga_timing.hs_pwm_gen.counter[10] ;
+ wire \vga_timing.hs_pwm_gen.counter[1] ;
+ wire \vga_timing.hs_pwm_gen.counter[2] ;
+ wire \vga_timing.hs_pwm_gen.counter[3] ;
+ wire \vga_timing.hs_pwm_gen.counter[4] ;
+ wire \vga_timing.hs_pwm_gen.counter[5] ;
+ wire \vga_timing.hs_pwm_gen.counter[6] ;
+ wire \vga_timing.hs_pwm_gen.counter[7] ;
+ wire \vga_timing.hs_pwm_gen.counter[8] ;
+ wire \vga_timing.hs_pwm_gen.counter[9] ;
+ wire \vga_timing.v_count[0] ;
+ wire \vga_timing.v_count[1] ;
+ wire \vga_timing.v_count[2] ;
+ wire \vga_timing.v_count[3] ;
+ wire \vga_timing.v_count[4] ;
+ wire \vga_timing.v_count[5] ;
+ wire \vga_timing.v_count[6] ;
+ wire \vga_timing.v_count[7] ;
+ wire \vga_timing.v_count[8] ;
+ wire \vga_timing.vs ;
+ wire \vga_timing.vs_pwm ;
+ wire \vga_timing.vs_pwm_gen.counter[0] ;
+ wire \vga_timing.vs_pwm_gen.counter[10] ;
+ wire \vga_timing.vs_pwm_gen.counter[1] ;
+ wire \vga_timing.vs_pwm_gen.counter[2] ;
+ wire \vga_timing.vs_pwm_gen.counter[3] ;
+ wire \vga_timing.vs_pwm_gen.counter[4] ;
+ wire \vga_timing.vs_pwm_gen.counter[5] ;
+ wire \vga_timing.vs_pwm_gen.counter[6] ;
+ wire \vga_timing.vs_pwm_gen.counter[7] ;
+ wire \vga_timing.vs_pwm_gen.counter[8] ;
+ wire \vga_timing.vs_pwm_gen.counter[9] ;
 
  sky130_fd_sc_hd__decap_3 FILLER_0_0_109 (.VGND(VGND),
     .VNB(VGND),
@@ -7104,27 +7233,23 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_51_225 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_51_225 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_51_237 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_51_233 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_51_249 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_51_250 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_51_261 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_51_254 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
  sky130_ef_sc_hd__decap_12 FILLER_0_51_27 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_51_273 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -7240,35 +7365,23 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_52_197 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_52_197 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_52_209 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_52_201 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_52_221 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_52_210 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_52_233 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_52_228 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_52_245 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_52_251 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_52_253 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_52_265 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_52_260 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -7276,11 +7389,7 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_52_277 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_52_289 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_52_283 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -7288,11 +7397,11 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_52_3 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_52_295 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_52_301 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_52_3 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -7388,35 +7497,11 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_53_193 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_53_193 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_53_205 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_53_217 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_53_223 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_53_225 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_53_237 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_53_249 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_53_261 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_53_244 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -7424,19 +7509,11 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_53_273 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_53_278 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_53_279 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_53_281 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_53_293 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_53_288 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -7444,19 +7521,15 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_53_305 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_53_300 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_53_317 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_53_312 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_53_329 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_53_335 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_53_324 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -7540,23 +7613,15 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_54_197 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_54_213 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_54_209 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_54_232 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_54_221 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_54_233 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_54_245 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_54_243 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -7564,11 +7629,7 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_54_253 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_54_265 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_54_257 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -7688,15 +7749,15 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_55_193 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_55_193 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_55_205 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_55_204 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_55_217 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_55_209 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -7704,19 +7765,19 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_55_225 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_55_225 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_55_237 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_6 FILLER_0_55_237 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_55_249 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_55_246 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_55_261 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_55_258 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -7724,7 +7785,7 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_55_273 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_55_275 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -7844,31 +7905,11 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_56_209 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_56_209 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_56_221 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_56_233 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_56_245 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_56_251 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_56_253 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_56_265 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_56_245 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -7876,11 +7917,11 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_56_277 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_56_273 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_56_289 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_56_285 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -7888,15 +7929,15 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
+ sky130_fd_sc_hd__decap_8 FILLER_0_56_297 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
  sky130_ef_sc_hd__decap_12 FILLER_0_56_3 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_56_301 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_56_307 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_56_305 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -7992,11 +8033,7 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_57_205 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_57_217 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_57_205 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -8004,31 +8041,19 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_57_225 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_57_232 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_57_237 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_57_246 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_57_249 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_57_261 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_57_265 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
  sky130_ef_sc_hd__decap_12 FILLER_0_57_27 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_57_273 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_57_279 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -8140,23 +8165,19 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_58_197 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_6 FILLER_0_58_197 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_58_209 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_58_213 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_58_221 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_58_235 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_58_233 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_58_245 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_58_247 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -8164,11 +8185,7 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_58_253 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_58_265 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_58_260 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -8176,11 +8193,15 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_58_277 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_58_270 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_58_289 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_58_275 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
+ sky130_ef_sc_hd__decap_12 FILLER_0_58_287 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -8188,11 +8209,11 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_58_3 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_58_299 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_58_301 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_58_3 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -8288,11 +8309,7 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_59_193 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_59_205 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_59_193 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -8304,15 +8321,15 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_59_225 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_59_233 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_59_237 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_59_241 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_59_249 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_59_248 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -8592,35 +8609,27 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_60_197 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_6 FILLER_0_60_197 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_60_209 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_60_207 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_60_221 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_60_219 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_60_233 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_60_231 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_60_245 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_60_235 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_60_251 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_60_253 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_60_265 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_60_262 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -8628,11 +8637,11 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_60_277 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_60_274 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_60_289 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_60_286 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -8640,15 +8649,15 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
+ sky130_fd_sc_hd__decap_8 FILLER_0_60_298 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
  sky130_ef_sc_hd__decap_12 FILLER_0_60_3 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_60_301 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_60_307 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_60_306 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -8740,35 +8749,27 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_61_193 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_61_193 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_61_205 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_61_197 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_61_217 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_61_222 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_61_223 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_61_225 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_61_225 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_61_242 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_61_237 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_61_249 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_61_261 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_61_246 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -8776,11 +8777,7 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_61_273 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_61_279 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_6 FILLER_0_61_274 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -8896,31 +8893,23 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_62_209 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_62_209 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_62_221 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_62_216 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_62_233 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_62_224 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_62_245 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_62_253 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_62_251 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_62_253 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_62_265 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_62_267 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -8928,11 +8917,7 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_62_277 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_62_289 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_62_279 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -8940,11 +8925,15 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
+ sky130_ef_sc_hd__decap_12 FILLER_0_62_291 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
  sky130_ef_sc_hd__decap_12 FILLER_0_62_3 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_62_301 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_62_303 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -9044,11 +9033,7 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_63_205 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_63_217 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_63_205 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -9056,19 +9041,19 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_63_225 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_63_225 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_63_237 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_6 FILLER_0_63_248 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_63_249 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_63_254 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_63_261 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_63_269 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -9076,11 +9061,7 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_63_273 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_63_279 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_63_277 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -9200,15 +9181,15 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_64_221 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_64_221 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_64_233 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_64_232 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_64_245 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_64_243 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -9216,11 +9197,11 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_64_253 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_6 FILLER_0_64_253 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_64_265 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_64_263 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -9228,11 +9209,7 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_64_277 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_64_289 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_64_280 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -9240,15 +9217,15 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
+ sky130_ef_sc_hd__decap_12 FILLER_0_64_292 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
  sky130_ef_sc_hd__decap_12 FILLER_0_64_3 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_64_301 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_64_307 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_64_304 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -9340,35 +9317,19 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_65_193 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_6 FILLER_0_65_193 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_65_205 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_65_221 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_65_217 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_65_231 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_65_223 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_65_225 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_65_237 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_65_249 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_65_261 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_65_251 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -9376,19 +9337,7 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_65_273 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_65_279 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_65_281 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_65_293 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_65_297 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -9396,19 +9345,15 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_65_305 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_65_309 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_65_317 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_65_321 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_65_329 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_65_335 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_65_333 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -9496,31 +9441,23 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_66_209 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_66_209 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_66_221 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_66_244 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_66_233 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_66_249 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_66_245 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_66_253 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_66_251 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_66_253 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_66_265 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_66_257 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -9528,27 +9465,15 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_66_277 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_66_289 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
  sky130_ef_sc_hd__decap_12 FILLER_0_66_29 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
+ sky130_fd_sc_hd__fill_1 FILLER_0_66_291 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
  sky130_ef_sc_hd__decap_12 FILLER_0_66_3 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_66_301 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_66_307 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -9640,35 +9565,23 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_67_193 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_67_193 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_67_205 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_67_201 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_67_217 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_6 FILLER_0_67_218 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_67_223 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_67_257 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_67_225 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_67_237 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_67_249 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_67_261 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_67_269 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -9676,35 +9589,15 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_67_273 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_67_279 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_67_281 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_67_293 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
  sky130_ef_sc_hd__decap_12 FILLER_0_67_3 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_67_305 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_67_315 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_67_317 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_67_329 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_67_327 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -9792,35 +9685,31 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_68_197 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_68_197 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_68_209 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_68_228 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_68_221 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_68_240 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_68_233 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_6 FILLER_0_68_253 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_68_245 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_68_259 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_68_251 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_68_264 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_68_253 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_68_265 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_68_268 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -9828,11 +9717,11 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_68_277 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_68_275 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_68_289 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_68_284 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -9844,27 +9733,23 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_68_301 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
  sky130_fd_sc_hd__fill_1 FILLER_0_68_307 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_68_309 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_68_314 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_68_321 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_68_326 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_68_333 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_68_338 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_68_345 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_68_350 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -9960,7 +9845,11 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_69_237 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_69_237 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
+ sky130_fd_sc_hd__fill_1 FILLER_0_69_245 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -9968,7 +9857,7 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_69_261 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_69_261 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -9976,15 +9865,19 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_69_273 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_69_278 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_69_279 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_69_281 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_69_289 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_69_293 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
+ sky130_fd_sc_hd__fill_1 FILLER_0_69_297 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -9992,19 +9885,19 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_69_301 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_69_306 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_69_313 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_69_315 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_8 FILLER_0_69_325 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_69_327 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_3 FILLER_0_69_333 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_69_335 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -10236,27 +10129,19 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_70_197 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_70_197 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_70_209 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_70_208 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_70_221 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_70_245 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_70_233 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_2 FILLER_0_70_250 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_2 FILLER_0_70_253 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_70_249 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -10264,7 +10149,11 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_2 FILLER_0_70_277 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_70_273 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
+ sky130_ef_sc_hd__decap_12 FILLER_0_70_289 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -10372,35 +10261,23 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_71_193 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_6 FILLER_0_71_193 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_71_205 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_6 FILLER_0_71_215 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_71_217 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_71_223 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_71_245 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_71_249 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_71_253 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_71_232 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
  sky130_ef_sc_hd__decap_12 FILLER_0_71_27 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
+ sky130_fd_sc_hd__decap_8 FILLER_0_71_270 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -10412,19 +10289,15 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_71_301 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_71_306 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_71_313 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_71_318 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_8 FILLER_0_71_325 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_3 FILLER_0_71_333 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_6 FILLER_0_71_330 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -10508,27 +10381,27 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_72_197 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_72_197 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_72_209 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_72_205 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_72_221 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_72_222 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_72_233 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_72_244 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_3 FILLER_0_72_249 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_72_253 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_72_253 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_72_265 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -10536,7 +10409,7 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_72_286 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_72_283 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -10544,15 +10417,15 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
+ sky130_fd_sc_hd__fill_1 FILLER_0_72_298 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
  sky130_ef_sc_hd__decap_12 FILLER_0_72_3 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_72_303 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_72_307 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_72_306 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -10644,35 +10517,35 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_73_193 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_73_193 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_73_205 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_73_213 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_73_217 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_73_221 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_73_223 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_73_225 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_8 FILLER_0_73_225 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_73_237 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_3 FILLER_0_73_233 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_73_249 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_3 FILLER_0_73_257 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_73_256 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_73_267 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_73_268 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -10680,27 +10553,11 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_73_279 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_3 FILLER_0_73_284 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_2 FILLER_0_73_290 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_73_295 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_73_278 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
  sky130_ef_sc_hd__decap_12 FILLER_0_73_3 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_73_307 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -10800,7 +10657,11 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_74_209 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_74_209 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
+ sky130_fd_sc_hd__fill_1 FILLER_0_74_216 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -10808,15 +10669,11 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_3 FILLER_0_74_249 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_74_233 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_74_253 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_74_265 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_74_269 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -10824,15 +10681,23 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
+ sky130_fd_sc_hd__decap_6 FILLER_0_74_279 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
  sky130_ef_sc_hd__decap_12 FILLER_0_74_29 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_74_291 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_74_298 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
  sky130_ef_sc_hd__decap_12 FILLER_0_74_3 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
+ sky130_fd_sc_hd__fill_2 FILLER_0_74_306 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -10928,31 +10793,31 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_75_205 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_75_205 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_75_217 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_75_213 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_75_223 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_75_222 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_75_225 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_75_232 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_75_237 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_75_239 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_75_249 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_75_250 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_75_261 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_75_259 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -10960,7 +10825,19 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_75_273 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_75_271 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
+ sky130_fd_sc_hd__decap_4 FILLER_0_75_276 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
+ sky130_fd_sc_hd__decap_8 FILLER_0_75_286 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
+ sky130_fd_sc_hd__fill_1 FILLER_0_75_294 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -10968,15 +10845,15 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_75_314 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_75_300 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_8 FILLER_0_75_326 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_75_312 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_2 FILLER_0_75_334 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_75_324 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11060,23 +10937,19 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_76_197 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_76_197 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_76_209 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_76_205 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_76_221 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_76_218 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_76_233 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_76_245 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_76_226 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11084,15 +10957,11 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_8 FILLER_0_76_253 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_76_253 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_76_261 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_8 FILLER_0_76_265 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_76_265 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11100,15 +10969,7 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_2 FILLER_0_76_273 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_76_278 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_8 FILLER_0_76_287 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_76_282 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11116,7 +10977,7 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_8 FILLER_0_76_298 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_76_295 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11124,7 +10985,11 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_2 FILLER_0_76_306 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_6 FILLER_0_76_301 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
+ sky130_fd_sc_hd__fill_1 FILLER_0_76_307 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11212,35 +11077,31 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_77_181 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_77_187 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_77_193 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_77_205 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_77_205 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_77_222 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_77_217 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_77_225 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_77_223 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_77_229 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_77_225 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_6 FILLER_0_77_235 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_3 FILLER_0_77_237 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_2 FILLER_0_77_247 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_77_264 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11248,11 +11109,19 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_77_279 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_77_276 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_77_292 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_77_281 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
+ sky130_fd_sc_hd__fill_2 FILLER_0_77_286 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
+ sky130_fd_sc_hd__fill_2 FILLER_0_77_291 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11260,19 +11129,19 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_77_301 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_77_300 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_77_311 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_77_310 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_77_323 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_77_322 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_77_335 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_77_334 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11356,19 +11225,23 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_78_197 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_6 FILLER_0_78_200 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_78_209 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_6 FILLER_0_78_214 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_3 FILLER_0_78_221 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_78_231 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_78_251 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_78_248 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
+ sky130_fd_sc_hd__fill_2 FILLER_0_78_253 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11376,11 +11249,7 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_8 FILLER_0_78_278 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_2 FILLER_0_78_286 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_78_271 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11388,7 +11257,7 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_78_291 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_78_290 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11396,15 +11265,23 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_78_323 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_78_307 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_78_335 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_78_309 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_78_347 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_78_321 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
+ sky130_ef_sc_hd__decap_12 FILLER_0_78_333 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
+ sky130_fd_sc_hd__decap_6 FILLER_0_78_345 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11456,7 +11333,7 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_79_149 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_79_149 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11464,43 +11341,39 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_79_161 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_79_157 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_79_167 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_79_164 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_79_169 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_6 FILLER_0_79_169 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_79_181 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_6 FILLER_0_79_181 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_79_193 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_79_187 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_79_197 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_79_198 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_79_204 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_79_216 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_8 FILLER_0_79_213 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_79_241 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_3 FILLER_0_79_221 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_2 FILLER_0_79_240 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_79_263 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11508,7 +11381,11 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_2 FILLER_0_79_278 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_4 FILLER_0_79_281 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR));
+ sky130_fd_sc_hd__fill_1 FILLER_0_79_285 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11516,23 +11393,15 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_79_305 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_79_310 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_79_309 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_79_322 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_ef_sc_hd__decap_12 FILLER_0_79_319 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_79_331 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_79_335 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_79_334 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11764,23 +11633,15 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_3 FILLER_0_80_144 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_80_144 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_80_150 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_80_152 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_80_154 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_80_158 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_80_162 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_80_158 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11792,11 +11653,7 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_80_174 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_80_178 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_80_174 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11804,35 +11661,19 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_80_182 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_80_186 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_80_186 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_80_194 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_80_190 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_80_197 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_80_197 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_80_206 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_80_210 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_80_214 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_80_218 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_80_209 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11840,63 +11681,39 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_2 FILLER_0_80_222 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_80_221 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_2 FILLER_0_80_225 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_80_225 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_80_230 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_80_237 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_80_234 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_80_249 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_80_238 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_80_253 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_80_242 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_80_265 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_80_246 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_80_277 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_3 FILLER_0_80_256 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_80_281 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_80_262 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_80_266 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_3 FILLER_0_80_270 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_80_279 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_80_287 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_80_294 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_80_298 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_80_293 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11904,15 +11721,11 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_6 FILLER_0_80_302 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_3 FILLER_0_80_305 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_3 FILLER_0_80_312 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_80_318 (.VGND(VGND),
+ sky130_ef_sc_hd__decap_12 FILLER_0_80_309 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -11920,19 +11733,15 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_80_322 (.VGND(VGND),
+ sky130_fd_sc_hd__decap_8 FILLER_0_80_321 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__decap_4 FILLER_0_80_326 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_2 FILLER_0_80_329 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
- sky130_fd_sc_hd__fill_1 FILLER_0_80_330 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR));
- sky130_fd_sc_hd__fill_2 FILLER_0_80_334 (.VGND(VGND),
+ sky130_fd_sc_hd__fill_1 FILLER_0_80_335 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR));
@@ -13944,728 +13753,1793 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VPWR(VPWR));
  sky130_fd_sc_hd__tapvpwrvgnd_1 TAP_659 (.VGND(VGND),
     .VPWR(VPWR));
- sky130_fd_sc_hd__inv_2 _069_ (.A(net9),
+ sky130_fd_sc_hd__a21o_1 _158_ (.A1(\vga_timing.vs_pwm_gen.counter[0] ),
+    .A2(\vga_timing.vs_pwm_gen.counter[1] ),
+    .B1(\vga_timing.vs_pwm_gen.counter[2] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .Y(_014_));
- sky130_fd_sc_hd__inv_2 _070_ (.A(net8),
+    .X(_152_));
+ sky130_fd_sc_hd__or4_1 _159_ (.A(\vga_timing.vs_pwm_gen.counter[3] ),
+    .B(\vga_timing.vs_pwm_gen.counter[9] ),
+    .C(\vga_timing.vs_pwm_gen.counter[8] ),
+    .D(\vga_timing.vs_pwm_gen.counter[10] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .Y(_015_));
- sky130_fd_sc_hd__o22a_1 _071_ (.A1(\pwm_inst.counter[7] ),
-    .A2(_014_),
-    .B1(_015_),
-    .B2(\pwm_inst.counter[6] ),
+    .X(_153_));
+ sky130_fd_sc_hd__or4_1 _160_ (.A(\vga_timing.vs_pwm_gen.counter[7] ),
+    .B(\vga_timing.vs_pwm_gen.counter[6] ),
+    .C(\vga_timing.vs_pwm_gen.counter[5] ),
+    .D(\vga_timing.vs_pwm_gen.counter[4] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(_016_));
- sky130_fd_sc_hd__inv_2 _072_ (.A(\pwm_inst.counter[5] ),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .Y(_017_));
- sky130_fd_sc_hd__inv_2 _073_ (.A(net6),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .Y(_018_));
- sky130_fd_sc_hd__o2bb2a_1 _074_ (.A1_N(_017_),
-    .A2_N(net7),
-    .B1(_018_),
-    .B2(\pwm_inst.counter[4] ),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(_019_));
- sky130_fd_sc_hd__inv_2 _075_ (.A(net2),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .Y(_020_));
- sky130_fd_sc_hd__or2b_1 _076_ (.A(\pwm_inst.counter[1] ),
-    .B_N(net3),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(_021_));
- sky130_fd_sc_hd__and2b_1 _077_ (.A_N(net4),
-    .B(\pwm_inst.counter[2] ),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(_022_));
- sky130_fd_sc_hd__and2b_1 _078_ (.A_N(net3),
-    .B(\pwm_inst.counter[1] ),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(_023_));
- sky130_fd_sc_hd__a311o_1 _079_ (.A1(\pwm_inst.counter[0] ),
-    .A2(_020_),
-    .A3(_021_),
-    .B1(_022_),
-    .C1(_023_),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(_024_));
- sky130_fd_sc_hd__inv_2 _080_ (.A(\pwm_inst.counter[2] ),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .Y(_025_));
- sky130_fd_sc_hd__inv_2 _081_ (.A(net5),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .Y(_026_));
- sky130_fd_sc_hd__o2bb2a_1 _082_ (.A1_N(_025_),
-    .A2_N(net4),
-    .B1(\pwm_inst.counter[3] ),
-    .B2(_026_),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(_027_));
- sky130_fd_sc_hd__a22o_1 _083_ (.A1(\pwm_inst.counter[3] ),
-    .A2(_026_),
-    .B1(_018_),
-    .B2(\pwm_inst.counter[4] ),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(_028_));
- sky130_fd_sc_hd__a21o_1 _084_ (.A1(_024_),
-    .A2(_027_),
-    .B1(_028_),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(_029_));
- sky130_fd_sc_hd__nor2_1 _085_ (.A(_017_),
-    .B(net7),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .Y(_030_));
- sky130_fd_sc_hd__a221o_1 _086_ (.A1(\pwm_inst.counter[6] ),
-    .A2(_015_),
-    .B1(_019_),
-    .B2(_029_),
-    .C1(_030_),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(_031_));
- sky130_fd_sc_hd__a221oi_1 _087_ (.A1(\pwm_inst.counter[7] ),
-    .A2(_014_),
-    .B1(_016_),
-    .B2(_031_),
-    .C1(net41),
+    .X(_154_));
+ sky130_fd_sc_hd__nor3_1 _161_ (.A(_152_),
+    .B(_153_),
+    .C(_154_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .Y(_000_));
- sky130_fd_sc_hd__inv_2 _088_ (.A(\pwm_inst.counter[0] ),
+ sky130_fd_sc_hd__or2_1 _162_ (.A(\vga_timing.hs_pwm_gen.counter[1] ),
+    .B(\vga_timing.hs_pwm_gen.counter[0] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .Y(_032_));
- sky130_fd_sc_hd__inv_2 _089_ (.A(\pwm_inst.counter[1] ),
+    .X(_155_));
+ sky130_fd_sc_hd__or4_1 _163_ (.A(net42),
+    .B(\vga_timing.hs_pwm_gen.counter[2] ),
+    .C(\vga_timing.hs_pwm_gen.counter[4] ),
+    .D(_155_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .Y(_033_));
- sky130_fd_sc_hd__inv_2 _090_ (.A(\pwm_inst.counter[3] ),
+    .X(_156_));
+ sky130_fd_sc_hd__and2_1 _164_ (.A(\vga_timing.hs_pwm_gen.counter[6] ),
+    .B(\vga_timing.hs_pwm_gen.counter[5] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .Y(_034_));
- sky130_fd_sc_hd__inv_2 _091_ (.A(net17),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .Y(_035_));
- sky130_fd_sc_hd__a22o_1 _092_ (.A1(net13),
-    .A2(_034_),
-    .B1(_035_),
-    .B2(\pwm_inst.counter[7] ),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(_036_));
- sky130_fd_sc_hd__a221o_1 _093_ (.A1(net10),
-    .A2(_032_),
-    .B1(net11),
-    .B2(_033_),
-    .C1(_036_),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(_037_));
- sky130_fd_sc_hd__o22a_1 _094_ (.A1(net13),
-    .A2(_034_),
-    .B1(_035_),
-    .B2(\pwm_inst.counter[7] ),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(_038_));
- sky130_fd_sc_hd__o221ai_1 _095_ (.A1(net10),
-    .A2(_032_),
-    .B1(net15),
-    .B2(_017_),
-    .C1(_038_),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .Y(_039_));
- sky130_fd_sc_hd__a2bb2o_1 _096_ (.A1_N(net11),
-    .A2_N(_033_),
-    .B1(net15),
-    .B2(_017_),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(_040_));
- sky130_fd_sc_hd__inv_2 _097_ (.A(net12),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .Y(_041_));
- sky130_fd_sc_hd__nand2_1 _098_ (.A(net14),
-    .B(\pwm_inst.counter[4] ),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .Y(_042_));
- sky130_fd_sc_hd__or2_1 _099_ (.A(net14),
-    .B(\pwm_inst.counter[4] ),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(_043_));
- sky130_fd_sc_hd__xor2_1 _100_ (.A(net16),
-    .B(\pwm_inst.counter[6] ),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(_044_));
- sky130_fd_sc_hd__a221o_1 _101_ (.A1(_041_),
-    .A2(\pwm_inst.counter[2] ),
-    .B1(_042_),
-    .B2(_043_),
-    .C1(_044_),
+    .X(_157_));
+ sky130_fd_sc_hd__or4_1 _165_ (.A(net33),
+    .B(net34),
+    .C(net41),
+    .D(net28),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .X(_045_));
- sky130_fd_sc_hd__a2111o_1 _102_ (.A1(net12),
-    .A2(_025_),
-    .B1(\pwm_inst.counter[8] ),
-    .C1(_040_),
-    .D1(_045_),
+ sky130_fd_sc_hd__a21oi_1 _166_ (.A1(_156_),
+    .A2(_157_),
+    .B1(_045_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_001_));
+ sky130_fd_sc_hd__inv_2 _167_ (.A(\vga_timing.vs_pwm ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(\vga_timing.vs ));
+ sky130_fd_sc_hd__o31a_1 _168_ (.A1(\vga_timing.h_count[5] ),
+    .A2(\vga_timing.h_count[4] ),
+    .A3(\vga_timing.h_count[6] ),
+    .B1(\vga_timing.h_count[7] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .X(_046_));
- sky130_fd_sc_hd__o31a_2 _103_ (.A1(_037_),
-    .A2(_039_),
-    .A3(_046_),
-    .B1(net1),
+ sky130_fd_sc_hd__and2_1 _169_ (.A(\vga_timing.h_count[8] ),
+    .B(\vga_timing.h_count[9] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .X(_047_));
- sky130_fd_sc_hd__and2_1 _104_ (.A(_032_),
-    .B(_047_),
+ sky130_fd_sc_hd__or4_1 _170_ (.A(\vga_timing.h_count[5] ),
+    .B(\vga_timing.h_count[4] ),
+    .C(\vga_timing.h_count[6] ),
+    .D(\vga_timing.h_count[7] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .X(_048_));
- sky130_fd_sc_hd__clkbuf_1 _105_ (.A(_048_),
+ sky130_fd_sc_hd__nand2_1 _171_ (.A(_047_),
+    .B(_048_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(_001_));
- sky130_fd_sc_hd__or2_1 _106_ (.A(\pwm_inst.counter[0] ),
-    .B(\pwm_inst.counter[1] ),
+    .Y(_049_));
+ sky130_fd_sc_hd__a2111o_1 _172_ (.A1(\vga_timing.v_count[1] ),
+    .A2(\vga_timing.v_count[0] ),
+    .B1(\vga_timing.v_count[4] ),
+    .C1(\vga_timing.v_count[3] ),
+    .D1(\vga_timing.v_count[2] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(_049_));
- sky130_fd_sc_hd__nand2_1 _107_ (.A(\pwm_inst.counter[0] ),
-    .B(\pwm_inst.counter[1] ),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .Y(_050_));
- sky130_fd_sc_hd__and3_1 _108_ (.A(_047_),
-    .B(_049_),
-    .C(_050_),
+    .X(_050_));
+ sky130_fd_sc_hd__a2111o_1 _173_ (.A1(\vga_timing.v_count[5] ),
+    .A2(_050_),
+    .B1(\vga_timing.v_count[8] ),
+    .C1(\vga_timing.v_count[7] ),
+    .D1(\vga_timing.v_count[6] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .X(_051_));
- sky130_fd_sc_hd__clkbuf_1 _109_ (.A(_051_),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(_002_));
- sky130_fd_sc_hd__or2_1 _110_ (.A(_025_),
-    .B(_050_),
+ sky130_fd_sc_hd__o311a_1 _174_ (.A1(\vga_timing.h_count[8] ),
+    .A2(\vga_timing.h_count[9] ),
+    .A3(_046_),
+    .B1(_049_),
+    .C1(_051_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .X(_052_));
- sky130_fd_sc_hd__nand2_1 _111_ (.A(_025_),
-    .B(_050_),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .Y(_053_));
- sky130_fd_sc_hd__and3_1 _112_ (.A(_047_),
+ sky130_fd_sc_hd__and2_1 _175_ (.A(blue_pixel),
     .B(_052_),
-    .C(_053_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(_054_));
- sky130_fd_sc_hd__clkbuf_1 _113_ (.A(_054_),
+    .X(_053_));
+ sky130_fd_sc_hd__clkbuf_4 _176_ (.A(_053_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(_003_));
- sky130_fd_sc_hd__and4_1 _114_ (.A(\pwm_inst.counter[0] ),
-    .B(\pwm_inst.counter[1] ),
-    .C(\pwm_inst.counter[2] ),
-    .D(\pwm_inst.counter[3] ),
+    .X(uo_out[6]));
+ sky130_fd_sc_hd__nand2_1 _177_ (.A(\vga_timing.hs_pwm_gen.counter[9] ),
+    .B(\vga_timing.hs_pwm_gen.counter[8] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_054_));
+ sky130_fd_sc_hd__or4b_1 _178_ (.A(\vga_timing.hs_pwm_gen.counter[7] ),
+    .B(\vga_timing.hs_pwm_gen.counter[6] ),
+    .C(\vga_timing.hs_pwm_gen.counter[10] ),
+    .D_N(\vga_timing.hs_pwm_gen.counter[5] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .X(_055_));
- sky130_fd_sc_hd__nand2_1 _115_ (.A(_034_),
-    .B(_052_),
+ sky130_fd_sc_hd__o31a_2 _179_ (.A1(_156_),
+    .A2(_054_),
+    .A3(_055_),
+    .B1(net1),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .Y(_056_));
- sky130_fd_sc_hd__and3b_1 _116_ (.A_N(_055_),
+    .X(_056_));
+ sky130_fd_sc_hd__and2b_1 _180_ (.A_N(\vga_timing.hs_pwm_gen.counter[0] ),
     .B(_056_),
-    .C(_047_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .X(_057_));
- sky130_fd_sc_hd__clkbuf_1 _117_ (.A(_057_),
+ sky130_fd_sc_hd__clkbuf_1 _181_ (.A(_057_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(_004_));
- sky130_fd_sc_hd__or2_1 _118_ (.A(\pwm_inst.counter[4] ),
-    .B(_055_),
+    .X(_002_));
+ sky130_fd_sc_hd__buf_2 _182_ (.A(net1),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .X(_058_));
- sky130_fd_sc_hd__nand2_1 _119_ (.A(\pwm_inst.counter[4] ),
-    .B(_055_),
+ sky130_fd_sc_hd__nand2_1 _183_ (.A(\vga_timing.hs_pwm_gen.counter[1] ),
+    .B(\vga_timing.hs_pwm_gen.counter[0] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .Y(_059_));
- sky130_fd_sc_hd__and3_1 _120_ (.A(_047_),
-    .B(_058_),
+ sky130_fd_sc_hd__and3_1 _184_ (.A(_058_),
+    .B(_155_),
     .C(_059_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .X(_060_));
- sky130_fd_sc_hd__clkbuf_1 _121_ (.A(_060_),
+ sky130_fd_sc_hd__clkbuf_1 _185_ (.A(_060_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(_005_));
- sky130_fd_sc_hd__or2_1 _122_ (.A(_017_),
-    .B(_059_),
+    .X(_003_));
+ sky130_fd_sc_hd__and3_1 _186_ (.A(\vga_timing.hs_pwm_gen.counter[1] ),
+    .B(\vga_timing.hs_pwm_gen.counter[0] ),
+    .C(\vga_timing.hs_pwm_gen.counter[2] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .X(_061_));
- sky130_fd_sc_hd__nand2_1 _123_ (.A(_017_),
-    .B(_059_),
+ sky130_fd_sc_hd__a21o_1 _187_ (.A1(\vga_timing.hs_pwm_gen.counter[1] ),
+    .A2(\vga_timing.hs_pwm_gen.counter[0] ),
+    .B1(\vga_timing.hs_pwm_gen.counter[2] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .Y(_062_));
- sky130_fd_sc_hd__and3_1 _124_ (.A(_047_),
-    .B(_061_),
-    .C(_062_),
+    .X(_062_));
+ sky130_fd_sc_hd__and3b_1 _188_ (.A_N(_061_),
+    .B(_062_),
+    .C(_056_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .X(_063_));
- sky130_fd_sc_hd__clkbuf_1 _125_ (.A(_063_),
+ sky130_fd_sc_hd__clkbuf_1 _189_ (.A(_063_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(_006_));
- sky130_fd_sc_hd__and4_1 _126_ (.A(\pwm_inst.counter[4] ),
-    .B(\pwm_inst.counter[5] ),
-    .C(\pwm_inst.counter[6] ),
-    .D(_055_),
+    .X(_004_));
+ sky130_fd_sc_hd__and4_2 _190_ (.A(\vga_timing.hs_pwm_gen.counter[1] ),
+    .B(\vga_timing.hs_pwm_gen.counter[0] ),
+    .C(\vga_timing.hs_pwm_gen.counter[3] ),
+    .D(\vga_timing.hs_pwm_gen.counter[2] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .X(_064_));
- sky130_fd_sc_hd__a31o_1 _127_ (.A1(\pwm_inst.counter[4] ),
-    .A2(\pwm_inst.counter[5] ),
-    .A3(_055_),
-    .B1(\pwm_inst.counter[6] ),
+ sky130_fd_sc_hd__or2_1 _191_ (.A(\vga_timing.hs_pwm_gen.counter[3] ),
+    .B(_061_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .X(_065_));
- sky130_fd_sc_hd__and3b_1 _128_ (.A_N(_064_),
+ sky130_fd_sc_hd__and3b_1 _192_ (.A_N(_064_),
     .B(_065_),
-    .C(_047_),
+    .C(_056_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .X(_066_));
- sky130_fd_sc_hd__clkbuf_1 _129_ (.A(_066_),
+ sky130_fd_sc_hd__clkbuf_1 _193_ (.A(_066_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(_007_));
- sky130_fd_sc_hd__and2_1 _130_ (.A(\pwm_inst.counter[7] ),
-    .B(_064_),
+    .X(_005_));
+ sky130_fd_sc_hd__o21ai_1 _194_ (.A1(net31),
+    .A2(_064_),
+    .B1(_056_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(_067_));
- sky130_fd_sc_hd__or2_1 _131_ (.A(\pwm_inst.counter[7] ),
-    .B(_064_),
+    .Y(_067_));
+ sky130_fd_sc_hd__a21oi_1 _195_ (.A1(net31),
+    .A2(_064_),
+    .B1(_067_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_006_));
+ sky130_fd_sc_hd__and3_1 _196_ (.A(\vga_timing.hs_pwm_gen.counter[4] ),
+    .B(\vga_timing.hs_pwm_gen.counter[5] ),
+    .C(_064_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .X(_068_));
- sky130_fd_sc_hd__and3b_1 _132_ (.A_N(_067_),
-    .B(_047_),
-    .C(_068_),
+ sky130_fd_sc_hd__a21o_1 _197_ (.A1(\vga_timing.hs_pwm_gen.counter[4] ),
+    .A2(_064_),
+    .B1(\vga_timing.hs_pwm_gen.counter[5] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(_010_));
- sky130_fd_sc_hd__clkbuf_1 _133_ (.A(_010_),
+    .X(_069_));
+ sky130_fd_sc_hd__and3b_1 _198_ (.A_N(_068_),
+    .B(_056_),
+    .C(_069_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(_008_));
- sky130_fd_sc_hd__or2_1 _134_ (.A(\pwm_inst.counter[8] ),
-    .B(_067_),
+    .X(_070_));
+ sky130_fd_sc_hd__clkbuf_1 _199_ (.A(_070_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(_011_));
- sky130_fd_sc_hd__nand2_1 _135_ (.A(\pwm_inst.counter[8] ),
-    .B(_067_),
+    .X(_007_));
+ sky130_fd_sc_hd__and3_1 _200_ (.A(\vga_timing.hs_pwm_gen.counter[4] ),
+    .B(_157_),
+    .C(_064_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .Y(_012_));
- sky130_fd_sc_hd__and3_1 _136_ (.A(_047_),
-    .B(_011_),
-    .C(_012_),
+    .X(_071_));
+ sky130_fd_sc_hd__o21ai_1 _201_ (.A1(net29),
+    .A2(_068_),
+    .B1(_056_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_072_));
+ sky130_fd_sc_hd__nor2_1 _202_ (.A(_071_),
+    .B(_072_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_008_));
+ sky130_fd_sc_hd__and4_1 _203_ (.A(\vga_timing.hs_pwm_gen.counter[7] ),
+    .B(\vga_timing.hs_pwm_gen.counter[4] ),
+    .C(_157_),
+    .D(_064_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_073_));
+ sky130_fd_sc_hd__o21ai_1 _204_ (.A1(net33),
+    .A2(_071_),
+    .B1(_056_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_074_));
+ sky130_fd_sc_hd__nor2_1 _205_ (.A(_073_),
+    .B(_074_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_009_));
+ sky130_fd_sc_hd__and2_1 _206_ (.A(\vga_timing.hs_pwm_gen.counter[8] ),
+    .B(_073_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_075_));
+ sky130_fd_sc_hd__o21ai_1 _207_ (.A1(net41),
+    .A2(_073_),
+    .B1(_056_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_076_));
+ sky130_fd_sc_hd__nor2_1 _208_ (.A(_075_),
+    .B(_076_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_010_));
+ sky130_fd_sc_hd__and3_1 _209_ (.A(\vga_timing.hs_pwm_gen.counter[9] ),
+    .B(\vga_timing.hs_pwm_gen.counter[8] ),
+    .C(_073_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_077_));
+ sky130_fd_sc_hd__o21ai_1 _210_ (.A1(net34),
+    .A2(_075_),
+    .B1(_056_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_078_));
+ sky130_fd_sc_hd__nor2_1 _211_ (.A(_077_),
+    .B(_078_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_011_));
+ sky130_fd_sc_hd__a21boi_1 _212_ (.A1(net28),
+    .A2(_077_),
+    .B1_N(_056_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_079_));
+ sky130_fd_sc_hd__o21a_1 _213_ (.A1(net28),
+    .A2(_077_),
+    .B1(_079_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_012_));
+ sky130_fd_sc_hd__inv_2 _214_ (.A(net1),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_080_));
+ sky130_fd_sc_hd__and4_1 _215_ (.A(\vga_timing.h_count[0] ),
+    .B(\vga_timing.h_count[1] ),
+    .C(\vga_timing.h_count[3] ),
+    .D(\vga_timing.h_count[2] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_081_));
+ sky130_fd_sc_hd__clkbuf_2 _216_ (.A(_081_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_082_));
+ sky130_fd_sc_hd__nor4b_1 _217_ (.A(\vga_timing.h_count[5] ),
+    .B(\vga_timing.h_count[6] ),
+    .C(\vga_timing.h_count[7] ),
+    .D_N(\vga_timing.h_count[4] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_083_));
+ sky130_fd_sc_hd__and3_1 _218_ (.A(_047_),
+    .B(_082_),
+    .C(_083_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_084_));
+ sky130_fd_sc_hd__nor2_2 _219_ (.A(_080_),
+    .B(_084_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_085_));
+ sky130_fd_sc_hd__and2b_1 _220_ (.A_N(\vga_timing.h_count[0] ),
+    .B(_085_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_086_));
+ sky130_fd_sc_hd__clkbuf_1 _221_ (.A(_086_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .X(_013_));
- sky130_fd_sc_hd__clkbuf_1 _137_ (.A(_013_),
+ sky130_fd_sc_hd__nand2_1 _222_ (.A(\vga_timing.h_count[0] ),
+    .B(net38),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(_009_));
- sky130_fd_sc_hd__dfxtp_1 _138_ (.CLK(clknet_1_1__leaf_clk),
-    .D(_001_),
+    .Y(_087_));
+ sky130_fd_sc_hd__o211a_1 _223_ (.A1(\vga_timing.h_count[0] ),
+    .A2(net38),
+    .B1(_058_),
+    .C1(_087_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .Q(\pwm_inst.counter[0] ));
- sky130_fd_sc_hd__dfxtp_1 _139_ (.CLK(clknet_1_1__leaf_clk),
+    .X(_014_));
+ sky130_fd_sc_hd__and3_1 _224_ (.A(\vga_timing.h_count[0] ),
+    .B(\vga_timing.h_count[1] ),
+    .C(\vga_timing.h_count[2] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_088_));
+ sky130_fd_sc_hd__a21o_1 _225_ (.A1(\vga_timing.h_count[0] ),
+    .A2(\vga_timing.h_count[1] ),
+    .B1(\vga_timing.h_count[2] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_089_));
+ sky130_fd_sc_hd__and3b_1 _226_ (.A_N(_088_),
+    .B(_089_),
+    .C(_058_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_090_));
+ sky130_fd_sc_hd__clkbuf_1 _227_ (.A(_090_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_015_));
+ sky130_fd_sc_hd__nor2_1 _228_ (.A(_080_),
+    .B(_082_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_091_));
+ sky130_fd_sc_hd__o21a_1 _229_ (.A1(net23),
+    .A2(_088_),
+    .B1(_091_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_016_));
+ sky130_fd_sc_hd__o21ai_1 _230_ (.A1(net30),
+    .A2(_082_),
+    .B1(_085_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_092_));
+ sky130_fd_sc_hd__a21oi_1 _231_ (.A1(net30),
+    .A2(_082_),
+    .B1(_092_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_017_));
+ sky130_fd_sc_hd__and3_1 _232_ (.A(\vga_timing.h_count[5] ),
+    .B(\vga_timing.h_count[4] ),
+    .C(_082_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_093_));
+ sky130_fd_sc_hd__a21o_1 _233_ (.A1(\vga_timing.h_count[4] ),
+    .A2(_082_),
+    .B1(\vga_timing.h_count[5] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_094_));
+ sky130_fd_sc_hd__and3b_1 _234_ (.A_N(_093_),
+    .B(_085_),
+    .C(_094_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_095_));
+ sky130_fd_sc_hd__clkbuf_1 _235_ (.A(_095_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_018_));
+ sky130_fd_sc_hd__and2_1 _236_ (.A(\vga_timing.h_count[6] ),
+    .B(_093_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_096_));
+ sky130_fd_sc_hd__o21ai_1 _237_ (.A1(net44),
+    .A2(_093_),
+    .B1(_085_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_097_));
+ sky130_fd_sc_hd__nor2_1 _238_ (.A(_096_),
+    .B(_097_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_019_));
+ sky130_fd_sc_hd__o21ai_1 _239_ (.A1(net32),
+    .A2(_096_),
+    .B1(_085_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_098_));
+ sky130_fd_sc_hd__a21oi_1 _240_ (.A1(net32),
+    .A2(_096_),
+    .B1(_098_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_020_));
+ sky130_fd_sc_hd__and4_1 _241_ (.A(\vga_timing.h_count[6] ),
+    .B(\vga_timing.h_count[7] ),
+    .C(\vga_timing.h_count[8] ),
+    .D(_093_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_099_));
+ sky130_fd_sc_hd__a31o_1 _242_ (.A1(\vga_timing.h_count[6] ),
+    .A2(\vga_timing.h_count[7] ),
+    .A3(_093_),
+    .B1(\vga_timing.h_count[8] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_100_));
+ sky130_fd_sc_hd__and3b_1 _243_ (.A_N(_099_),
+    .B(_085_),
+    .C(_100_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_101_));
+ sky130_fd_sc_hd__clkbuf_1 _244_ (.A(_101_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_021_));
+ sky130_fd_sc_hd__o21ai_1 _245_ (.A1(net24),
+    .A2(_099_),
+    .B1(_085_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_102_));
+ sky130_fd_sc_hd__a21oi_1 _246_ (.A1(net24),
+    .A2(_099_),
+    .B1(_102_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_022_));
+ sky130_fd_sc_hd__o21ai_1 _247_ (.A1(net27),
+    .A2(_084_),
+    .B1(_058_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_103_));
+ sky130_fd_sc_hd__a21oi_1 _248_ (.A1(net27),
+    .A2(_084_),
+    .B1(_103_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_023_));
+ sky130_fd_sc_hd__and2_1 _249_ (.A(\vga_timing.v_count[1] ),
+    .B(\vga_timing.v_count[0] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_104_));
+ sky130_fd_sc_hd__and4_2 _250_ (.A(_104_),
+    .B(_047_),
+    .C(_082_),
+    .D(_083_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_105_));
+ sky130_fd_sc_hd__a21o_1 _251_ (.A1(\vga_timing.v_count[0] ),
+    .A2(_084_),
+    .B1(\vga_timing.v_count[1] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_106_));
+ sky130_fd_sc_hd__and3b_1 _252_ (.A_N(_105_),
+    .B(_058_),
+    .C(_106_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_107_));
+ sky130_fd_sc_hd__clkbuf_1 _253_ (.A(_107_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_024_));
+ sky130_fd_sc_hd__a21oi_1 _254_ (.A1(net37),
+    .A2(_105_),
+    .B1(_080_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_108_));
+ sky130_fd_sc_hd__o21a_1 _255_ (.A1(net37),
+    .A2(_105_),
+    .B1(_108_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_025_));
+ sky130_fd_sc_hd__and2_1 _256_ (.A(\vga_timing.v_count[3] ),
+    .B(\vga_timing.v_count[2] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_109_));
+ sky130_fd_sc_hd__and2_1 _257_ (.A(_105_),
+    .B(_109_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_110_));
+ sky130_fd_sc_hd__a21o_1 _258_ (.A1(\vga_timing.v_count[2] ),
+    .A2(_105_),
+    .B1(\vga_timing.v_count[3] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_111_));
+ sky130_fd_sc_hd__and3b_1 _259_ (.A_N(_110_),
+    .B(_058_),
+    .C(_111_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_112_));
+ sky130_fd_sc_hd__clkbuf_1 _260_ (.A(_112_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_026_));
+ sky130_fd_sc_hd__and3_1 _261_ (.A(\vga_timing.v_count[4] ),
+    .B(_105_),
+    .C(_109_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_113_));
+ sky130_fd_sc_hd__o21ai_1 _262_ (.A1(net40),
+    .A2(_110_),
+    .B1(_058_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_114_));
+ sky130_fd_sc_hd__nor2_1 _263_ (.A(_113_),
+    .B(_114_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_027_));
+ sky130_fd_sc_hd__and4_1 _264_ (.A(\vga_timing.v_count[5] ),
+    .B(\vga_timing.v_count[4] ),
+    .C(_105_),
+    .D(_109_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_115_));
+ sky130_fd_sc_hd__clkbuf_2 _265_ (.A(_115_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_116_));
+ sky130_fd_sc_hd__o21ai_1 _266_ (.A1(net36),
+    .A2(_113_),
+    .B1(_058_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_117_));
+ sky130_fd_sc_hd__nor2_1 _267_ (.A(_116_),
+    .B(_117_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_028_));
+ sky130_fd_sc_hd__a21oi_1 _268_ (.A1(\vga_timing.v_count[6] ),
+    .A2(_116_),
+    .B1(_080_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_118_));
+ sky130_fd_sc_hd__o21a_1 _269_ (.A1(net43),
+    .A2(_116_),
+    .B1(_118_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_029_));
+ sky130_fd_sc_hd__a21o_1 _270_ (.A1(\vga_timing.v_count[6] ),
+    .A2(_116_),
+    .B1(\vga_timing.v_count[7] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_119_));
+ sky130_fd_sc_hd__nand3_1 _271_ (.A(\vga_timing.v_count[7] ),
+    .B(\vga_timing.v_count[6] ),
+    .C(_116_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_120_));
+ sky130_fd_sc_hd__and3_1 _272_ (.A(_058_),
+    .B(_119_),
+    .C(_120_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_121_));
+ sky130_fd_sc_hd__clkbuf_1 _273_ (.A(_121_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_030_));
+ sky130_fd_sc_hd__inv_2 _274_ (.A(net25),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_122_));
+ sky130_fd_sc_hd__a41o_1 _275_ (.A1(net25),
+    .A2(\vga_timing.v_count[7] ),
+    .A3(\vga_timing.v_count[6] ),
+    .A4(_116_),
+    .B1(_080_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_123_));
+ sky130_fd_sc_hd__a21oi_1 _276_ (.A1(_122_),
+    .A2(_120_),
+    .B1(_123_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_031_));
+ sky130_fd_sc_hd__nand2_1 _277_ (.A(_058_),
+    .B(_052_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_124_));
+ sky130_fd_sc_hd__mux2_1 _278_ (.A0(net22),
+    .A1(net35),
+    .S(_124_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_125_));
+ sky130_fd_sc_hd__clkbuf_1 _279_ (.A(_125_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_032_));
+ sky130_fd_sc_hd__nor2_1 _280_ (.A(\vga_timing.vs_pwm_gen.counter[0] ),
+    .B(_080_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_033_));
+ sky130_fd_sc_hd__nand2_1 _281_ (.A(\vga_timing.vs_pwm_gen.counter[0] ),
+    .B(\vga_timing.vs_pwm_gen.counter[1] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_126_));
+ sky130_fd_sc_hd__nand3_1 _282_ (.A(\vga_timing.vs_pwm_gen.counter[3] ),
+    .B(\vga_timing.vs_pwm_gen.counter[2] ),
+    .C(\vga_timing.vs_pwm_gen.counter[9] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_127_));
+ sky130_fd_sc_hd__or4b_1 _283_ (.A(\vga_timing.vs_pwm_gen.counter[1] ),
+    .B(\vga_timing.vs_pwm_gen.counter[8] ),
+    .C(\vga_timing.vs_pwm_gen.counter[10] ),
+    .D_N(\vga_timing.vs_pwm_gen.counter[0] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_128_));
+ sky130_fd_sc_hd__o31a_2 _284_ (.A1(_154_),
+    .A2(_127_),
+    .A3(_128_),
+    .B1(net1),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_129_));
+ sky130_fd_sc_hd__or2_1 _285_ (.A(\vga_timing.vs_pwm_gen.counter[0] ),
+    .B(\vga_timing.vs_pwm_gen.counter[1] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_130_));
+ sky130_fd_sc_hd__and3_1 _286_ (.A(_126_),
+    .B(_129_),
+    .C(_130_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_131_));
+ sky130_fd_sc_hd__clkbuf_1 _287_ (.A(_131_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_034_));
+ sky130_fd_sc_hd__nand3_1 _288_ (.A(\vga_timing.vs_pwm_gen.counter[2] ),
+    .B(\vga_timing.vs_pwm_gen.counter[0] ),
+    .C(\vga_timing.vs_pwm_gen.counter[1] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_132_));
+ sky130_fd_sc_hd__and3_1 _289_ (.A(_152_),
+    .B(_129_),
+    .C(_132_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_133_));
+ sky130_fd_sc_hd__clkbuf_1 _290_ (.A(_133_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_035_));
+ sky130_fd_sc_hd__and4_1 _291_ (.A(\vga_timing.vs_pwm_gen.counter[3] ),
+    .B(\vga_timing.vs_pwm_gen.counter[2] ),
+    .C(\vga_timing.vs_pwm_gen.counter[0] ),
+    .D(\vga_timing.vs_pwm_gen.counter[1] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_134_));
+ sky130_fd_sc_hd__a31o_1 _292_ (.A1(\vga_timing.vs_pwm_gen.counter[2] ),
+    .A2(\vga_timing.vs_pwm_gen.counter[0] ),
+    .A3(\vga_timing.vs_pwm_gen.counter[1] ),
+    .B1(\vga_timing.vs_pwm_gen.counter[3] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_135_));
+ sky130_fd_sc_hd__and3b_1 _293_ (.A_N(_134_),
+    .B(_135_),
+    .C(_129_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_136_));
+ sky130_fd_sc_hd__clkbuf_1 _294_ (.A(_136_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_036_));
+ sky130_fd_sc_hd__o21ai_1 _295_ (.A1(\vga_timing.vs_pwm_gen.counter[4] ),
+    .A2(_134_),
+    .B1(_129_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_137_));
+ sky130_fd_sc_hd__a21oi_1 _296_ (.A1(\vga_timing.vs_pwm_gen.counter[4] ),
+    .A2(_134_),
+    .B1(_137_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_037_));
+ sky130_fd_sc_hd__and3_1 _297_ (.A(\vga_timing.vs_pwm_gen.counter[5] ),
+    .B(\vga_timing.vs_pwm_gen.counter[4] ),
+    .C(_134_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_138_));
+ sky130_fd_sc_hd__clkbuf_2 _298_ (.A(_138_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_139_));
+ sky130_fd_sc_hd__a21o_1 _299_ (.A1(\vga_timing.vs_pwm_gen.counter[4] ),
+    .A2(_134_),
+    .B1(\vga_timing.vs_pwm_gen.counter[5] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_140_));
+ sky130_fd_sc_hd__and3b_1 _300_ (.A_N(_139_),
+    .B(_129_),
+    .C(_140_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_141_));
+ sky130_fd_sc_hd__clkbuf_1 _301_ (.A(_141_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_038_));
+ sky130_fd_sc_hd__inv_2 _302_ (.A(_129_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_142_));
+ sky130_fd_sc_hd__a21oi_1 _303_ (.A1(\vga_timing.vs_pwm_gen.counter[6] ),
+    .A2(_139_),
+    .B1(_142_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_143_));
+ sky130_fd_sc_hd__o21a_1 _304_ (.A1(\vga_timing.vs_pwm_gen.counter[6] ),
+    .A2(_139_),
+    .B1(_143_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_039_));
+ sky130_fd_sc_hd__a21o_1 _305_ (.A1(\vga_timing.vs_pwm_gen.counter[6] ),
+    .A2(_139_),
+    .B1(\vga_timing.vs_pwm_gen.counter[7] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_144_));
+ sky130_fd_sc_hd__nand3_1 _306_ (.A(\vga_timing.vs_pwm_gen.counter[7] ),
+    .B(\vga_timing.vs_pwm_gen.counter[6] ),
+    .C(_139_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_145_));
+ sky130_fd_sc_hd__and3_1 _307_ (.A(_129_),
+    .B(_144_),
+    .C(_145_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_146_));
+ sky130_fd_sc_hd__clkbuf_1 _308_ (.A(_146_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_040_));
+ sky130_fd_sc_hd__and4_1 _309_ (.A(\vga_timing.vs_pwm_gen.counter[7] ),
+    .B(\vga_timing.vs_pwm_gen.counter[6] ),
+    .C(\vga_timing.vs_pwm_gen.counter[8] ),
+    .D(_139_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_147_));
+ sky130_fd_sc_hd__a31o_1 _310_ (.A1(\vga_timing.vs_pwm_gen.counter[7] ),
+    .A2(\vga_timing.vs_pwm_gen.counter[6] ),
+    .A3(_139_),
+    .B1(\vga_timing.vs_pwm_gen.counter[8] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_148_));
+ sky130_fd_sc_hd__and3b_1 _311_ (.A_N(_147_),
+    .B(_129_),
+    .C(_148_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_149_));
+ sky130_fd_sc_hd__clkbuf_1 _312_ (.A(_149_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_041_));
+ sky130_fd_sc_hd__o21ai_1 _313_ (.A1(\vga_timing.vs_pwm_gen.counter[9] ),
+    .A2(_147_),
+    .B1(_129_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_150_));
+ sky130_fd_sc_hd__a21oi_1 _314_ (.A1(\vga_timing.vs_pwm_gen.counter[9] ),
+    .A2(_147_),
+    .B1(_150_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_042_));
+ sky130_fd_sc_hd__a21oi_1 _315_ (.A1(\vga_timing.vs_pwm_gen.counter[9] ),
+    .A2(_147_),
+    .B1(\vga_timing.vs_pwm_gen.counter[10] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_151_));
+ sky130_fd_sc_hd__a311oi_1 _316_ (.A1(\vga_timing.vs_pwm_gen.counter[9] ),
+    .A2(\vga_timing.vs_pwm_gen.counter[10] ),
+    .A3(_147_),
+    .B1(_151_),
+    .C1(_142_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Y(_043_));
+ sky130_fd_sc_hd__a21o_1 _317_ (.A1(net22),
+    .A2(_052_),
+    .B1(_080_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(_044_));
+ sky130_fd_sc_hd__dfxtp_1 _318_ (.CLK(net2),
+    .D(_000_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.vs_pwm ));
+ sky130_fd_sc_hd__dfxtp_1 _319_ (.CLK(clknet_2_2__leaf_clk),
     .D(_002_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .Q(\pwm_inst.counter[1] ));
- sky130_fd_sc_hd__dfxtp_1 _140_ (.CLK(clknet_1_1__leaf_clk),
+    .Q(\vga_timing.hs_pwm_gen.counter[0] ));
+ sky130_fd_sc_hd__dfxtp_1 _320_ (.CLK(clknet_2_2__leaf_clk),
     .D(_003_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .Q(\pwm_inst.counter[2] ));
- sky130_fd_sc_hd__dfxtp_1 _141_ (.CLK(clknet_1_1__leaf_clk),
+    .Q(\vga_timing.hs_pwm_gen.counter[1] ));
+ sky130_fd_sc_hd__dfxtp_1 _321_ (.CLK(clknet_2_3__leaf_clk),
     .D(_004_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .Q(\pwm_inst.counter[3] ));
- sky130_fd_sc_hd__dfxtp_2 _142_ (.CLK(clknet_1_1__leaf_clk),
+    .Q(\vga_timing.hs_pwm_gen.counter[2] ));
+ sky130_fd_sc_hd__dfxtp_1 _322_ (.CLK(clknet_2_3__leaf_clk),
     .D(_005_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .Q(\pwm_inst.counter[4] ));
- sky130_fd_sc_hd__dfxtp_1 _143_ (.CLK(clknet_1_1__leaf_clk),
+    .Q(\vga_timing.hs_pwm_gen.counter[3] ));
+ sky130_fd_sc_hd__dfxtp_1 _323_ (.CLK(clknet_2_3__leaf_clk),
     .D(_006_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .Q(\pwm_inst.counter[5] ));
- sky130_fd_sc_hd__dfxtp_1 _144_ (.CLK(clknet_1_0__leaf_clk),
+    .Q(\vga_timing.hs_pwm_gen.counter[4] ));
+ sky130_fd_sc_hd__dfxtp_1 _324_ (.CLK(clknet_2_3__leaf_clk),
     .D(_007_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .Q(\pwm_inst.counter[6] ));
- sky130_fd_sc_hd__dfxtp_1 _145_ (.CLK(clknet_1_0__leaf_clk),
+    .Q(\vga_timing.hs_pwm_gen.counter[5] ));
+ sky130_fd_sc_hd__dfxtp_1 _325_ (.CLK(clknet_2_3__leaf_clk),
     .D(_008_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .Q(\pwm_inst.counter[7] ));
- sky130_fd_sc_hd__dfxtp_1 _146_ (.CLK(clknet_1_0__leaf_clk),
+    .Q(\vga_timing.hs_pwm_gen.counter[6] ));
+ sky130_fd_sc_hd__dfxtp_1 _326_ (.CLK(clknet_2_3__leaf_clk),
     .D(_009_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .Q(\pwm_inst.counter[8] ));
- sky130_fd_sc_hd__dfxtp_1 _147_ (.CLK(clknet_1_0__leaf_clk),
-    .D(net42),
+    .Q(\vga_timing.hs_pwm_gen.counter[7] ));
+ sky130_fd_sc_hd__dfxtp_1 _327_ (.CLK(clknet_2_3__leaf_clk),
+    .D(_010_),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .Q(\pwm_inst.pwm_out ));
- sky130_fd_sc_hd__clkbuf_4 _171_ (.A(\pwm_inst.pwm_out ),
+    .Q(\vga_timing.hs_pwm_gen.counter[8] ));
+ sky130_fd_sc_hd__dfxtp_1 _328_ (.CLK(clknet_2_3__leaf_clk),
+    .D(_011_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.hs_pwm_gen.counter[9] ));
+ sky130_fd_sc_hd__dfxtp_1 _329_ (.CLK(clknet_2_3__leaf_clk),
+    .D(_012_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.hs_pwm_gen.counter[10] ));
+ sky130_fd_sc_hd__dfxtp_1 _330_ (.CLK(clknet_2_2__leaf_clk),
+    .D(_001_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.hs ));
+ sky130_fd_sc_hd__dfxtp_1 _331_ (.CLK(clknet_2_1__leaf_clk),
+    .D(_013_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.h_count[0] ));
+ sky130_fd_sc_hd__dfxtp_1 _332_ (.CLK(clknet_2_1__leaf_clk),
+    .D(net39),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.h_count[1] ));
+ sky130_fd_sc_hd__dfxtp_1 _333_ (.CLK(clknet_2_1__leaf_clk),
+    .D(_015_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.h_count[2] ));
+ sky130_fd_sc_hd__dfxtp_1 _334_ (.CLK(clknet_2_1__leaf_clk),
+    .D(_016_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.h_count[3] ));
+ sky130_fd_sc_hd__dfxtp_1 _335_ (.CLK(clknet_2_0__leaf_clk),
+    .D(_017_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.h_count[4] ));
+ sky130_fd_sc_hd__dfxtp_1 _336_ (.CLK(clknet_2_0__leaf_clk),
+    .D(_018_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.h_count[5] ));
+ sky130_fd_sc_hd__dfxtp_1 _337_ (.CLK(clknet_2_0__leaf_clk),
+    .D(_019_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.h_count[6] ));
+ sky130_fd_sc_hd__dfxtp_1 _338_ (.CLK(clknet_2_0__leaf_clk),
+    .D(_020_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.h_count[7] ));
+ sky130_fd_sc_hd__dfxtp_1 _339_ (.CLK(clknet_2_0__leaf_clk),
+    .D(_021_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.h_count[8] ));
+ sky130_fd_sc_hd__dfxtp_1 _340_ (.CLK(clknet_2_0__leaf_clk),
+    .D(_022_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.h_count[9] ));
+ sky130_fd_sc_hd__dfxtp_1 _341_ (.CLK(clknet_2_1__leaf_clk),
+    .D(_023_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.v_count[0] ));
+ sky130_fd_sc_hd__dfxtp_1 _342_ (.CLK(clknet_2_1__leaf_clk),
+    .D(_024_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.v_count[1] ));
+ sky130_fd_sc_hd__dfxtp_1 _343_ (.CLK(clknet_2_1__leaf_clk),
+    .D(_025_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.v_count[2] ));
+ sky130_fd_sc_hd__dfxtp_1 _344_ (.CLK(clknet_2_1__leaf_clk),
+    .D(_026_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.v_count[3] ));
+ sky130_fd_sc_hd__dfxtp_1 _345_ (.CLK(clknet_2_2__leaf_clk),
+    .D(_027_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.v_count[4] ));
+ sky130_fd_sc_hd__dfxtp_1 _346_ (.CLK(clknet_2_0__leaf_clk),
+    .D(_028_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.v_count[5] ));
+ sky130_fd_sc_hd__dfxtp_1 _347_ (.CLK(clknet_2_2__leaf_clk),
+    .D(_029_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.v_count[6] ));
+ sky130_fd_sc_hd__dfxtp_1 _348_ (.CLK(clknet_2_0__leaf_clk),
+    .D(_030_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.v_count[7] ));
+ sky130_fd_sc_hd__dfxtp_1 _349_ (.CLK(clknet_2_0__leaf_clk),
+    .D(net26),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.v_count[8] ));
+ sky130_fd_sc_hd__dfxtp_1 _350_ (.CLK(clknet_2_2__leaf_clk),
+    .D(_032_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(blue_pixel));
+ sky130_fd_sc_hd__dfxtp_2 _351_ (.CLK(net2),
+    .D(_033_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.vs_pwm_gen.counter[0] ));
+ sky130_fd_sc_hd__dfxtp_1 _352_ (.CLK(net2),
+    .D(_034_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.vs_pwm_gen.counter[1] ));
+ sky130_fd_sc_hd__dfxtp_1 _353_ (.CLK(\vga_timing.hs ),
+    .D(_035_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.vs_pwm_gen.counter[2] ));
+ sky130_fd_sc_hd__dfxtp_1 _354_ (.CLK(\vga_timing.hs ),
+    .D(_036_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.vs_pwm_gen.counter[3] ));
+ sky130_fd_sc_hd__dfxtp_1 _355_ (.CLK(\vga_timing.hs ),
+    .D(_037_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.vs_pwm_gen.counter[4] ));
+ sky130_fd_sc_hd__dfxtp_1 _356_ (.CLK(net2),
+    .D(_038_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.vs_pwm_gen.counter[5] ));
+ sky130_fd_sc_hd__dfxtp_1 _357_ (.CLK(net2),
+    .D(_039_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.vs_pwm_gen.counter[6] ));
+ sky130_fd_sc_hd__dfxtp_1 _358_ (.CLK(net2),
+    .D(_040_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.vs_pwm_gen.counter[7] ));
+ sky130_fd_sc_hd__dfxtp_1 _359_ (.CLK(net2),
+    .D(_041_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.vs_pwm_gen.counter[8] ));
+ sky130_fd_sc_hd__dfxtp_1 _360_ (.CLK(net2),
+    .D(_042_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.vs_pwm_gen.counter[9] ));
+ sky130_fd_sc_hd__dfxtp_1 _361_ (.CLK(net2),
+    .D(_043_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\vga_timing.vs_pwm_gen.counter[10] ));
+ sky130_fd_sc_hd__dfxtp_1 _362_ (.CLK(clknet_2_0__leaf_clk),
+    .D(_044_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .Q(\memory_array.memory[112][0] ));
+ sky130_fd_sc_hd__buf_2 _382_ (.A(net2),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .X(uo_out[0]));
+ sky130_fd_sc_hd__clkbuf_4 _383_ (.A(\vga_timing.vs ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(uo_out[1]));
+ sky130_fd_sc_hd__clkbuf_4 _384_ (.A(uo_out[6]),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(uo_out[2]));
+ sky130_fd_sc_hd__clkbuf_4 _385_ (.A(uo_out[6]),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(uo_out[4]));
  sky130_fd_sc_hd__clkbuf_16 clkbuf_0_clk (.A(clk),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .X(clknet_0_clk));
- sky130_fd_sc_hd__clkbuf_16 clkbuf_1_0__f_clk (.A(clknet_0_clk),
+ sky130_fd_sc_hd__clkbuf_16 clkbuf_2_0__f_clk (.A(clknet_0_clk),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(clknet_1_0__leaf_clk));
- sky130_fd_sc_hd__clkbuf_16 clkbuf_1_1__f_clk (.A(clknet_0_clk),
+    .X(clknet_2_0__leaf_clk));
+ sky130_fd_sc_hd__clkbuf_16 clkbuf_2_1__f_clk (.A(clknet_0_clk),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(clknet_1_1__leaf_clk));
- sky130_fd_sc_hd__dlygate4sd3_1 hold1 (.A(\pwm_inst.counter[8] ),
+    .X(clknet_2_1__leaf_clk));
+ sky130_fd_sc_hd__clkbuf_16 clkbuf_2_2__f_clk (.A(clknet_0_clk),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(net41));
- sky130_fd_sc_hd__dlygate4sd3_1 hold2 (.A(_000_),
+    .X(clknet_2_2__leaf_clk));
+ sky130_fd_sc_hd__clkbuf_16 clkbuf_2_3__f_clk (.A(clknet_0_clk),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(net42));
- sky130_fd_sc_hd__clkbuf_1 input1 (.A(rst_n),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(net1));
- sky130_fd_sc_hd__buf_1 input10 (.A(uio_in[0]),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(net10));
- sky130_fd_sc_hd__clkbuf_1 input11 (.A(uio_in[1]),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(net11));
- sky130_fd_sc_hd__buf_1 input12 (.A(uio_in[2]),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(net12));
- sky130_fd_sc_hd__clkbuf_1 input13 (.A(uio_in[3]),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(net13));
- sky130_fd_sc_hd__clkbuf_1 input14 (.A(uio_in[4]),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(net14));
- sky130_fd_sc_hd__buf_1 input15 (.A(uio_in[5]),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(net15));
- sky130_fd_sc_hd__clkbuf_1 input16 (.A(uio_in[6]),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(net16));
- sky130_fd_sc_hd__clkbuf_1 input17 (.A(uio_in[7]),
-    .VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .X(net17));
- sky130_fd_sc_hd__clkbuf_1 input2 (.A(ui_in[0]),
+    .X(clknet_2_3__leaf_clk));
+ sky130_fd_sc_hd__buf_2 fanout2 (.A(\vga_timing.hs ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
     .X(net2));
- sky130_fd_sc_hd__clkbuf_1 input3 (.A(ui_in[1]),
+ sky130_fd_sc_hd__dlygate4sd3_1 hold1 (.A(\memory_array.memory[112][0] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(net3));
- sky130_fd_sc_hd__clkbuf_1 input4 (.A(ui_in[2]),
+    .X(net22));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold10 (.A(\vga_timing.hs_pwm_gen.counter[4] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(net4));
- sky130_fd_sc_hd__clkbuf_1 input5 (.A(ui_in[3]),
+    .X(net31));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold11 (.A(\vga_timing.h_count[7] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(net5));
- sky130_fd_sc_hd__clkbuf_1 input6 (.A(ui_in[4]),
+    .X(net32));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold12 (.A(\vga_timing.hs_pwm_gen.counter[7] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(net6));
- sky130_fd_sc_hd__clkbuf_1 input7 (.A(ui_in[5]),
+    .X(net33));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold13 (.A(\vga_timing.hs_pwm_gen.counter[9] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(net7));
- sky130_fd_sc_hd__clkbuf_1 input8 (.A(ui_in[6]),
+    .X(net34));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold14 (.A(blue_pixel),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(net8));
- sky130_fd_sc_hd__clkbuf_1 input9 (.A(ui_in[7]),
+    .X(net35));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold15 (.A(\vga_timing.v_count[5] ),
     .VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .X(net9));
+    .X(net36));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold16 (.A(\vga_timing.v_count[2] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(net37));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold17 (.A(\vga_timing.h_count[1] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(net38));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold18 (.A(_014_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(net39));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold19 (.A(\vga_timing.v_count[4] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(net40));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold2 (.A(\vga_timing.h_count[3] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(net23));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold20 (.A(\vga_timing.hs_pwm_gen.counter[8] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(net41));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold21 (.A(\vga_timing.hs_pwm_gen.counter[3] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(net42));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold22 (.A(\vga_timing.v_count[6] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(net43));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold23 (.A(\vga_timing.h_count[6] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(net44));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold3 (.A(\vga_timing.h_count[9] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(net24));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold4 (.A(\vga_timing.v_count[8] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(net25));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold5 (.A(_031_),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(net26));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold6 (.A(\vga_timing.v_count[0] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(net27));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold7 (.A(\vga_timing.hs_pwm_gen.counter[10] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(net28));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold8 (.A(\vga_timing.hs_pwm_gen.counter[6] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(net29));
+ sky130_fd_sc_hd__dlygate4sd3_1 hold9 (.A(\vga_timing.h_count[4] ),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(net30));
+ sky130_fd_sc_hd__clkbuf_2 input1 (.A(rst_n),
+    .VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .X(net1));
+ sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_10 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .LO(net10));
+ sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_11 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .LO(net11));
+ sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_12 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .LO(net12));
+ sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_13 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .LO(net13));
+ sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_14 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .LO(net14));
+ sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_15 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .LO(net15));
+ sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_16 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .LO(net16));
+ sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_17 (.VGND(VGND),
+    .VNB(VGND),
+    .VPB(VPWR),
+    .VPWR(VPWR),
+    .LO(net17));
  sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_18 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
@@ -14686,122 +15560,58 @@ module tt_um_devinatkin_arduino_vga (VGND,
     .VPB(VPWR),
     .VPWR(VPWR),
     .LO(net21));
- sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_22 (.VGND(VGND),
+ sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_3 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .LO(net22));
- sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_23 (.VGND(VGND),
+    .LO(net3));
+ sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_4 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .LO(net23));
- sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_24 (.VGND(VGND),
+    .LO(net4));
+ sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_5 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .LO(net24));
- sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_25 (.VGND(VGND),
+    .LO(net5));
+ sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_6 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .LO(net25));
- sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_26 (.VGND(VGND),
+    .LO(net6));
+ sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_7 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .LO(net26));
- sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_27 (.VGND(VGND),
+    .LO(net7));
+ sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_8 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .LO(net27));
- sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_28 (.VGND(VGND),
+    .LO(net8));
+ sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_9 (.VGND(VGND),
     .VNB(VGND),
     .VPB(VPWR),
     .VPWR(VPWR),
-    .LO(net28));
- sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_29 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .LO(net29));
- sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_30 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .LO(net30));
- sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_31 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .LO(net31));
- sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_32 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .LO(net32));
- sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_33 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .LO(net33));
- sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_34 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .LO(net34));
- sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_35 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .LO(net35));
- sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_36 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .LO(net36));
- sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_37 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .LO(net37));
- sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_38 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .LO(net38));
- sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_39 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .LO(net39));
- sky130_fd_sc_hd__conb_1 tt_um_devinatkin_arduino_vga_40 (.VGND(VGND),
-    .VNB(VGND),
-    .VPB(VPWR),
-    .VPWR(VPWR),
-    .LO(net40));
- assign uio_oe[0] = net18;
- assign uio_oe[1] = net19;
- assign uio_oe[2] = net20;
- assign uio_oe[3] = net21;
- assign uio_oe[4] = net22;
- assign uio_oe[5] = net23;
- assign uio_oe[6] = net24;
- assign uio_oe[7] = net25;
- assign uio_out[0] = net26;
- assign uio_out[1] = net27;
- assign uio_out[2] = net28;
- assign uio_out[3] = net29;
- assign uio_out[4] = net30;
- assign uio_out[5] = net31;
- assign uio_out[6] = net32;
- assign uio_out[7] = net33;
- assign uo_out[1] = net34;
- assign uo_out[2] = net35;
- assign uo_out[3] = net36;
- assign uo_out[4] = net37;
- assign uo_out[5] = net38;
- assign uo_out[6] = net39;
- assign uo_out[7] = net40;
+    .LO(net9));
+ assign uio_oe[0] = net3;
+ assign uio_oe[1] = net4;
+ assign uio_oe[2] = net5;
+ assign uio_oe[3] = net6;
+ assign uio_oe[4] = net7;
+ assign uio_oe[5] = net8;
+ assign uio_oe[6] = net9;
+ assign uio_oe[7] = net10;
+ assign uio_out[0] = net11;
+ assign uio_out[1] = net12;
+ assign uio_out[2] = net13;
+ assign uio_out[3] = net14;
+ assign uio_out[4] = net15;
+ assign uio_out[5] = net16;
+ assign uio_out[6] = net17;
+ assign uio_out[7] = net18;
+ assign uo_out[3] = net19;
+ assign uo_out[5] = net20;
+ assign uo_out[7] = net21;
 endmodule

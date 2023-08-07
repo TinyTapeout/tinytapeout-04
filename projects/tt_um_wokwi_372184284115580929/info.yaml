@@ -1,0 +1,78 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    372184284115580929        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+#  source_files:        
+#    - counter.v
+#    - decoder.v
+#  top_module:  "tt_um_example"      # Put the name of your top module here, must start with "tt_um_". Make it unique by including your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Yeo Kheng Meng"      # Your name
+  title:        "YKM 7-seg driver"      # Project title
+  language:     "Wokwi" # other examples include Verilog, Amaranth, VHDL, etc
+  description:  "Shows the string ykM_1St_CHIP character by character"      # Short description of what your project does
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+    The string is shown by individual characters to the 7-segment LCD. 
+    By default with all pins except Clock being Low, the chip will cycle through all the characters depending on clock speed.
+    To display individual characters manually, set HIGH to counter pin and BCD. Then select the bits 0-3 manually.
+      
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+      See how_it_works.
+
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - clock
+    - none
+    - none
+    - none
+    - Disable counter. This is active-high.
+    - Driven by BCD or counter. High for BCD, Low for counter.
+    - BCD bit 3
+    - BCD bit 2
+    - BCD bit 1
+    - BCD bit 0
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - 7-segment a
+    - 7-segment b
+    - 7-segment c
+    - 7-segment d
+    - 7-segment e
+    - 7-segment f
+    - 7-segment g
+    - none
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+# The following fields are optional
+  tag:          "7-segment"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  "7-segment LCD"      # Describe any external hardware needed
+  discord:      "yeokm1"      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     "https://github.com/yeokm1/tt4-ykm-7-seg/blob/main/README.md"      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     0.5       # Clock frequency in Hz (if required)
+  picture:      ""      # relative path to a picture in your repository (must be 512kb or less)

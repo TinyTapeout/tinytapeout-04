@@ -1,0 +1,91 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    0        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+  source_files:
+    - seven_seg.v
+    - spi_if.v
+    - alu.v
+    - tt_um_tiny_processor.v
+  top_module: "tt_um_tiny_processor"
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x2"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Kosmas Alexandridis" # Your name
+  title:        "Tiny processor"      # Project title
+  language:     "Verilog"             # other examples include Verilog, Amaranth, VHDL, etc
+  description:  "An 8-bit processor"  # Short description of what your project does
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+      The design is an 8-bit processor that supports communication with a single external device through the
+      Serial Periferal Interface or SPI protocol, and has the capability to animate the seven segment display.
+      To use the processor an additional external driver is needed. In this project we use an Digilent Nexys A7 FPGA. The FPGA is programmed w/ the driver.sv module. The driver's
+      internal storages (imem, dmem) are initialized w/ .mem files. The driver then sends this data to the processor and signals it to begin
+      execution. Once execution is finished the user can view the contents of the GPRs on the 7-segment display or watch an animation on the display.
+     
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test: |
+      1. Write and compile a simple program using the provided compiler (more on that in the README.md) to generate a .mem file. This file will be used to initialize the instructions' memory of the processor. Make a similar .mem initialization file for registers.
+      2. Open Xilinx' Vivado and create a project containing; driver.sv, tp.xdc and all needed .mem files. This module will handle the initialization of the processor. Once the intialization is done it will automatically signal the processor to begin execution.
+      4. Replace the desired file paths in the **readmemh** macros in the driver.sv module for instructions and data.
+      4. Connect the processor to an Xilinx FPGA.
+      5. Program the FPGA using the driver.sv as the top module of the design.
+
+      - Turn on the switch connected to the **drive** signal of the driver module. This will signal the driver to begin intializing the processor.
+      - Use the first switch to freeze [off] and unfreeze [on] the 7-seg display.
+      - Use the second switch to select which 4-bit values (msbs [on] or lsbs [off]) of a Byte, you wish to see on the 7-seg display.
+      - The switches[5:2] represent the 4-bit address used to index the 14 registers available for display.
+      - The sixth switch changes the source between instruction [on] and data [off] memory.
+      - The last switch enables the animation of the 7-seg display. If it is turned on, the display's source is the animation register (x9). Otherwise it displays the data stored in one of the processor's memories.
+
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - Display on/off
+    - Most significant Byte
+    - RS_addr[0]
+    - RS_addr[1]
+    - RS_addr[2]
+    - RS_addr[3]
+    - View select
+    - Animation on/off
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - segment a
+    - segment b
+    - segment c
+    - segment d
+    - segment e
+    - segment f
+    - segment g
+    - dot
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - Driver_ctrl[0] (I)
+    - Driver_ctrl[1] (I)
+    - Done executing (O)
+    - Serial clock   (O)
+    - MISO           (I)
+    - MOSI           (O)
+    - Chip select    (O)
+    - Sync           (O)
+
+# The following fields are optional
+  tag:          "processor, spi, fpga"                        # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  "fpga, a device that supports SPI (optional)" # Describe any external hardware needed
+  discord:      "630116636912779293"                          # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     "./README.md"                                 # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     25 000 000                                    # Clock frequency in Hz (if required)
+  picture:      "./figs/TP-uARCH.png"                         # relative path to a picture in your repository

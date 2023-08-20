@@ -59,7 +59,7 @@ MACRO tt_um_yeokm1_pwm_audio
   PIN ena
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.213000 ;
+    ANTENNAGATEAREA 0.159000 ;
     PORT
       LAYER met4 ;
         RECT 162.230 110.520 162.530 111.520 ;
@@ -68,7 +68,7 @@ MACRO tt_um_yeokm1_pwm_audio
   PIN rst_n
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.159000 ;
+    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 154.870 110.520 155.170 111.520 ;
@@ -77,7 +77,7 @@ MACRO tt_um_yeokm1_pwm_audio
   PIN ui_in[0]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
+    ANTENNAGATEAREA 0.126000 ;
     PORT
       LAYER met4 ;
         RECT 151.190 110.520 151.490 111.520 ;
@@ -104,7 +104,7 @@ MACRO tt_um_yeokm1_pwm_audio
   PIN ui_in[3]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
+    ANTENNAGATEAREA 0.126000 ;
     PORT
       LAYER met4 ;
         RECT 140.150 110.520 140.450 111.520 ;
@@ -113,7 +113,7 @@ MACRO tt_um_yeokm1_pwm_audio
   PIN ui_in[4]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.126000 ;
+    ANTENNAGATEAREA 0.213000 ;
     PORT
       LAYER met4 ;
         RECT 136.470 110.520 136.770 111.520 ;
@@ -340,7 +340,7 @@ MACRO tt_um_yeokm1_pwm_audio
   PIN uio_out[7]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 0.795200 ;
+    ANTENNADIFFAREA 0.445500 ;
     PORT
       LAYER met4 ;
         RECT 37.110 110.520 37.410 111.520 ;
@@ -349,7 +349,7 @@ MACRO tt_um_yeokm1_pwm_audio
   PIN uo_out[0]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 0.891000 ;
+    ANTENNADIFFAREA 0.962500 ;
     PORT
       LAYER met4 ;
         RECT 92.310 110.520 92.610 111.520 ;
@@ -440,11 +440,11 @@ MACRO tt_um_yeokm1_pwm_audio
       LAYER li1 ;
         RECT 2.760 2.635 165.600 108.885 ;
       LAYER met1 ;
-        RECT 2.760 2.480 166.400 110.120 ;
+        RECT 2.760 2.480 166.400 109.440 ;
       LAYER met2 ;
-        RECT 7.910 2.535 166.370 110.685 ;
+        RECT 7.910 2.535 166.370 110.005 ;
       LAYER met3 ;
-        RECT 7.630 2.555 166.390 110.665 ;
+        RECT 7.630 2.555 166.390 109.985 ;
       LAYER met4 ;
         RECT 8.370 110.120 10.950 111.170 ;
         RECT 12.050 110.120 14.630 111.170 ;

@@ -1,0 +1,76 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    0        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+  source_files:        
+    - tt_um_yeokm1_pwm_audio.v
+  top_module:  "tt_um_yeokm1_pwm_audio"      # put the name of your top module here, make it unique by prepending your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Yeo Kheng Meng"
+  title:        "PWM audio"
+  language:     "Verilog"
+  description:  "Takes in 8-bit audio over a parallel (port) interface then generates an analog audio signal like a Covox Speech Thing."
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+    This is meant as a parallel port sound card like a Covox Speech Thing. Instead of R-2R resistors, the chip will generate the analog audio output using PWM and First-order sigma-delta modulator.
+ 
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+      No particular test required.
+
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - Bit 0 of Parallel port (LSB)
+    - Bit 1 of Parallel port
+    - Bit 2 of Parallel port
+    - Bit 3 of Parallel port
+    - Bit 4 of Parallel port
+    - Bit 5 of Parallel port
+    - Bit 6 of Parallel port
+    - Bit 7 of Parallel port (MSB)
+
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - Standard PWM audio output
+    - Sigma-delta modulator output
+    - From ena pin
+    - From clk pin
+    - From rst_n pin
+    - Static 1
+    - Static 0
+    - Static 1
+
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - Direct from input 0
+    - Direct from input 1
+    - Direct from input 2
+    - Direct from input 3
+    - Direct from input 4
+    - Direct from input 5
+    - Direct from input 6
+    - Direct from input 7
+
+# The following fields are optional
+  tag:          "pwm, covox"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  "A 0.1uF capacitor to ground is recommended on the 2 audio output pins"      # Describe any external hardware needed
+  discord:      "yeokm1"      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     "https://github.com/yeokm1/tt4-pwm-audio/blob/main/README.md"      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     10000000       # Clock frequency in Hz (if required)
+  picture:      ""      # relative path to a picture in your repository

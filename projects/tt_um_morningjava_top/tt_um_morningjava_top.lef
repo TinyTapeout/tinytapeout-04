@@ -64,7 +64,6 @@ MACRO tt_um_morningjava_top
   PIN ui_in[0]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 151.190 224.760 151.490 225.760 ;
@@ -81,6 +80,7 @@ MACRO tt_um_morningjava_top
   PIN ui_in[2]
     DIRECTION INPUT ;
     USE SIGNAL ;
+    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 143.830 224.760 144.130 225.760 ;
@@ -357,6 +357,8 @@ MACRO tt_um_morningjava_top
   PIN uo_out[4]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
+    ANTENNAGATEAREA 0.495000 ;
+    ANTENNADIFFAREA 1.721000 ;
     PORT
       LAYER met4 ;
         RECT 77.590 224.760 77.890 225.760 ;
@@ -365,6 +367,8 @@ MACRO tt_um_morningjava_top
   PIN uo_out[5]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
+    ANTENNAGATEAREA 0.495000 ;
+    ANTENNADIFFAREA 1.524450 ;
     PORT
       LAYER met4 ;
         RECT 73.910 224.760 74.210 225.760 ;
@@ -373,6 +377,8 @@ MACRO tt_um_morningjava_top
   PIN uo_out[6]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
+    ANTENNAGATEAREA 0.742500 ;
+    ANTENNADIFFAREA 1.721000 ;
     PORT
       LAYER met4 ;
         RECT 70.230 224.760 70.530 225.760 ;
@@ -381,6 +387,8 @@ MACRO tt_um_morningjava_top
   PIN uo_out[7]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
+    ANTENNAGATEAREA 0.373500 ;
+    ANTENNADIFFAREA 0.795200 ;
     PORT
       LAYER met4 ;
         RECT 66.550 224.760 66.850 225.760 ;
@@ -432,9 +440,9 @@ MACRO tt_um_morningjava_top
       LAYER li1 ;
         RECT 2.760 2.635 335.800 223.125 ;
       LAYER met1 ;
-        RECT 2.760 2.480 335.800 223.680 ;
+        RECT 2.760 2.480 335.800 223.280 ;
       LAYER met2 ;
-        RECT 7.910 2.535 327.050 224.245 ;
+        RECT 4.240 2.535 327.050 224.245 ;
       LAYER met3 ;
         RECT 7.630 2.555 327.070 224.225 ;
       LAYER met4 ;
@@ -479,13 +487,10 @@ MACRO tt_um_morningjava_top
         RECT 148.210 224.360 150.790 224.760 ;
         RECT 151.890 224.360 154.470 224.760 ;
         RECT 155.570 224.360 158.150 224.760 ;
-        RECT 159.250 224.360 161.830 224.760 ;
-        RECT 162.930 224.360 234.305 224.760 ;
-        RECT 7.655 223.680 234.305 224.360 ;
-        RECT 7.655 151.815 17.880 223.680 ;
-        RECT 20.280 151.815 94.680 223.680 ;
-        RECT 97.080 151.815 171.480 223.680 ;
-        RECT 173.880 151.815 234.305 223.680 ;
+        RECT 7.655 223.680 158.865 224.360 ;
+        RECT 7.655 134.135 17.880 223.680 ;
+        RECT 20.280 134.135 94.680 223.680 ;
+        RECT 97.080 134.135 158.865 223.680 ;
   END
 END tt_um_morningjava_top
 END LIBRARY

@@ -25,17 +25,17 @@ yaml_version: 4
 # Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
 documentation: 
   author:       "Matt Venn"
-  title:        "RGB Mixer"
+  title:        "RGB Mixer demo"
   language:     "Verilog"
-  description:  "Use 3 rotary encoder to control 3 PWM generators"
+  description:  "3 digital rotary encoders control 3 PWM generators"
 
 # Longer description of how the project works. You can use standard markdown format.
   how_it_works: |
-      3 PWM generators are fed by 3 debounced encoder peripherals.
+      Debounces inputs, then generates PWM outputs.
 
 # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
   how_to_test:  |
-      Connect 3 digital rotary encoders to the first 6 inputs. Changing the encoders will change the PWM outputs on the first 3 outputs.
+      Turn each of the encoders to control the R, G or B component of the LED.
 
 # A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
   inputs:               
@@ -49,14 +49,14 @@ documentation:
     - n/a
 # A description of what the outputs do (e.g. status LED, SPI MISO, etc)
   outputs:
-    - pwm 0
-    - pwm 1
-    - pwm 2
+    - PWM0 output to LED red
+    - PWM1 output to LED green
+    - PWM2 output to LED blue
     - n/a
     - n/a
     - n/a
     - n/a
-    - n/a 
+    - n/a
 # A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
   bidirectional:
     - n/a
@@ -69,8 +69,8 @@ documentation:
     - n/a
 
 # The following fields are optional
-  tag:          "pwm, led"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
-  external_hw:  ""      # Describe any external hardware needed
+  tag:          "pwm, test"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  "an RGB led and 3 rotary encoders"      # Describe any external hardware needed
   discord:      "mattvenn"      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
   doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
   clock_hz:     10000000       # Clock frequency in Hz (if required)

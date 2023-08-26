@@ -107,12 +107,6 @@
       "attrs": { "value": "1000" }
     },
     { "type": "wokwi-vcc", "id": "pwr5", "top": -325.64, "left": -230.4, "attrs": {} },
-    { "type": "wokwi-flip-flop-d", "id": "flop1", "top": -232.13, "left": 212.62, "attrs": {} },
-    { "type": "wokwi-gate-and-2", "id": "and1", "top": -145.79, "left": 321.46, "attrs": {} },
-    { "type": "wokwi-flip-flop-d", "id": "flop2", "top": -123.62, "left": 454.62, "attrs": {} },
-    { "type": "wokwi-gate-and-2", "id": "and2", "top": -201.76, "left": 550.54, "attrs": {} },
-    { "type": "wokwi-flip-flop-d", "id": "flop3", "top": -153.66, "left": 666.91, "attrs": {} },
-    { "type": "wokwi-gate-and-2", "id": "and3", "top": -227.1, "left": 815.81, "attrs": {} },
     {
       "type": "wokwi-led",
       "id": "led1",
@@ -133,7 +127,11 @@
       "top": -96.75,
       "left": 1225.83,
       "attrs": { "color": "limegreen" }
-    }
+    },
+    { "type": "wokwi-mux-2", "id": "mux1", "top": -199.89, "left": 276.84, "attrs": {} },
+    { "type": "wokwi-flip-flop-d", "id": "flop1", "top": -195.5, "left": 436.64, "attrs": {} },
+    { "type": "wokwi-flip-flop-d", "id": "flop2", "top": -193.75, "left": 686.03, "attrs": {} },
+    { "type": "wokwi-gate-and-2", "id": "and1", "top": -220.09, "left": 813.34, "attrs": {} }
   ],
   "connections": [
     [ "pwr1:VCC", "sw1:8a", "red", [ "v0" ] ],
@@ -160,27 +158,24 @@
     [ "ttin:EXTRST_N", "btn2:1.r", "orange", [ "h-38.4", "v-96" ] ],
     [ "btn2:1.l", "r2:2", "green", [ "h0" ] ],
     [ "pwr5:VCC", "r2:1", "red", [ "v0" ] ],
-    [ "ttin:CLK", "flop1:CLK", "black", [ "v0" ] ],
-    [ "ttin:IN0", "flop1:D", "yellow", [ "h42.26", "v-41.1" ] ],
-    [ "ttin:IN0", "and1:B", "yellow", [ "h142.02", "v70.37" ] ],
-    [ "flop1:Q", "and1:A", "blue", [ "v0.97", "h17.03" ] ],
-    [ "and1:OUT", "flop2:D", "green", [ "v0" ] ],
-    [ "ttin:CLK", "flop2:CLK", "black", [ "v-1.35", "h40.37", "v100.93" ] ],
-    [ "flop2:Q", "and2:B", "gray", [ "v0" ] ],
-    [ "flop1:Q", "and2:A", "orange", [ "v-27.66", "h1.28" ] ],
-    [ "and2:OUT", "flop3:D", "white", [ "v0" ] ],
-    [ "ttin:CLK", "flop3:CLK", "black", [ "v-0.63", "h39.66", "v131", "h511.11" ] ],
-    [ "flop2:Q", "ttout:OUT0", "limegreen", [ "h57.07", "v-215.63", "h409.5" ] ],
-    [ "flop2:NOTQ", "ttout:OUT2", "yellow", [ "h425.73", "v-4.33" ] ],
-    [ "flop3:Q", "and3:B", "green", [ "v0" ] ],
-    [ "flop2:Q", "and3:A", "blue", [ "v-0.88", "h84.27", "v-100.22" ] ],
-    [ "and3:OUT", "ttout:OUT1", "green", [ "v0" ] ],
     [ "pwr2:GND", "led1:C", "black", [ "v0" ] ],
     [ "pwr2:GND", "led2:C", "black", [ "v0" ] ],
     [ "pwr2:GND", "led3:C", "black", [ "v0" ] ],
     [ "ttout:EXTOUT0", "led1:A", "green", [ "v0.2", "h133.75" ] ],
     [ "ttout:EXTOUT1", "led2:A", "green", [ "h72.9", "v92.25", "h61.56" ] ],
-    [ "ttout:EXTOUT2", "led3:A", "green", [ "h44.98", "v191.46", "h93.06" ] ]
+    [ "ttout:EXTOUT2", "led3:A", "green", [ "h44.98", "v191.46", "h93.06" ] ],
+    [ "ttin:RST_N", "mux1:B", "green", [ "h101.78", "v16.11" ] ],
+    [ "ttin:IN0", "mux1:A", "green", [ "h0" ] ],
+    [ "ttin:CLK", "flop1:CLK", "green", [ "v-14.68", "h305.5", "v49.17" ] ],
+    [ "mux1:OUT", "flop1:D", "green", [ "v0" ] ],
+    [ "flop1:Q", "ttout:OUT0", "green", [ "v0" ] ],
+    [ "flop1:Q", "flop2:D", "green", [ "v0" ] ],
+    [ "ttin:CLK", "flop2:CLK", "green", [ "v-14.68", "h89.49", "v87.81", "h443.43" ] ],
+    [ "flop1:Q", "and1:A", "green", [ "v0" ] ],
+    [ "flop2:Q", "and1:B", "green", [ "v0" ] ],
+    [ "and1:OUT", "ttout:OUT1", "green", [ "v0" ] ],
+    [ "flop2:NOTQ", "mux1:SEL", "green", [ "h0.5", "v70.72", "h-409.18" ] ],
+    [ "flop1:NOTQ", "ttout:OUT2", "green", [ "h54.07", "v14.52", "h384.6", "v-60.59" ] ]
   ],
   "dependencies": {}
 }

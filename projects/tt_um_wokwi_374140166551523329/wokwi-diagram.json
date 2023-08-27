@@ -1,0 +1,207 @@
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-dip-switch-8",
+      "id": "sw1",
+      "top": -179.5,
+      "left": -97.5,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-clock-generator",
+      "id": "clock1",
+      "top": -355.2,
+      "left": -115.2,
+      "attrs": { "frequency": "10000" }
+    },
+    { "type": "wokwi-gnd", "id": "pwr2", "top": -13.63, "left": 1170.62, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "pwr1", "top": -229.64, "left": -115.2, "attrs": {} },
+    {
+      "type": "wokwi-slide-switch",
+      "id": "sw2",
+      "top": -370,
+      "left": -35.3,
+      "attrs": { "value": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -349,
+      "left": 19.2,
+      "attrs": { "color": "grey", "label": "Step", "bounce": "0", "key": "s" }
+    },
+    { "type": "wokwi-vcc", "id": "pwr3", "top": -373.64, "left": 105.6, "attrs": {} },
+    {
+      "type": "board-tt-block-input",
+      "id": "ttin",
+      "top": -228.13,
+      "left": 4.8,
+      "attrs": { "verilogRole": "input" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": -301,
+      "left": -134.4,
+      "attrs": { "color": "grey", "label": "RESET", "bounce": "0", "key": "r" }
+    },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": -259.2, "left": -163.8, "attrs": {} },
+    {
+      "type": "board-tt-block-output",
+      "id": "ttout",
+      "top": -212.71,
+      "left": 972.54,
+      "attrs": { "verilogRole": "output" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -293.65,
+      "left": -211.2,
+      "attrs": { "value": "1000" }
+    },
+    { "type": "wokwi-vcc", "id": "pwr5", "top": -325.64, "left": -230.4, "attrs": {} },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "gate3",
+      "top": -86.7,
+      "left": 468.53,
+      "rotate": 180,
+      "attrs": {}
+    },
+    { "type": "wokwi-mux-2", "id": "mux1", "top": -213.76, "left": 165.98, "attrs": {} },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flipflop10",
+      "top": -204.19,
+      "left": 292.6,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flipflop11",
+      "top": -205.87,
+      "left": 465.37,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flipflop12",
+      "top": -208.95,
+      "left": 676.54,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "gate1",
+      "top": -141.08,
+      "left": 165.39,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "gate10",
+      "top": -70.3,
+      "left": 372.61,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "gate19",
+      "top": -6.3,
+      "left": 278.29,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -247.16,
+      "left": 1211.77,
+      "attrs": { "color": "white" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -165.81,
+      "left": 1211.76,
+      "attrs": { "color": "white" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": -88.73,
+      "left": 1213.74,
+      "attrs": { "color": "white" }
+    }
+  ],
+  "connections": [
+    [ "pwr1:VCC", "sw1:8a", "red", [ "v0" ] ],
+    [ "pwr1:VCC", "sw1:7a", "red", [ "v0" ] ],
+    [ "pwr1:VCC", "sw1:6a", "red", [ "v0" ] ],
+    [ "pwr1:VCC", "sw1:5a", "red", [ "v0" ] ],
+    [ "pwr1:VCC", "sw1:4a", "red", [ "v0" ] ],
+    [ "pwr1:VCC", "sw1:1a", "red", [ "v0" ] ],
+    [ "pwr1:VCC", "sw1:2a", "red", [ "v0" ] ],
+    [ "pwr1:VCC", "sw1:3a", "red", [ "v0" ] ],
+    [ "sw2:1", "clock1:CLK", "blue", [ "h-19.2", "v-57.6" ] ],
+    [ "sw1:1b", "ttin:EXTIN0", "green", [ "h0" ] ],
+    [ "sw1:2b", "ttin:EXTIN1", "green", [ "h0" ] ],
+    [ "ttin:EXTIN2", "sw1:3b", "green", [ "h0" ] ],
+    [ "ttin:EXTIN3", "sw1:4b", "green", [ "h0" ] ],
+    [ "sw1:5b", "ttin:EXTIN4", "green", [ "h0" ] ],
+    [ "ttin:EXTIN5", "sw1:6b", "green", [ "h0" ] ],
+    [ "sw1:7b", "ttin:EXTIN6", "green", [ "h0" ] ],
+    [ "sw1:8b", "ttin:EXTIN7", "green", [ "v0" ] ],
+    [ "sw2:2", "ttin:EXTCLK", "blue", [ "v0" ] ],
+    [ "btn1:1.l", "sw2:3", "blue", [ "h0" ] ],
+    [ "pwr3:VCC", "btn1:2.r", "red", [ "v0" ] ],
+    [ "btn2:2.l", "gnd1:GND", "black", [ "h0" ] ],
+    [ "ttin:EXTRST_N", "btn2:1.r", "orange", [ "h-38.4", "v-96" ] ],
+    [ "btn2:1.l", "r2:2", "green", [ "h0" ] ],
+    [ "pwr5:VCC", "r2:1", "red", [ "v0" ] ],
+    [ "pwr2:GND", "led1:C", "black", [ "v0" ] ],
+    [ "pwr2:GND", "led2:C", "black", [ "v0" ] ],
+    [ "pwr2:GND", "led3:C", "black", [ "v0" ] ],
+    [ "ttin:CLK", "flop1:CLK", "green", [ "v0" ] ],
+    [ "mux1:OUT", "flop1:D", "green", [ "v0" ] ],
+    [ "flipflop10:Q", "flipflop11:D", "green", [ "v5.87", "h76.77" ] ],
+    [ "flipflop10:CLK", "flipflop11:CLK", "green", [ "h0", "v38.4", "h76.8" ] ],
+    [ "flipflop11:Q", "flipflop12:D", "green", [ "v-8.63", "h115.17" ] ],
+    [ "flipflop11:CLK", "flipflop12:CLK", "green", [ "h5.41", "v38.4", "h205.76" ] ],
+    [ "chip1:IN2", "mux1:SEL", "green", [ "h40.21", "v76.8", "h-124.8", "v105.6", "h-28.8" ] ],
+    [ "flipflop12:Q", "chip2:OUT2", "green", [ "v0" ] ],
+    [ "flipflop11:Q", "chip2:OUT1", "green", [ "v0" ] ],
+    [ "flipflop10:Q", "chip2:OUT0", "green", [ "v0" ] ],
+    [ "gate3:OUT", "gate1:B", "green", [ "v0" ] ],
+    [ "flipflop10:NOTQ", "gate10:B", "green", [ "h-0.06", "v156.85" ] ],
+    [ "flipflop11:NOTQ", "gate10:A", "green", [ "v79.3", "h-85.99" ] ],
+    [ "chip1:IN1", "mux1:B", "green", [ "h48.19", "v95.02", "h-246.29", "v15.11" ] ],
+    [ "gate1:OUT", "mux1:A", "green", [ "h-17.02", "v-89.84" ] ],
+    [ "gate19:OUT", "gate1:A", "green", [ "h-7.04", "v-151.37" ] ],
+    [ "mux1:OUT", "flipflop10:D", "green", [ "v0" ] ],
+    [ "chip1:IN0", "flipflop10:CLK", "green", [ "h0" ] ],
+    [ "sw2:3", "btn1:1.l", "blue", [ "v0" ] ],
+    [ "btn1:2.r", "pwr3:VCC", "red", [ "h0" ] ],
+    [ "led1:A", "ttout:EXTOUT0", "green", [ "v0" ] ],
+    [ "led2:A", "ttout:EXTOUT1", "green", [ "v17.37", "h-137.43", "v-70.14" ] ],
+    [ "led3:A", "ttout:EXTOUT2", "green", [ "v17.2", "h-148.33", "v-137.45" ] ],
+    [ "flipflop12:NOTQ", "gate19:A", "green", [ "v252.59", "h-266.52" ] ],
+    [ "gate19:B", "gate10:OUT", "green", [ "h0" ] ],
+    [ "flipflop11:Q", "gate3:B", "green", [ "h58.08", "v126.31" ] ],
+    [ "gate3:A", "flipflop12:Q", "green", [ "h233.66", "v-147.05" ] ],
+    [ "flipflop10:Q", "ttout:OUT0", "green", [ "v-58.84", "h577.53", "v67.25" ] ],
+    [ "flipflop11:Q", "ttout:OUT1", "green", [ "h-4.31", "v-44.84", "h399.2", "v64.53" ] ],
+    [ "flipflop12:Q", "ttout:OUT2", "green", [ "h-1.76", "v-27.89", "h174.55", "v60.26" ] ],
+    [ "ttin:CLK", "flipflop10:CLK", "green", [ "h19.44", "v-29.45", "h173.57", "v55.66" ] ],
+    [ "ttin:IN0", "mux1:SEL", "green", [ "h18.36", "v21.43", "h90.02" ] ],
+    [ "ttin:RST_N", "mux1:B", "green", [ "h18.27", "v6.8", "h42.11" ] ]
+  ],
+  "dependencies": {}
+}

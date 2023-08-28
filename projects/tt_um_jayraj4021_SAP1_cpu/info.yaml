@@ -1,0 +1,96 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    0        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+  source_files:        
+    - accumulator.v
+    - alu.v
+    - b_register.v
+    - control_unit.v
+    - instruction_register.v
+    - mar.v
+    - memory_16x8_rom.v
+    - output_register.v
+    - program_counter.v
+    - tt_um_jayraj4021_SAP1_cpu.v
+  top_module:  "tt_um_jayraj4021_SAP1_cpu"      # Put the name of your top module here, must start with "tt_um_". Make it unique by including your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Jayraj Desai"      # Your name
+  title:        "SAP-1 CPU"      # Project title
+  language:     "Verilog" # other examples include Verilog, Amaranth, VHDL, etc
+  description:  "Implementaion of Simple As Possible (SAP-1) CPU based on the book Digital Computer Electronics by Albert Paul Malvino and Jerald A. Brown "      # Short description of what your project does
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+      This project is an implementation of a CPU called SAP-1 as referred in the book 'Digital Computer Electronics' by  Albert Paul Malvino and Jerald A. Brown. 
+      Book's PDF is available online, a simple internet search will point you to the PDF of the book.
+      Difference in my implementation versus the one mentioned in the book is that they have used shared bus architecture, which was possible due to use of TTL
+      tristate buffers but in CMOS implementation I am not aware of a simple way to infer a tristate buffer in verilog so made some changes to adapt their architecture.
+      Another important thing to notice is that even though this project has full implementation of LDA, ADD, SUB and OUT instructions, I have not implemented interface to 
+      an external memory, instead I have hard coded a 16 x 8 bit memory in the memory_16x8_rom.v which kind of simulates memory.
+      Hence this CPU can run only one code.    
+      
+      This Project needs two input only clk and rst_n. I plan to provide input clock by generating it outside using a 555 timer and using a simple switch to provide rst_n signal.
+      
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+      As mentioned in how it works this project needs two inputs clk and rst_n. Once these signals are applied after few clock pulses you should see output of a fixed 
+      code at the output pins which can be viewed using set of 8 LEDs connected serially through resistors.   
+      Expected output is binary 01 (This is output of first instruction that loads accumulator with value 01 which is stored at address 0x9 in memory) , 03
+      (This is output of second instruction which is add accumulator with value 02 which is stored at 0xA address in memory), 06 
+      (This is output of third instruction which is add accumulator with value 03 which is stored at 0xB address in memory) and 02 (This is output of 
+      third instruction which is subtract accumulator with value 04 which is stored at 0xC address in memory).
+
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - clk = input clock
+    - rst_n = active low reset
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - uo_out[0]
+    - uo_out[1]
+    - uo_out[2]
+    - uo_out[3]
+    - uo_out[4]
+    - uo_out[5]
+    - uo_out[6]
+    - uo_out[7]
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+
+# The following fields are optional
+  tag:          "CPU, microprocessor, SAP-1, Digital Computer Electronics"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  "Clock generator and a switch to provide reset signal"      # Describe any external hardware needed
+  discord:      "jayraj_desai"      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     0       # Clock frequency in Hz (if required)
+  picture:      ""      # relative path to a picture in your repository (must be 512kb or less)

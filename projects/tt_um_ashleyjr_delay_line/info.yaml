@@ -1,0 +1,169 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    0        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+  source_files:        
+    - rtl/tt_um_ashleyjr_delay_line.sv 
+    - rtl/x_uart_rx.sv
+    - rtl/x_uart_tx.sv
+    - rtl/x_driver.sv
+    - rtl/x_delay_line.sv
+    - rtl/x_delay_line_cell.sv
+    - rtl/x_delay_line_bulk.sv
+  top_module:  "tt_um_ashleyjr_delay_line"      # Put the name of your top module here, must start with "tt_um_". Make it unique by including your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Ashley J. Robinson"                        # Your name
+  title:        "Delay Line"                                # Project title
+  language:     "systemverilog"                             # other examples include Verilog, Amaranth, VHDL, etc
+  description:  "A simple delay line with instrumentation"  # Short description of what your project does
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+    
+      - A delay line output changes based on time delay of different variables such as process, voltage and temperature.
+      
+      - There are may different delay line architectures.
+
+         - https://springerplus.springeropen.com/articles/10.1186/s40064-016-2090-z. 
+      
+      - This implementation is a simple tapped delay line.
+      
+      - The continually changing data races through a chain of inverters.
+      
+      - The chain is sampled at different stages to become a digital signal.
+
+      - An edge detection circuit is used find the rising which is then converted in a binary value.
+
+      - A bank of flops is used to sample 8 sequential rising edge values.
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+  
+      - https://github.com/ashleyjr/tt04-delay-line/blob/main/src/test/silicon_test.py
+
+         - This python script uses pyserial to run a set of tests on the design
+
+         - python3 silicon_test.py --help
+
+      - UART
+
+         - The UART is the only interface to the design
+
+            - 9600 baud
+            
+            - Least significant bit first
+            
+            - 1 Start bit
+            
+            - 8 Data bits
+            
+            - No parity bit
+            
+            - 1 Stop bit
+
+            - Taken from https://github.com/ashleyjr/rtl-uart
+         
+         - The bottom 4 bits [3:0] of the UART frame make up the command
+         
+         - 4'h0: Shift In
+            
+         - Shift the top 4 bits [7:4] of the frame in to memory
+
+            - The memory is shifted 4 places to the left
+
+            - The data is placed in to the bottom 4 bits [3:0]
+
+            - This command is to test the silicon and debug software
+         
+         - 4'h1: Shift Out
+            
+            - Shift the top 8 bits [39:32] of memory out to UART Tx
+
+            - The memory is shifted 8 places to the left 
+         
+         - 4'h2: Full Sample
+            
+            - Take a full 32-bit sample from the delay line and place in memory
+
+            - The sample is placed in to the bottom 32 bits [31:0]
+
+            - The shift out command may be used to read the sample
+         
+         - 4'h3: Scope
+            
+            - Take 8 samples from the delay line at a 25MHz sample rate
+
+            - These sample use the edge detection logic to find the 
+              position of the rising edge 
+            
+            - These samples are 5 bits wide
+
+            - The samples are shifted in to the memory
+
+               - Sample 0: [39:35]
+               - Sample 1: [34:30]
+               - Sample 2: [29:25]
+               - Sample 3: [24:20]
+               - Sample 4: [19:15]
+               - Sample 5: [14:10]
+               - Sample 6: [9:5]
+               - Sample 7: [4:0]
+
+            - The shift out command may be used to read the sample
+
+         - 4'h4 to 4'hF inclusive
+
+            - Ignored
+
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - UART Rx
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - UART Tx 
+    - Tied Low     
+    - Tied Low
+    - Tied Low
+    - Tied Low
+    - Tied Low
+    - Tied Low
+    - Tied Low
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - Tied Low    
+    - Tied Low
+    - Tied Low
+    - Tied Low
+    - Tied Low
+    - Tied Low
+    - Tied Low
+    - Tied Low
+
+# The following fields are optional
+  tag:          "experiment, clock, sensor"                    # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  "FTDI Cable"                                   # Describe any external hardware needed
+  discord:      "_smashers"                                    # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     "https://github.com/ashleyjr/tt04-delay-line"  # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     50000000                                       # Clock frequency in Hz (if required)
+  picture:      "doc/tt_um_ashleyjr_delay_line.png"            # relative path to a picture in your repository

@@ -1,0 +1,91 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    0        # If using wokwi, set this to your project's ID
+
+  source_files:
+   - butterfly.v
+   - bit_reversal.v
+   - edge_detector.v
+   - FFT_memory.v
+   - FFT.v
+   - sys_defs.vh
+   - twi_fac_4.v
+   - twi_fac_8.v
+   - twi_fac_16.v
+   - tt_fft.v
+  top_module:  "tt_um_f_hal_fft"  # Put the name of your top module here, must start with "tt_um_". Make it unique by including your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x2"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Foivos Chaloftis"      # Your name
+  title:        "fft-4-tt"      # Project title
+  language:     "Verilog" # other examples include Verilog, Amaranth, VHDL, etc
+  description:  "A simple FFT Calculator downscaled for deployment with the Tiny Tapeout 04 Physical PCB"      # Short description of what your project does
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+      This is a simplified Fast Fourier Transform implementation (*based on the radix-2 Cooley–Tukey algorithm*) that can be scaled-up to larger precision and more points. Designed for low complexity circuits requiring large DFT calculations, sacrificing speed. This specific implementation offers 4-point, 8-point, and 16-point versions of the Fourier Transform, while having the precision limited to 4 bits
+      For the first part, it integrates reverse bit ordering placing data to their corresponding memory address as they are being input from the user. Afterwards, data, along with the weights, are fed through a single butterfly module (2-point DFT), responsible for all the calculations, controlled by the control unit which delegates the data reading/writing throughout each clock cycle. Once finished, the data output process begins.
+      The FFT is using fixed-point arithmetic, and in this integration, all calculations are wildly inaccurate due to limited precision and easy overflowing. Do not expect accurate results. 
+      
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+      Connect the proper I/O for inserting data/controlling the circuit, and displaying/reading output. 
+      Follow the steps as shown below:
+          
+      - **Step 1**: Reset the IC by momentarily enabling the rst signal.
+     
+      - **Step 2**: Cycle through the 3 modes (0: 4-point, 1: 8-point, 2: 16-point FFT) shown on the 7-segment display using the mode_change pin, and select the mode you wish to use by using the enter pin.
+      - **Step 3**: Insert data in the specified format (Q1.3 real and Q1.3 imaginary), and use enter pin to input each point. After inserting all data, the FFT computation will begin.
+      - **Step 4**: Use the enter pin again to read the data from the output pins. 
+      - **Step 5**: Once all data points are read, the display will show an F, indicating that the data reading is finished. 
+      - **Step 6**: Use enter pin to repeat process form **Step 2**.
+      
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - imaginary_in[0]
+    - imaginary_in[1]
+    - imaginary_in[2]
+    - imaginary_in[3]
+    - real_in[0]
+    - real_in[1]
+    - real_in[2]
+    - real_in[3]
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - segment a/imaginary_out[0]
+    - segment b/imaginary_out[1]
+    - segment c/imaginary_out[2]
+    - segment d/imaginary_out[3]
+    - segment e/real_out[0]
+    - segment f/real_out[1]
+    - segment g/real_out[2]
+    - dot/real_out[3]
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - mode_change
+    - enter
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+
+# The following fields are optional
+  tag:          "fft"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  "2x buttons, Way to input 8-bit data, Way to display/read 8-bit data"      # Describe any external hardware needed
+  discord:      ""      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     1000       # Clock frequency in Hz (if required)
+  picture:      ""      # relative path to a picture in your repository (must be 512kb or less)

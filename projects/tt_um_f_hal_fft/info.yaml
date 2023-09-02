@@ -34,17 +34,16 @@ documentation:
 
 # Longer description of how the project works. You can use standard markdown format.
   how_it_works: |
-      This is a simplified Fast Fourier Transform implementation (*based on the radix-2 Cooley–Tukey algorithm*) that can be scaled-up to larger precision and more points. Designed for low complexity circuits requiring large DFT calculations, sacrificing speed. This specific implementation offers 4-point, 8-point, and 16-point versions of the Fourier Transform, while having the precision limited to 4 bits
-      For the first part, it integrates reverse bit ordering placing data to their corresponding memory address as they are being input from the user. Afterwards, data, along with the weights, are fed through a single butterfly module (2-point DFT), responsible for all the calculations, controlled by the control unit which delegates the data reading/writing throughout each clock cycle. Once finished, the data output process begins.
-      The FFT is using fixed-point arithmetic, and in this integration, all calculations are wildly inaccurate due to limited precision and easy overflowing. Do not expect accurate results. 
+      This is a simplified Fast Fourier Transform implementation (*based on the radix-2 Cooley–Tukey algorithm*) that can be scaled-up to larger precision and more points. Designed for low complexity circuits requiring large DFT calculations, sacrificing speed. This specific implementation offers 4-point, 8-point, and 16-point versions of the Fourier Transform, while having the precision set to 4 bits.
       
+      For the first part, it integrates reverse bit ordering, placing data to their corresponding memory address as they are being input from the user. Afterwards, data, along with the weights, are fed through a single butterfly module (2-point DFT), responsible for all the calculations, controlled by the control unit which delegates the data reading/writing throughout each clock cycle. Once finished, the data output process begins.
+      The FFT is calculated using fixed-point arithmetic.
 # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
   how_to_test:  |
       Connect the proper I/O for inserting data/controlling the circuit, and displaying/reading output. 
       Follow the steps as shown below:
           
       - **Step 1**: Reset the IC by momentarily enabling the rst signal.
-     
       - **Step 2**: Cycle through the 3 modes (0: 4-point, 1: 8-point, 2: 16-point FFT) shown on the 7-segment display using the mode_change pin, and select the mode you wish to use by using the enter pin.
       - **Step 3**: Insert data in the specified format (Q1.3 real and Q1.3 imaginary), and use enter pin to input each point. After inserting all data, the FFT computation will begin.
       - **Step 4**: Use the enter pin again to read the data from the output pins. 

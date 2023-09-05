@@ -1,0 +1,81 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    0        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+  source_files:        
+   - project_pwm_peripheral.v
+   - project_register_file.v
+   - project_period_counter_master.v
+   - project_period_counter_slave.v
+   - project_pwm_peripheral_comparator.v
+   - project_pwm_peripheral_deadband.v
+  top_module:  "tt_um_eldritch_pwm_peripheral"      # Put the name of your top module here, must start with "tt_um_". Make it unique by including your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "2x2"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Medinceanu Paul-Catalin"       
+  title:        "OpenSource PWM Peripheral"       
+  language:     "Verilog" # other examples include Verilog, Amaranth, VHDL, etc
+  description:  "The purpose of this project is to develop an Opensource PWM Peripheral with advanced functions and configurations. These capabilities are needed mostly in Power Electronics, where fine tuning of the control signals is crucial. The two standout functions that I have implemented are the deadband and the synchronization between counters."      # Short description of what your project does
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+      The peripheral contains 3 counters, each of them with 2 comparators and 2 deadband generators. The counter is set to go to a value, the comparator is wired to the registers of the counter and decides when to set or clear the squarewave signal. By setting the counter to switch at different values, any duty cycle can be achieved.
+      The project can be configured to generate specific PWM signals by writing the desired configuration at the right address in the register file. The register map can be found in the 'doc' folder of the repo. 
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+      To test the project, it should be tied through the input and bidirectional pins to a microcontroller. A C code(for a specific microcontroller) will be available on the repo to configure the peripheral through the serial terminal. After the setup is done, the PWM signals will be visible at the output pins.
+      An alternative way to configure the peripheral is through the onboard switches. The write enable is held high, the address is set next on the input pins and finally the data is set at the bidirectional pins. The process is repeated for each register of the PWM module in use.
+
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - i_address[5]
+    - i_address[4]
+    - i_address[3]
+    - i_address[2]
+    - i_address[1]
+    - i_address[0]
+    - unused
+    - i_write_en
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - unused
+    - unused 
+    - o_pwm1A
+    - o_pwm1B
+    - o_pwm2A
+    - o_pwm2B
+    - o_pwm3A
+    - o_pwm3B
+
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - io_data[7]
+    - io_data[6]
+    - io_data[5]
+    - io_data[4]
+    - io_data[3]
+    - io_data[2]
+    - io_data[1]
+    - io_data[0]
+
+# The following fields are optional
+  tag:          "pwm,peripheral,deadband,phase"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  ""      # Describe any external hardware needed
+  discord:      "eldritchihc"      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     10000000       # Clock frequency in Hz (if required)
+  picture:      ""      # relative path to a picture in your repository

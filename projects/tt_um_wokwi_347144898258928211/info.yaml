@@ -1,0 +1,94 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    347144898258928211        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+#  source_files:        
+#    - counter.v
+#    - decoder.v
+#  top_module:  "tt_um_example"      # Put the name of your top module here, must start with "tt_um_". Make it unique by prepending your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+# Before changing this, please reach out to us on discord to discuss your design.
+  tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4 
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Tiny Tapeout 02 (J. Rosenthal)"      # Your name
+  discord:      "jamesr#0350"      # Your discord handle - make sure to include the # part as well
+  title:        "Customizable UART string tx"      # Project title
+  picture:      ""
+  language:     "Wokwi" # other examples include Verilog, Amaranth, VHDL, etc
+  doc_link:     "https://wokwi.com/projects/347144898258928211"      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     1       # Clock frequency in Hz (if required) we are expecting max clock frequency to be ~6khz. Provided on input 0.
+  description:  |
+    Customizable UART Transmitter
+    Supports sending multiple ASCII characters over UART.
+    Each column of flip flops stores a single ASCII character. To modify a character, change bits 6-0 by modifying whether the respective multiplex is set to VCC or GND. 
+    
+    To add characters, copy and paste a column. Connect the output of the new column (Q port of the upper-most D-flip flop) to the input of the stage to the left (bottom-left most multiplexer port). Remember to connect the multiplexer select signal and the clock to the new column as well.
+    
+    Lastly, delete the the output of the first column (Q port of the upper-most D-flip flop) and create a new connection to the to the input of the new stage you've added (bottom-left most multiplexer port).
+
+
+  how_it_works: |
+     TODO:FIXME
+  
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+    To begin transmission
+    1. Set the Arduino serial baud rate `Serial.begin(<baud rate>);` in the *.ino file to 300
+    2. Set the Wokwi clock frequency `"attrs": { "frequency": "300" }` in the diagram.json to 300 as well 
+    3. Set the slide switch to the clock
+    4. Set SW7 to OFF ("Load")
+    5. Set SW8 to ON ("Output Enable")
+    6. Set SW7 to ON ("TX")
+    
+    If there's no output from the Wokwi Arduino serial monitor, try toggling SW7 OFF and ON again.
+    
+    Congratulations! You should now see your customized letters being output!
+    
+    Note that garbage characters may be printed upon initialization.
+
+# A description of what the inputs do
+  inputs: 
+    - N/A
+    - N/A
+    - N/A
+    - N/A
+    - N/A
+    - N/A
+    - load/tx
+    - output enable
+
+# A description of what the outputs do
+  outputs:
+    - segment a
+    - segment b
+    - segment c
+    - segment d
+    - segment e
+    - segment f
+    - segment g
+    - N/A
+# A description of what the bidirectional I/O pins do
+  bidirectional:
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+
+
+

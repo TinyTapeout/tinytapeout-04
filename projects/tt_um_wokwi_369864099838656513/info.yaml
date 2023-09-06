@@ -1,0 +1,95 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:   369864099838656513  # If using wokwi, set this to your project's ID
+#  source_files:        # If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. Source files must be in ./src
+#    - counter.v
+#    - decoder.v
+#  top_module:  "seven_segment_seconds"      # put the name of your top module here, make it unique by prepending your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it.
+#
+# Here is an example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+#
+# This info will be automatically collected and used to make a datasheet for the chip.
+documentation: 
+  author:       "Marchand Nicolas"                     # Your name
+  title:        "Test 4x4 memory"         # Project title
+  language:     "wokwi"                         # other examples include Verilog, Amaranth, VHDL, etc
+  description:  "A 4x4 memory adapted from :https://www.researchgate.net/figure/Structure-of-SRAM-Cell-The-design-of-SRAM-usually-involves-edge-triggered-flip-flops-The_fig3_324963843"      # Short description of what your project does
+  
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+      it uses 16 flip flop logic to create the memory of 4 lines of 4bits
+      
+      2 switches controle the lines,
+      4 switches sets the bits of a line,
+      2 switches setup the read and chip select (CS to be 1 to work),
+      4 outputs show the inverted value of the stored bit for the first line of 4 bits
+      4 outputs show the actual 4 bits of the selected line (updated by switching CS or RD)
+      
+      truth table
+      operation       | CS | RD | Line1 | Line2 | In3 | In2 | In1 | In0 | Out3 | Out2 | Out1 | Out0 |
+      -----------------------------------------------------------------------------------------------
+      No operation    | 0  |  X |   X   |   X   |  X  |  X  |  0  |  0  |   X  |   X  |   X  |   X  |  
+      -----------------------------------------------------------------------------------------------
+      Write operation | 1  |  0 |   0   |   0   |  1  |  0  |  0  |  0  |   X  |   X  |   X  |   X  | 
+                      | 1  |  0 |   0   |   1   |  0  |  1  |  0  |  0  |   X  |   X  |   X  |   X  | 
+                      | 1  |  0 |   1   |   0   |  0  |  0  |  1  |  0  |   X  |   X  |   X  |   X  | 
+                      | 1  |  0 |   1   |   1   |  0  |  0  |  0  |  1  |   X  |   X  |   X  |   X  |
+      -----------------------------------------------------------------------------------------------
+      Read operation  | 1  |  1 |   0   |   0   |  X  |  X  |  X  |  X  |   1  |   0  |   0  |   0  | 
+                      | 1  |  1 |   0   |   1   |  X  |  X  |  X  |  X  |   0  |   1  |   0  |   0  | 
+                      | 1  |  1 |   1   |   0   |  X  |  X  |  X  |  X  |   0  |   0  |   1  |   0  | 
+                      | 1  |  1 |   1   |   1   |  X  |  X  |  X  |  X  |   0  |   0  |   0  |   1  | 
+                      
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+      Setting the input switch to on should store the data and turn the corresponding LED of the 7-segment ON or off regarding to the stored value.
+    
+# A description of what the inputs do
+  inputs:               
+    - in 0 - updates the value of bit0 of the selected line with in4 and in5
+    - in 1 - updates the value of bit1 of the selected line with in4 and in5
+    - in 2 - updates the value of bit2 of the selected line with in4 and in5
+    - in 3 - updates the value of bit3 of the selected line with in4 and in5
+    - in 4 - selects the line with in5 
+    - in 5 - selects the line with in4
+    - clk/step push-button to select write or read operation or can be automated on the clock
+    - in 7 - chip select, allways ON (1) to wrok
+# A description of what the outputs do
+  outputs:
+    - out 0 - segment a - value of bit0 of the selected line with in4 and in5
+    - out 1 - segment b - value of bit1 of the selected line with in4 and in5
+    - out 2 - segment c - value of bit2 of the selected line with in4 and in5
+    - out 3 - segment d - value of bit3 of the selected line with in4 and in5
+    - out 4 - segment e - control of bit0 of the first line (value Q-)
+    - out 5 - segment f - control of bit1 of the first line (value Q-)
+    - out 6 - segment g - control of bit2 of the first line (value Q-)
+    - out 7 - dot - control of bit3 of the first line (value Q-)
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+
+# The following fields are optional
+  tag:          "test"  # encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  "the switches and the 7-segment can be enough - either "      # Describe any external hardware needed
+  discord:      "mch7084"      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     1      # Clock frequency in Hz (if required)
+  picture:      ""      # relative path to a picture in your repository

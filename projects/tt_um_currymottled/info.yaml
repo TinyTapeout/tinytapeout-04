@@ -7,6 +7,15 @@ project:
 # Source files must be in ./src and you must list each source file separately
   source_files:        
     - tt_um_currymottled.v
+    - PID.v
+    - ProportionalMultiplier.v
+    - Integrator.v
+    - Differentiator.v
+    - RepeatedAdder.v
+    - I2C_param_config.v  
+    - I2C_registers.v
+    - I2C_slave.v
+    - I2C_signals.v
   top_module:  "tt_um_currymottled"      # Put the name of your top module here, must start with "tt_um_". Make it unique by including your github username
 
 # How many tiles your design occupies? A single tile is about 167x108 uM.

@@ -1,0 +1,77 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    347417602591556180        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+#  source_files:        
+#    - counter.v
+#    - decoder.v
+#  top_module:  "tt_um_example"      # Put the name of your top module here, must start with "tt_um_". Make it unique by including your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+
+  author:       "Tiny Tapeout 02 (J. Rosenthal)"      # Your name
+  title:        "Padlock"
+  discord:      "jamesr#0350"      # Your discord handle - make sure to include the # part as well
+  picture:      ""
+  language:     "Wokwi" # other examples include Verilog, Amaranth, VHDL, etc
+  doc_link:     "https://wokwi.com/projects/347417602591556180"      # URL to longer form documentation, eg the README.md in your repository
+  description:  "Set a code for your precious safe"      # Short description of what your project does
+  how_it_works: |
+    Set a code for your precious safe!
+    **Controls**
+    * Switch 2 is used to reset the safe. 
+    * Switch 8 is used to set your code (ON = set, OFF = locked)
+    * Switches 3 to 5 are used to set the code.
+    * The push button is used to enter your code.
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+    Press the green button in the top left of the pane to begin the simulation.
+    Set your desired code using Switches 3 to 5. Once you've done so, toggle Switch 8 to ON then back OFF--the safe is now set!
+    Turn ON Switch 2, and press the push button. The red LED labeled "Locked" should turn on and the seven segment display should show "L" (for locked).
+    Next turn OFF Switch 2 to begin entering codes.  
+
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:        
+    - N/A
+    - N/A
+    - Code 0
+    - Code 1
+    - Code 2
+    - N/A
+    - N/A
+    - Set Code
+
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - segment a
+    - segment b
+    - segment c
+    - segment d
+    - segment e
+    - segment f
+    - segment g
+    - dot
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none

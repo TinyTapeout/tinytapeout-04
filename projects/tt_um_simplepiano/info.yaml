@@ -6,7 +6,9 @@ project:
 # If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
 # Source files must be in ./src and you must list each source file separately
   source_files:        
+    - led_bar.v
     - note_lut.v       
+    - rtttl_sequencer.v
     - tone_gen.v
     - tt_um_simplepiano.v
   top_module:  "tt_um_simplepiano"      # Put the name of your top module here, must start with "tt_um_". Make it unique by including your github username

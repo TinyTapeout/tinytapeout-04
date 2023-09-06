@@ -1,0 +1,74 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    347144898258928211        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+#  source_files:        
+#    - counter.v
+#    - decoder.v
+#  top_module:  "tt_um_example"      # Put the name of your top module here, must start with "tt_um_". Make it unique by prepending your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+# Before changing this, please reach out to us on discord to discuss your design.
+  tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4 
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Tiny Tapeout 02 (J. Rosenthal)"      # Your name
+  discord:      "jamesr#0350"      # Your discord handle - make sure to include the # part as well
+  title:        "7-Seg 'Tiny Tapeout' Display"      # Project title
+  picture:      ""
+  language:     "Wokwi" # other examples include Verilog, Amaranth, VHDL, etc
+  doc_link:     "https://wokwi.com/projects/347497504164545108"      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     1       # Clock frequency in Hz (if required) we are expecting max clock frequency to be ~6khz. Provided on input 0.
+  description:  |
+      This circuit will output a string of characters (’tiny tapeout’) to the 7-segment display.
+
+  how_it_works: |
+      The logic to light the characters appears in the bottom half of the simulation window. The top half of the simulation window implements a modulo-11 counter. In other words, the counter increments up to 11 then resets. This counter is used to determine which character we should output to the 7-segment display. The truth table for the design can be found in the Design Spreadsheet: https://docs.google.com/spreadsheets/d/1-h9pBYtuxv6su2EC8qBc6nX_JqHXks6Gx5nmHFQh_30/edit
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+      Explain how to test your project
+
+# A description of what the inputs do
+  inputs: 
+    - clock
+    - Reset Counter
+    - N/A
+    - Clock Disable (Test Mode)
+    - Test Logic A
+    - Test Logic B
+    - Test Logic C
+    - Test Logic D
+
+# A description of what the outputs do
+  outputs:
+    - segment a
+    - segment b
+    - segment c
+    - segment d
+    - segment e
+    - segment f
+    - segment g
+    - N/A
+# A description of what the bidirectional I/O pins do
+  bidirectional:
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+
+
+

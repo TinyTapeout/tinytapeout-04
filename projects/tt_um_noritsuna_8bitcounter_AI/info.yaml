@@ -35,6 +35,16 @@ documentation:
   how_to_test:  |
     Check reset, ena, counter function.
 
+# A description of what the inputs do
+  inputs:               
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
 # A description of what the outputs do (e.g. status LED, SPI MISO, etc)
   outputs:
     - counter bit 0
@@ -45,6 +55,16 @@ documentation:
     - counter bit 5
     - counter bit 6
     - counter bit 7
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:               
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
 
 # The following fields are optional
   tag:          "AI, counter"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,

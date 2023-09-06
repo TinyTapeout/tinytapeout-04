@@ -38,7 +38,9 @@ documentation:
     A register map controls and configures the KS synthesis module. This register map is accessed through a SPI interface. Synthesized sound samples can be accessed through the I2S transmitter interface.
 
     ### SPI Frame
-    SPI Mode: CPOL = 0, CPHA = 1 and 16-bit SPI frame is defined as,
+    SPI Mode: CPOL = 0, CPHA = 1
+
+    The 16-bit SPI frame is defined as,
 
     |	$\text{Read}/\overline{\text{Write}}$	|	$\text{Address[6:0]}$	|	$\text{Data[7:0]}$	|
     | --- | --- | --- |

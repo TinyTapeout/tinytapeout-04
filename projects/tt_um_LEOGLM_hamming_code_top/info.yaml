@@ -51,8 +51,8 @@ documentation:
     - encoder_input
 # A description of what the outputs do (e.g. status LED, SPI MISO, etc)
   outputs:
-    - encoder or decoder_output
-    - decoder_output
+    - state
+    - encoder_output
     - decoder_output
     - decoder_output
     - decoder_output
@@ -64,8 +64,8 @@ documentation:
     - encoder_input/decoder_output
     - encoder_input/decoder_output
     - encoder_input/decoder_output
-    - encoder_input
-    - encoder_input
+    - encoder_input/decoder_output
+    - encoder_input/decoder_output
     - encoder_input
     - none
     - none

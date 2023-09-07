@@ -1,0 +1,107 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    0        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+  source_files:        
+    - pwm_generator.v
+  top_module:  "tt_um_pwm"      # Put the name of your top module here, must start with "tt_um_". Make it unique by including your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Rodrigo Garcia"      # Your name
+  title:        "Generador de PWM"      # Project title
+  language:     "Verilog" # other examples include Verilog, Amaranth, VHDL, etc
+  description:  "This is PWM generator"      # Short description of what your project does
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+    #### General Description
+    
+        The project is a simple Pulse Width Modulation (PWM) generator with a variable duty cycle. The duty cycle is controlled 
+        using two buttons: one to increase and another to decrease the duty cycle. The project is designed to operate with a 10 
+        MHz clock as its time base.
+    
+    #### Button Signals
+    
+        increase_duty and decrease_duty are signals directly connected to ui_in[0] and ui_in[1], respectively.
+    
+    #### Debounce Logic
+    
+        The code includes debounce logic for the buttons. It uses a counter (counter_debounce) to generate a slow clock enable signal 
+        (slow_clk_enable). This slow clock is used to sample the button states and eliminate debounce.
+    
+    #### PWM Logic
+    
+        The code utilizes a 4-bit counter (counter_PWM) to generate a PWM signal. The duty cycle of the PWM signal is controlled by the 
+        DUTY_CYCLE variable, which can be increased or decreased using the debounce logic signals (duty_inc and duty_dec).
+    
+    #### DFF_PWM Module
+    
+        This is a simple D flip-flop used for debounce. It samples the D input when the en (enable) signal is high.
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+      #### Button Connections
+      
+          Connect two buttons to the system. These buttons are used to control the duty cycle of the PWM signal.
+        
+        - Connect input pin 0 to one of the buttons. This button is used to increase the duty cycle of the PWM signal. Make sure the button has 
+          a pull-down resistor connected to ensure a defined logical level when not pressed.
+        - Connect input pin 1 to the other button. This button is used to decrease the duty cycle of the PWM signal. Just like the first 
+          button, ensure that this one also has a pull-down resistor connected.
+      
+      #### Oscilloscope Connection
+      
+          Connect an oscilloscope to output pin 0 of the dedicated outputs of the system. Adjust the oscilloscope settings to 
+          measure and display the PWM signal correctly. 
+
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - increase_duty
+    - decrease_duty
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - out_pwm
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+
+# The following fields are optional
+  tag:          "signal generator, experiment"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  "Dos push buttons y un osciloscopio"      # Describe any external hardware needed
+  discord:      ""      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     10000000       # Clock frequency in Hz (if required)
+  picture:      ""      # relative path to a picture in your repository (must be 512kb or less)

@@ -1,0 +1,89 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    0        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+  source_files:        
+    - encoder.v
+    - 2b_counter.v
+    - ALU.v
+    - REG.v
+    - cells.v
+    - decoder.v
+    - top.v
+    - tb.v
+    - tt_um_losaias.v
+  top_module:  "tt_um_losaias"      # put the name of your top module here, make it unique by prepending your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+# Before changing this, please reach out to us on discord to discuss your design.
+  tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Alejandro Araya, María Bogantes, Isaías González"
+  title:        "Arithmetic logic unit of four operations between two 8-bit numbers"
+  language:     "Verilog"
+  description:  "Calculates addition, multiplication, logical xor and shift left operations between two numbers."
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+      This circuit is designed to solve four arithmetic logic operations between two 8-bit numbers. 
+      The numbers are entered from a 4x4 matrix keyboard. The data entered from the keyboard is manipulated 
+      with decoders, encoders and registers, to finally reach an ALU. In the ALU one of the operations of 
+      addition, multiplication, xor or shift left will be calculated.
+
+      The circuit generates a two-bit counter that goes to a decoder, the decoder is 
+      responsible for activating the keyboard columns high. Pressing the keyboard columns 
+      will cause them to switch from high to low, resulting in the matrix_in input. The data 
+      that enter to matrix_in goes to an encoder. The encoder, according to the input, will have 
+      as output a hexadecimal value, which will be saved if en_reg is active. When en_reg is active, 
+      the data is saved at the address provided by switches 2 to 3. This address is the location where 
+      the data will be saved in the register bank.
+      
+      The operands that enter the ALU are obtained from the register bank, the addresses of these operands 
+      are indicated with switches 4 to 5 and 6 to 7. To indicate the ALU operation, switches 0 to 1 are used, 
+      depending on the value entered, one of the following operations will be performed: 
+
+      - 00 - A + B
+      - 01 - A * B
+      - 10 - A xor B
+      - 11 - A << 1
+
+      Finally, the result of the operation is obtained in the 8-bit alu_r output.
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+      After reset, the counter should increase by one every second with a 10MHz input clock.
+
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - op [1:0] (selects operation)
+    - add_s [3:2]
+    - add_op1 [5:4] (defines first operand direction)
+    - add_op2 [7:6] (defines second operand direction)
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - alu_r [7:0] (operation result)
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - matrix_in [0:3] (keyboard data)
+    - en_reg (if active, saves kayboard data in the register bank)
+    - 2bc [1:0] (two bit counter)
+    - z (zero flag)
+
+# The following fields are optional
+  tag:          "timer, test"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  ""      # Describe any external hardware needed
+  discord:      ""      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     10000000       # Clock frequency in Hz (if required)
+  picture:      ""      # relative path to a picture in your repository

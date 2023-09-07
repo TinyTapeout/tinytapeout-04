@@ -22,9 +22,9 @@ yaml_version: 4
 # Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
 documentation: 
   author:       "Steve Jenson"      # Your name
-  title:        "8-bit FIFO with depth 32."      # Project title
+  title:        "8-bit FIFO with depth 16."      # Project title
   language:     "Verilog" # other examples include Verilog, Amaranth, VHDL, etc
-  description:  "8-bit FIFO with depth 32 and FWFT read operation"      # Short description of what your project does
+  description:  "8-bit FIFO with depth 16 and FWFT read operation"      # Short description of what your project does
 
 # Longer description of how the project works. You can use standard markdown format.
   how_it_works: |
@@ -49,8 +49,8 @@ documentation:
 
     `almost_full` and `almost_empty` signals exist so you can batch reads and writes. Instead of checking for
     `full` or `empty` on each read or write you can instead check `almost_full` or `almost_empty` and batch read or writes
-    based on how many slots are available. For this design taped out in TinyTapeout 4, almost_full means 28 of 32 slots
-    have been used and almost_empty means that 28 of 32 slots are free.
+    based on how many slots are available. For this design taped out in TinyTapeout 4, almost_full means 12 of 16 slots
+    have been used and almost_empty means that 12 of 16 slots are free.
 
 # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
   how_to_test:  |

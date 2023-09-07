@@ -1,0 +1,30 @@
+
+65. Printing statistics.
+
+=== tt_um_biased_trng ===
+
+   Number of wires:                169
+   Number of wire bits:            204
+   Number of public wires:         105
+   Number of public wire bits:     140
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                263
+     sky130_fd_sc_hd__and2_1         1
+     sky130_fd_sc_hd__conb_1        87
+     sky130_fd_sc_hd__dfrtp_1        2
+     sky130_fd_sc_hd__einvp_1       64
+     sky130_fd_sc_hd__inv_1         90
+     sky130_fd_sc_hd__inv_2          3
+     sky130_fd_sc_hd__inv_4          1
+     sky130_fd_sc_hd__nand2_1       15
+
+   Area for cell type \sky130_fd_sc_hd__and2_1 is unknown!
+   Area for cell type \sky130_fd_sc_hd__dfrtp_1 is unknown!
+   Area for cell type \sky130_fd_sc_hd__einvp_1 is unknown!
+   Area for cell type \sky130_fd_sc_hd__inv_1 is unknown!
+   Area for cell type \sky130_fd_sc_hd__nand2_1 is unknown!
+
+   Chip area for module '\tt_um_biased_trng': 344.080000
+

@@ -1,0 +1,94 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    0        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+  source_files:        
+    - tt_um_top.v
+    - DEC_7SEG.v
+  top_module:  "tt_um_top"      # put the name of your top module here, make it unique by prepending your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "International Hellenic University - Department of Information and Electronic Engineering"
+  title:        "Pseudo Random Number Generator"
+  language:     "Verilog"
+  description:  "This project implements a pseudo-random number generator using Verilog. It generates pseudo-random numbers and outputs them to drive two 7-segment displays."
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+    The pseudo-random number generator is based on LFSR. It takes three inputs:
+    - `clk`: Clock input.
+    - `en`: Enable signal.
+    - `rst_n`: Active-low reset signal.
+    
+    The generator produces 8-bit pseudo-random numbers, which can be used to control two 7-segment displays.
+    As source of pseudo-randomnes used 2 LFSRs. One that works with 8 bit and one with 16 bit. The circuit dont have input data, just 1 clock and 1 enable pin. The output will be a 7 segment display, so 14 output pins.
+    The 16 bit LFSR produce the input of a 16-to-8 multiplexer and the 8 bit LFSR produce the selection bits of 16-to-8 multiplexer.
+    The 16-to-8 multiplexer is implemented by 8 2-to-1 multiplexers.
+    The final stage is convert the data readable by 2 7 segment displays.
+
+    LFSR16 ------ bit 0  ------> | 16-to-8 mux   |
+           ------ bit 1  ------> |               |----------> output 0
+           .                     |               |----------> output 1
+           .                     |               |        .
+           .                     |inputs         |        .
+           ------ bit 15 ------> |               |        .
+                                 |               |
+                                 |               |----------> output 7
+    LFSR8  ------ bit 0  ------> |select         |
+           ------ bit 1  ------> |               |
+           .                     |               |
+           .                     |               |
+           .                     |               |
+           ------ bit 7 ------>  |               |
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+    To test the pseudo-random number generator, you can follow these steps:
+    - Connect the `clk`, `en`, and `rst_n` signals appropriately.
+    - Connect 2 7 segments display as output.
+    - Apply clock pulses at 50MHz and high logic control signals at `en` to generate and display pseudo-random numbers.
+
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - clk
+    - en
+    - rst_n
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - segment0 a
+    - segment0 b
+    - segment0 c
+    - segment0 d
+    - segment0 e
+    - segment0 f
+    - segment0 g
+    - segment1 a
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - segment1 b
+    - segment1 c
+    - segment1 d
+    - segment1 e
+    - segment1 f
+    - segment1 g
+
+# The following fields are optional
+  tag:          "PRNG, LFSR"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  "7 segment display"      # Describe any external hardware needed
+  discord:      ""      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     "https://github.com/IIntzes/tt4_prng/blob/main/README.md"      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     50000000       # Clock frequency in Hz (if required)
+  picture:      "https://github.com/Spiros7bit/tt04-submission-test/blob/main/2d.png"      # relative path to a picture in your repository

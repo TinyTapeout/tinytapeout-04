@@ -1,0 +1,77 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    0        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+  source_files:        
+    - pong_neopixel.v
+    - debounce.v
+    - slow_clock.v
+    - wave_shape.v
+  top_module:  "tt_um_pong_neopixel"      # Put the name of your top module here, must start with "tt_um_". Make it unique by including your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Angel Orellana"      # Your name
+  title:        "Angardo's pong"      # Project title
+  language:     "Verilog"             # other examples include Verilog, Amaranth, VHDL, etc
+  description:  "Is a pong game"      # Short description of what your project does
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+      This is a pong game, it uses a neopixel led matrix 8x8 as display. To control the game, each player has two push buttons 
+      to move up and down the paddle, an extra push button is used to start the game. The game ends when the ball touch the left
+      or the right side of the matrix. To set the initial conditions of the game press the reset button.
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+      To use the project you must to connect the 6 push butttons (two for player 1, two for player 2, one for start game, and 1 for reset)
+      with an pull up resistor, also you need conect the data in pin of neopixel matrix to driver_neopixel output. 
+
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - start
+    - p1_up
+    - p1_down
+    - p2_up
+    - p2_down
+    - none
+    - none
+    - none
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - driver_neopixel
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+  bidirectional:
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+# The following fields are optional
+  tag:          "game, animation"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  "6 pushbutton, 8x8 neopixel matrix"      # Describe any external hardware needed
+  discord:      ""      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     10000000       # Clock frequency in Hz (if required)
+  picture:      ""      # relative path to a picture in your repository (must be 512kb or less)

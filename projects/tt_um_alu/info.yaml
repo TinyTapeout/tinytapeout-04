@@ -1,0 +1,83 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    0        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+  source_files:        
+      - circuit.v
+  top_module:  "tt_um_alu"      # Put the name of your top module here, must start with "tt_um_". Make it unique by including your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Angelo Machorro"      # Your name
+  title:        "4-bit-alu"      # Project title
+  language:     "Verilog" # other examples include Verilog, Amaranth, VHDL, etc
+  description:  "4 bit alu "      # Short description of what your project does
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+      Its a 4-bit alu, can make addition, substraction, multiplication, division and bitwise-and.
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+    A and B input are the data for ALU, S is the operation selects, in the next table we presents the operations
+    
+    | operation | S |  Result |
+    |---------|------|-|
+    addition | 0 | A + B|
+    |substraction| 1 | A - B|
+    | multiplication| 2 | A * B|
+    | division | 3 |  A/B |
+    | bitwise and | 4 |A & B| 
+        
+      
+
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - A3
+    - A2
+    - A1
+    - A0
+    - B3
+    - B2
+    - B1
+    - B0
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - R7
+    - R6
+    - R5
+    - R4
+    - R3
+    - R2
+    - R1
+    - R0
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - S0
+    - S1
+    - S2
+    - none
+    - none
+    - none
+    - none
+    - none
+
+# The following fields are optional
+  tag:          "test,alu"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  "buttons or dip switches"      # Describe any external hardware needed
+  discord:      ""      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     0       # Clock frequency in Hz (if required)
+  picture:      ""      # relative path to a picture in your repository

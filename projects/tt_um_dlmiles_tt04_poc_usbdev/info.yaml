@@ -1,0 +1,128 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    0        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+  source_files:
+    - tt_um.vh
+    - config.vh
+    - top_tt_um_dlmiles_tt04_poc_usbdev.v
+    - tt04_to_wishbone.v
+    - UsbDeviceTop.v
+  top_module:  "tt_um_dlmiles_tt04_poc_usbdev"      # Put the name of your top module here, must start with "tt_um_". Make it unique by including your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "2x2"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Darryl Miles"      # Your name
+  title:        "USB2 Device"    # Project title
+  language:     "SpinalHDL" # other examples include Verilog, Amaranth, VHDL, etc
+  description:  "USB2 FullSpeed/LowSpeed device (proof-of-concept)"      # Short description of what your project does
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+      This text will be updated nearer the scheduled TT04 redistribution time (early 2024) along with the project github
+      README.md and gh-pages documentation.  Please regenerate your documentation.
+
+      This is a hardware implemention of a USB2 device end hardware interface.  It is designed to be driven and commanded by a
+      CPU over a native bus (such as WishBone).  Due to the limited IO ports with TinyTapeout there is a TT2WB WishBone driver
+      that provides the ability to perform WishBone 32bit data-path transactions inside the module over the narrower TT IO ports.
+      The hardware design is capable of being any kind of USB2 device, this includes (and it not limited to) CDC, HID, audio, storage
+      as the CPU sets the identity of the device in software to the host.
+
+      While I intend to drive the TT IC with an FPGA development board myself, it should be possible for the RP2040 providing a 48MHz clock
+      to this project to achieve some kind of hello world over USB.
+      The controller clock uses the global CLK pin (this is expected to be 48MHz but may well work at a range of other clock rates), the
+      PHY interface uses BIDI port 3 (this must be 48MHz to provide timing in both full-speed and low-speed modes).
+
+      You can fire WishBone commands at the TT2WB interface, this maps to most of the ports IN/OUT/BIDI.
+      This is currently abstracted away (via API) for testbench purposes and it is indended this also be the case for the FPGA/RP2040
+      programming interfaces.  At this time the best documentation around this is to look at the TT2WB.py and tt04_to_wishbone.v
+      in the project.
+
+      The configuration options were reduced to squeeze something to demonstrate a working endpoint into a 2x2 tile space,
+      this is possible because SpinalHDL is good a generating hardware designs based on complex parametrization that allow
+      features to be turned on-off easily.
+      The limited 2x2 tile space (ideally it wanted 2x4) has resulted in some limitations:
+        * the total number of endpoints is reduced from the full 16 down to 4 (numbered 0 to 3)
+        * the total buffer space available is reduced to just 52 bytes (this may be only enough space for a single active endpoint to operate,
+          a standard serial CDC ideally needs all 3 working).
+
+      It is necessary to create a suitable USB cable to connect to the BIDI port0 and port1, this is expected to be the same cable
+      and pinout scheme as the tt04-usbcbc project that is also present in TT04.  This recommends a 68ohm series resistor for each of
+      the Data+ and Data- lines, along with a pull-up resistor 1k5.  The pull-up resistor needs to be positioned appropiately for
+      full-speed (on Data+) and low-speed (on Data-).
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+      This text will be updated nearer the scheduled TT04 redistribution time (early 2024) along with the project github
+      README.md and gh-pages documentation.  Please regenerate your documentation.
+
+      The original bus interface documentation can be found at https\://spinalhdl.github.io/SpinalDoc-RTD/master/SpinalHDL/Libraries/Com/usb_device.html
+
+      The original source can be found at https\://github.com/SpinalHDL/SpinalHDL/tree/dev/lib/src/main/scala/spinal/lib/com/usb/udc
+
+      This hardware was originally designed for FPGA so some modifications were made in the areas of\:
+        * Improving USB specification (a couple of potential bugs/out-of-spec items)
+        * Use of combinational logic versions of CRC5/CRC16 function blocks.
+        * Fixing features that seemed 95 percent written and present in the code but obviously not working or tested (support dual full-speed and low-speed in same hardware stack)
+        * Running on ASIC (clocks/resets)
+        * Optimizing for ASIC (UsbTimer counter widths, DFF buffer reduction squeeze, endpoint reduction squeeze)
+        * Encapsulating WishBone bus inside a TinyTapeout User project.
+        * More items I've already forgotten on the way (but can document from code walk later)
+
+      The cocotb tests cover a significant number of the features and provide VCD output demonstrating almost everything possible with this hardware.
+
+      The Verilator/coverage showed the 2 main areas I do not exercise host suspend/resume and device resumeIt support.
+
+      I hope by early 2024 to have available some FPGA and some RP2040 application code to assist demonstration.
+
+
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - tt2wb data bit0
+    - tt2wb data bit1
+    - tt2wb data bit2
+    - tt2wb data bit3
+    - tt2wb data bit4
+    - tt2wb data bit5
+    - tt2wb data bit6
+    - tt2wb data bit7
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - tt2wb data bit0
+    - tt2wb data bit1
+    - tt2wb data bit2
+    - tt2wb data bit3
+    - tt2wb data bit4
+    - tt2wb data bit5
+    - tt2wb data bit6
+    - tt2wb data bit7
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - USB D+ (bidi)
+    - USB D- (bidi)
+    - Interrupt (output only)
+    - Phy Clock 48MHz (input only)
+    - tt2wb control ACK (output only)
+    - tt2wb control CMD bit0 (input only)
+    - tt2wb control CMD bit1 (input only)
+    - tt2wb control CMD bit2 (input only)
+
+# The following fields are optional
+  tag:          "usb,usbdev,wishbone"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  "USB Connector, 2 x 68 ohm resistors, 1k5 ohm resistor"      # Describe any external hardware needed
+  discord:      ""      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     "https://dlmiles.github.io/tt04-poc-usbdev/" # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     48000000 # Clock frequency in Hz (if required)
+  picture:      ""      # relative path to a picture in your repository

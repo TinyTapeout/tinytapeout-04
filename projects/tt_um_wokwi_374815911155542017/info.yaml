@@ -1,0 +1,92 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    374815911155542017        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+#  source_files:        
+#    - counter.v
+#    - decoder.v
+#  top_module:  "tt_um_example"      # Put the name of your top module here, must start with "tt_um_". Make it unique by including your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Mauricio Caballero Hernández - Alejandro Duran Morales - Marvin Yahir Salamanca Ramirez - Kevin Ortiz Sarate"      # Your name
+  title:        "Demultiplexor NAND"      # Project title
+  language:     "Wokwi" # other examples include Verilog, Amaranth, VHDL, etc
+  description:  "Demultiplexor de 3 entradas independientes y 3 entradas de dirección que arrojan valore logicos de 0 y 1 en 8 salidas diferentes, constituido por compuertas NAND y NOT, imitando el comportamiento de un LS138"      # Short description of what your project does
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+      Introduciendo un total de 6 señales en el circuito se puede arrojar una señal negada (un valor de 0 logico)
+      en una de las 8 salidas disponibles. Las primeras 3 entradas dentro del circuito son clasificadas como entradas de dirección y 
+      se encargan de configurar el Demultiplexor, los otros 3 puertos de entrada admiten valores de entrada independientes que terminan por
+      infliur en las entradas de las compuertas logicas NAND y eso enconjunto permite que se arrojen valores logicos, predominando los 
+      estados altosen 7 de 8 salidas, mientras que la salida restante arroja un valor logico de 0 (lo cual admite un total de 8 
+      combinaciones posibles con resultados diferentes). Todo el cuerpo del Demultiplexor esta conformado por compuertas NAND de 4 entradas
+      y su demanda de compuertas NOT es minima en comparacion.
+
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+      Para probar el circuito es necesario utilizar un dip switch de 6 entradas donde las primeras 3 posiciones conformaran las entradas
+      de dirección (E0-E2) mientras que las posiciones 4 a 6 seran las entradas independientes (A0-A2).
+      En su estado natural, (sin señales de entrada más que la E0), se arrojara el estado bajo a O0, 
+      Para arrojar un valor de 0 a la salida O1 es necesario mantener activa la entrada de direccion E0 y la entrada independiente A0. 
+      Para cambiar a la salida O2 se mantiene la entrada de dirección E0 y la entrada A1.
+      Para cambiar a la salida O3 se mantiene la entrada de dirección E0 y la entrada A0 + A1.
+      Para cambiar a la salida O4 se mantiene la entrada de dirección E0 y la entrada A2.
+      Para cambiar a la salida O5 se mantiene la entrada de dirección E0 y la entrada A0 + A2.
+      Para cambiar a la salida O6 se mantiene la entrada de dirección E0 y la entrada A1 + A2.
+      Para cambiar a la salida O7 se mantiene la entrada de dirección E0 y la entrada A0 + A1 + A2.
+      Para que todas las salidas arrojen un valor logico de 1 se necesita que se activen las entradas E1 + E2.
+
+
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - E0 (Entrada de dirección)
+    - E1 (Entrada de dirección)
+    - E2 (Entrada de dirección)
+    - A0 (Entrada independiente)
+    - A1 (Entrada independiente)
+    - A2 (Entrada independiente)
+
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - segment a
+    - segment b
+    - segment c
+    - segment d
+    - segment e
+    - segment f
+    - segment g
+    - dot
+
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+
+# The following fields are optional
+  tag:          ""      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  ""      # Describe any external hardware needed
+  discord:      ""      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     0       # Clock frequency in Hz (if required)
+  picture:      ""      # relative path to a picture in your repository (must be 512kb or less)

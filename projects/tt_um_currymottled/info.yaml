@@ -29,18 +29,18 @@ yaml_version: 4
 #
 # Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
 documentation: 
-  author:       "currymottled"      # Your name
-  title:        "ENEL 453 Final Project"      # Project title
-  language:     "Wokwi" # other examples include Verilog, Amaranth, VHDL, etc
-  description:  "Final Project in lue of labs"      # Short description of what your project does
+  author:       "Maxim Vasic"      # Your name
+  title:        "Configurable PID Block"      # Project title
+  language:     "Verilog" # other examples include Verilog, Amaranth, VHDL, etc
+  description:  "It was meant to be a final project, but that was undercut."      # Short description of what your project does
 
 # Longer description of how the project works. You can use standard markdown format.
   how_it_works: |
-      Explain how your project works
+      It's a PID block to be configured with I2C. GPIOs 7 through 2 are for error/control, and GPIOs 1 and 0 are SDA and SCL.
 
 # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
   how_to_test:  |
-      Explain how to test your project
+      Configure with the I2C frame, see the I2C files for the "addresses". See the I2C test file for an example.
 
 # A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
   inputs:               
@@ -64,14 +64,14 @@ documentation:
     - dot
 # A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
   bidirectional:
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
+    - Error/Control
+    - Error/Control
+    - Error/Control
+    - Error/Control
+    - Error/Control
+    - Error/Control
+    - SDA
+    - SCL
 
 # The following fields are optional
   tag:          ""      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,

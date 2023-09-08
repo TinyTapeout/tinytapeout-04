@@ -1,0 +1,81 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    375248885704300545        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+#  source_files:        
+#    - counter.v
+#    - decoder.v
+#  top_module:  "tt_um_example"      # Put the name of your top module here, must start with "tt_um_". Make it unique by including your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Felipe R. Serrano Domínguez"      # Your name
+  title:        "Probador de lógica básico"      # Project title
+  language:     "Wokwi" # other examples include Verilog, Amaranth, VHDL, etc
+  description:  "It allows to validate the operation of basic logic devices; gates and flip-flops individually "      # Short description of what your project does
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+      Through common inputs and different outputs for every gate; AND, NAND, OR, NOR, NOT and XOR can be observe the logic states. It also allows you to test the different types of basic flip flops D, RS and JK
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+      To test logic gates all inputs are common (A,B).
+      The outputs for each gate are addressed to different ports.   
+      To test the flip flops must be selected using the selection pins (6,7).
+      pin 6 enables the JK or the rest.
+      pin 7 states enable D or SR so only one flip flop can be tested at a time.
+      It is expected to be able to validate its basic operation by means of truth tables.
+      
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - CLK (FLIP FLOPS)
+    - RST (FLIP FLOPS)
+    - INO (INPUT A GATE)
+    - IN1 (INPUT B GATE)
+    - IN2 (INPUT J FLIP FLOP)
+    - IN3 (INPUT K FLIP FLOP)
+    - IN4 (SET FLIP FLOP)
+    - IN5 (D FLIP FLOP)
+    - IN6 (SELECT FLIP FLOP; 1 PARA D/SR, 0 PARA JK)
+    - IN7 (SELECT FLIP FLOP; 1 PARA SR, 0 PARA D)
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - OUT 0 (GATE AND)
+    - OUT 1 (GATE NAND)
+    - OUT 2 (GATE OR)
+    - OUT 3 (GATE NOR)
+    - OUT 4 (GATE NOT)
+    - OUT 5 (GATE XOR)
+    - OUT 6 (FLIP FLOP Q)
+    - OUT 7 (FLIP FLOP Q')
+    
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+
+# The following fields are optional
+  tag:          ""      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  ""      # Describe any external hardware needed
+  discord:      ""      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     0       # Clock frequency in Hz (if required)
+  picture:      ""      # relative path to a picture in your repository (must be 512kb or less)

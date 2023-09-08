@@ -1,0 +1,64 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    0        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+  source_files:        
+    - aes_data_path.v
+    - byte_permutation_unit.v
+    - key_expansion.v
+    - mixcolumn.v
+    - mux.v
+    - parallel_serial_converter.v
+    - sbox_case_4.v
+    - tt_um_AES.v
+  top_module:  "tt_um_AES"      # Put the name of your top module here, must start with "tt_um_". Make it unique by including your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x2"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Shawn Rodrigues & Pablo Aravena"      # Your name
+  title:        "AES-128 in ECB mode"      # Project title
+  language:     "Verilog" # other examples include Verilog, Amaranth, VHDL, etc
+  description:  "AES-128 cypher encryption algorithm in ECB mode implemented in hardware using a HDL. Mostly based from the 8-bit version repo found in 'https://github.com/ChengluJin/8bit_datapath_AES/tree/master/AES128', which is in turn based on 'https://doi.org/10.1109/DSD.2006.40'. Minor changes were added in order for this to work in TinyTapeout."      # Short description of what your project does
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+      This implementation receives both the input and key in a byte-for-byte fashion, with the data being sent via the dedicated input pins (ui_in), and the key being sent via the input-output pins (uio_in) on each positive clock rise. The input data is processed as its being received and sent out at the next clock-cycle, and an internal counter is used for checking when all bytes have been encrypted in order to send out the correct encrypted bytes. This means that null-bytes will be sent from the very first cycle on the output pins, and the user has to record the consecutive N bytes since something besides null bytes comes out from the first 8 output (uo_out) pins. 
+      
+      The internal workings for this project consist of a 4x4 byte matrix that holds the current state, and it's where all operations are performed on. The main components for this implementation consist on a "byte permutation unit", a "MixColumns multiplier", a "parallel-to-serial converter", two "S-box units", and a "key expansion unit", which process the inputs on a linear, on-the-fly fashion, thus requiring less cells for it to correctly encrypt data.
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+      You can test this project searching for an already known AES-128 software-based implementation, like the one found in CyberChef, and comparing the expected outputs with the same 16-byte key. The used mode for encrypting a 128-bit block is ECB (without null-padding) for simplicity, so no IV is required. Note there's a special case when the expected output (encrypted data) starts with a null byte. In order to verify when this special case is reached, the user can check that the encrypted data length matches with the closest multiple of 16 (ceiling). More details for handling these special cases can be found on our repository README.
+
+
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - "ui_in[7:0]: the data to encrypt will be sent through this pin, grouped on 8-bits at a clock cycle."
+
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - "uo_out[7:0]: your encrypted data will come through this pin, byte for byte."
+
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - "uio_in[7:0]: the key will be sent through this pin, grouped on 8-bits at a clock cycle. Size for the key has to be of 16 bytes."
+
+# The following fields are optional
+  tag:          "encryption,clock,industrial"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  ""      # Describe any external hardware needed
+  discord:      "litneet64"      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     "https://github.com/litneet64/tt04-submission-aes-cypher/blob/main/README.md"      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     0       # Clock frequency in Hz (if required)
+  picture:      "img/aes_hla_encryption.jpg"      # relative path to a picture in your repository (must be 512kb or less)

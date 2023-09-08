@@ -45,12 +45,12 @@ documentation:
     - unused  
 # A description of what the outputs do (e.g. status LED, SPI MISO, etc)
   outputs:
-    - clock divided by 2^10
-    - clock divided by 2^14
-    - clock divided by 2^18
-    - clock divided by 2^22
-    - clock divided by 2^26
-    - clock divided by 2^30
+    - generated clock
+    - clock divided by 2^1
+    - clock divided by 2^2
+    - clock divided by 2^3
+    - clock divided by 2^4
+    - clock divided by 2^9
     - TRNG output
     - Bit 11 of shift register
 # A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)

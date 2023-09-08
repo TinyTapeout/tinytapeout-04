@@ -1,0 +1,82 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    0        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+  source_files: 
+    - tt_um_simple_processor_pablopabota.v
+    - program_counter.v
+    - instruction_mem.v
+    - i2c_slave.v
+  top_module:  "tt_um_simple_processor_pablopabota"      # Put the name of your top module here, must start with "tt_um_". Make it unique by including your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Pablo Alonso"      # Your name
+  title:        "A Risc-V Instruction memory i2c programmer"      # Project title
+  language:     "Verilog" # other examples include Verilog, Amaranth, VHDL, etc
+  description:  "This proyect implements an i2c port capable of programing memory of a RISC-V processor"      # Short description of what your project does
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+      The i2c port is capable of handle 4 registers:
+      - register 0: Set the instruction memory to read/write
+      - register 1: It loads the value of the instruction memory setted in register 0
+      - register 2: the desired value to be loaded to instruction memory setted in register 0
+      - register 3: Not used, yet read and write to it is possible.
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+      Connect any controller with an i2c master port and next is how to read, or write the memory:
+      - To Read: 
+      MASTER: Start + device_addr [0x55] (7-bits) + master ACK + address_to_read + ACK |                             | STOP
+      SLAVE:                                                                           | 8bit_data_from_memory + ACK | 
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - ext_sda_in
+    - ext_scl_in
+    - ext_i2c_rst
+    - i2c_cs
+    - pc_src
+    - none
+    - none
+    - sda_oe
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - ext_sda_out
+    - ext_scl_out
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+
+# The following fields are optional
+  tag:          ""      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  ""      # Describe any external hardware needed
+  discord:      ""      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     0       # Clock frequency in Hz (if required)
+  picture:      ""      # relative path to a picture in your repository (must be 512kb or less)

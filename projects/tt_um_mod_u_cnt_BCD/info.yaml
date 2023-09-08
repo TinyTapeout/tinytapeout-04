@@ -1,0 +1,81 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    0        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+  source_files:        
+   - BCD.v
+   - freq_div.v
+   - mod_u_counter.v
+   - tt_um_mod_u_cnt_BCD.v
+  top_module:  "tt_um_mod_u_cnt_BCD"      # Put the name of your top module here, must start with "tt_um_". Make it unique by including your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Diego Hernán Gaytán Rivas"      # Your name
+  title:        "up-down counter with parallel load and BCD output"      # Project title
+  language:     "Verilog" # other examples include Verilog, Amaranth, VHDL, etc
+  description:  "This device is an up-down counter for numbers ranging from zero to fifteen, with options for enable, clear count, and parallel loading. The count updates at a rate of one second per increment or decrement."      # Short description of what your project does
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+      The design operates by receiving a 10 MHz clock signal and using a frequency divider composed of a counter and a comparator to generate a 1 Hz output signal. This 1 Hz signal is 
+      used to feed an up-down counter circuit, which includes a synchronous enable to halt the count, a port to clear the count by setting the output to zero, 
+      and a port to indicate the desire to load a value directly from the circuit's inputs. The value is loaded in the next clock cycle, and the count continues from that point. Finally, 
+      the count value is decoded into BCD code for display on a seven-segment display.
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+      After resetting and setting the "en" port high, the device will begin a hexadecimal count with values ranging from 0 to F. Now, if the "up" port is set high, the count will be in 
+      ascending order, whereas if it's set low, it will be in descending order. Additionally, there is an option to clear the count by raising the "syn_clear" port, which would reset the 
+      counter to zero. In the case where you want to load a value between 0 and F into the counter to start the count, you should set the "load" port high and then lower it to continue the count. 
+      The value to load will be taken directly from the first four input ports.
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - data in bit 0
+    - data in bit 1
+    - data in bit 2
+    - data in bit 3
+    - enable
+    - syn_clear
+    - up
+    - load
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - segment a
+    - segment b
+    - segment c
+    - segment d
+    - segment e
+    - segment f
+    - segment g
+    - dot
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+
+# The following fields are optional
+  tag:          ""      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  ""      # Describe any external hardware needed
+  discord:      ""      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     10000000       # Clock frequency in Hz (if required)
+  picture:      ""      # relative path to a picture in your repository (must be 512kb or less)

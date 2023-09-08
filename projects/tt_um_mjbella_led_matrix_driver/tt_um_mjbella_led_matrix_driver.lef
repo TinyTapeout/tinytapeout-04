@@ -67,6 +67,7 @@ MACRO tt_um_mjbella_led_matrix_driver
   PIN rst_n
     DIRECTION INPUT ;
     USE SIGNAL ;
+    ANTENNAGATEAREA 0.247500 ;
     PORT
       LAYER met4 ;
         RECT 154.870 110.520 155.170 111.520 ;
@@ -84,7 +85,7 @@ MACRO tt_um_mjbella_led_matrix_driver
   PIN ui_in[1]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
+    ANTENNAGATEAREA 0.213000 ;
     PORT
       LAYER met4 ;
         RECT 147.510 110.520 147.810 111.520 ;
@@ -93,7 +94,7 @@ MACRO tt_um_mjbella_led_matrix_driver
   PIN ui_in[2]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.196500 ;
+    ANTENNAGATEAREA 0.213000 ;
     PORT
       LAYER met4 ;
         RECT 143.830 110.520 144.130 111.520 ;
@@ -102,6 +103,7 @@ MACRO tt_um_mjbella_led_matrix_driver
   PIN ui_in[3]
     DIRECTION INPUT ;
     USE SIGNAL ;
+    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 140.150 110.520 140.450 111.520 ;
@@ -110,6 +112,7 @@ MACRO tt_um_mjbella_led_matrix_driver
   PIN ui_in[4]
     DIRECTION INPUT ;
     USE SIGNAL ;
+    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 136.470 110.520 136.770 111.520 ;
@@ -118,6 +121,7 @@ MACRO tt_um_mjbella_led_matrix_driver
   PIN ui_in[5]
     DIRECTION INPUT ;
     USE SIGNAL ;
+    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 132.790 110.520 133.090 111.520 ;
@@ -126,6 +130,7 @@ MACRO tt_um_mjbella_led_matrix_driver
   PIN ui_in[6]
     DIRECTION INPUT ;
     USE SIGNAL ;
+    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 129.110 110.520 129.410 111.520 ;
@@ -134,6 +139,7 @@ MACRO tt_um_mjbella_led_matrix_driver
   PIN ui_in[7]
     DIRECTION INPUT ;
     USE SIGNAL ;
+    ANTENNAGATEAREA 0.196500 ;
     PORT
       LAYER met4 ;
         RECT 125.430 110.520 125.730 111.520 ;
@@ -270,7 +276,7 @@ MACRO tt_um_mjbella_led_matrix_driver
   PIN uio_out[0]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 0.795200 ;
+    ANTENNADIFFAREA 0.445500 ;
     PORT
       LAYER met4 ;
         RECT 62.870 110.520 63.170 111.520 ;
@@ -297,7 +303,7 @@ MACRO tt_um_mjbella_led_matrix_driver
   PIN uio_out[3]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 0.445500 ;
+    ANTENNADIFFAREA 0.795200 ;
     PORT
       LAYER met4 ;
         RECT 51.830 110.520 52.130 111.520 ;
@@ -438,7 +444,7 @@ MACRO tt_um_mjbella_led_matrix_driver
       LAYER met1 ;
         RECT 2.760 2.480 166.400 109.040 ;
       LAYER met2 ;
-        RECT 7.460 2.535 166.370 110.005 ;
+        RECT 6.080 2.535 166.370 110.005 ;
       LAYER met3 ;
         RECT 7.630 2.555 166.390 109.985 ;
       LAYER met4 ;
@@ -484,14 +490,14 @@ MACRO tt_um_mjbella_led_matrix_driver
         RECT 151.890 110.120 154.470 111.170 ;
         RECT 155.570 110.120 158.150 111.170 ;
         RECT 7.655 109.440 158.865 110.120 ;
-        RECT 7.655 95.375 21.915 109.440 ;
-        RECT 24.315 95.375 42.270 109.440 ;
-        RECT 44.670 95.375 62.625 109.440 ;
-        RECT 65.025 95.375 82.980 109.440 ;
-        RECT 85.380 95.375 103.335 109.440 ;
-        RECT 105.735 95.375 123.690 109.440 ;
-        RECT 126.090 95.375 144.045 109.440 ;
-        RECT 146.445 95.375 158.865 109.440 ;
+        RECT 7.655 96.055 21.915 109.440 ;
+        RECT 24.315 96.055 42.270 109.440 ;
+        RECT 44.670 96.055 62.625 109.440 ;
+        RECT 65.025 96.055 82.980 109.440 ;
+        RECT 85.380 96.055 103.335 109.440 ;
+        RECT 105.735 96.055 123.690 109.440 ;
+        RECT 126.090 96.055 144.045 109.440 ;
+        RECT 146.445 96.055 158.865 109.440 ;
   END
 END tt_um_mjbella_led_matrix_driver
 END LIBRARY

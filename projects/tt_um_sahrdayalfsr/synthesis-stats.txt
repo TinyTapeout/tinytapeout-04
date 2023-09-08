@@ -1,0 +1,24 @@
+
+63. Printing statistics.
+
+=== tt_um_sahrdayalfsr ===
+
+   Number of wires:                 20
+   Number of wire bits:             55
+   Number of public wires:           8
+   Number of public wire bits:      43
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 36
+     sky130_fd_sc_hd__and3_2         1
+     sky130_fd_sc_hd__buf_1          3
+     sky130_fd_sc_hd__conb_1        20
+     sky130_fd_sc_hd__dfrtp_2        2
+     sky130_fd_sc_hd__dfstp_2        2
+     sky130_fd_sc_hd__inv_2          4
+     sky130_fd_sc_hd__mux2_2         3
+     sky130_fd_sc_hd__xnor2_2        1
+
+   Chip area for module '\tt_um_sahrdayalfsr': 264.003200
+

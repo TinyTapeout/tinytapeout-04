@@ -1,0 +1,83 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    0        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+  source_files:        
+    - tt_um_rodrigomunoz1_rotempsensor_top.v
+    - contador.v
+    - promedio.v
+    - USM_ringoscillator.v
+    - uart_basic.v
+    - uart_baud_tick_gen.v
+    - uart_rx.v
+    - uart_tx.v
+    - data_sync.v
+    - FSM_controller.v
+    - mux.v
+    - sky130_fd_sc_hd_blackbox.v
+  top_module:  "tt_um_rodrigomunoz1_rotempsensor_top"      # put the name of your top module here, make it unique by prepending your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Rodrigo Munoz (UCH)"
+  title:        "another ring oscillator based temperature sensor"
+  language:     "Verilog"
+  description:  "4 differents Ring oscillator whose frecuency depends on temperature. It project is based on https://github.com/JorgeMarinN/tt03_ac3e-usm_ro-based_tempsens"
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+    After ena=1 and the reset cycle, a counter counts the number of cycles of 
+    the selected ring oscillator in one period of the system clock. the ring
+    oscillator is selected by osc_sel input, each oscillator have different 
+    frequency.
+
+    This count is added cumulatively, the number of counts added is given by 
+    the entry sum_sel: (sum_sel+1)*4 = number of counts added. 
+
+    When the data 0x00 (START CODE) is received by the uart, the sum total of 
+    three bytes long is sent back in LSB first.
+
+    additionally, on each clock cycle the output of the oscillator cycle 
+    counter is divided by 2 and sent to the output uo_out[7:1] and uio_out[7:0].
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+      After reset and enable are set, the ring oscillator should start and then 
+      when a START code (0x00) is received by UART, the cumulative sum value of 
+      3 bytes is sent back. The oscillator counter divided by 2 is present on
+      uo_out[7:1] and uio_out[7:0].
+
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - ui_in[0] = clk_external 
+    - ui_in[1] = clk_sel (select the system clock input)
+    - ui_in[4:2] = sum_sel (number of oscillator counts added (sum_sel+1)*4)
+    - ui_in[5] = rx (UART RX)
+    - ui_in[7:6] = osc_sel (select one of 4 ring oscillators)
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - uo_out[0] = tx (UART tx)
+    - uo_out[7:1] = oscillator counter bits 7 to 1 
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - - uio_out[7:0] = oscillator counter bits 15 to 8
+
+# The following fields are optional
+  tag:          "timer, test"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  ""      # Describe any external hardware needed
+  discord:      ""      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     10000000       # Clock frequency in Hz (if required)
+  picture:      ""      # relative path to a picture in your repository

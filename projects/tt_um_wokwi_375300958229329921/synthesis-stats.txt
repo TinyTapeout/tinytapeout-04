@@ -1,0 +1,30 @@
+
+63. Printing statistics.
+
+=== tt_um_wokwi_375300958229329921 ===
+
+   Number of wires:                 35
+   Number of wire bits:             70
+   Number of public wires:          23
+   Number of public wire bits:      58
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 51
+     sky130_fd_sc_hd__a31o_2         1
+     sky130_fd_sc_hd__and3_2         2
+     sky130_fd_sc_hd__and4_2         1
+     sky130_fd_sc_hd__and4b_2        3
+     sky130_fd_sc_hd__and4bb_2       2
+     sky130_fd_sc_hd__buf_1          8
+     sky130_fd_sc_hd__buf_2          8
+     sky130_fd_sc_hd__conb_1        16
+     sky130_fd_sc_hd__dfxtp_2        3
+     sky130_fd_sc_hd__inv_2          3
+     sky130_fd_sc_hd__nor2_2         1
+     sky130_fd_sc_hd__nor4_2         1
+     sky130_fd_sc_hd__or2b_2         1
+     sky130_fd_sc_hd__or4_2          1
+
+   Chip area for module '\tt_um_wokwi_375300958229329921': 334.070400
+

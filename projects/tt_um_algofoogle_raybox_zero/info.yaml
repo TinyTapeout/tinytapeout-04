@@ -9,7 +9,9 @@ project:
   source_files:
     - top.v
     - raybox-zero/src/rtl/fixed_point_params.v
+    - raybox-zero/src/rtl/helpers.v
     - raybox-zero/src/rtl/rbzero.v
+    - raybox-zero/src/rtl/spi_registers.v
     - raybox-zero/src/rtl/debug_overlay.v
     - raybox-zero/src/rtl/map_overlay.v
     - raybox-zero/src/rtl/map_rom.v
@@ -70,15 +72,26 @@ documentation:
       `debug` can be asserted to show current state of POV (point-of-view) registers, which might come in handy
       when trying to debug SPI writes.
 
+      If `reg` input is asserted, VGA outputs are registered. Otherwise, they are just as they come out of internal combo logic.
+      I've done it this way so I can test the difference (if any).
+
+      `inc_px` and `inc_py` can be asserted to continuously increment their respective player X/Y position register.
+      Normally the registers should be updated via SPI, but this allows someone to at least see a demo in action
+      without having to implement the SPI host controller.
+
+      The "SPI2" ports (`reg_sclk`, etc.) are for access to all other registers that we can play with.
+      I decided to keep these separate because I implemented them very late, and didn't want to break the
+      existing SPI interface for POV register access.
+
 # A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
   inputs:
     - 'SPI in: sclk'
     - 'SPI in: mosi'
     - 'SPI in: ss_n'
     - debug
-    - none
-    - none
-    - none
+    - inc_px
+    - inc_py
+    - reg
     - none
 # A description of what the outputs do (e.g. status LED, SPI MISO, etc)
   outputs:
@@ -92,17 +105,17 @@ documentation:
     - red[1]
 # A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
   bidirectional:
-    - none
-    - none
-    - none
-    - none
-    - none
+    - o_hblank
+    - o_vblank
+    - 'SPI2 in: reg_sclk'
+    - 'SPI2 in: reg_mosi'
+    - 'SPI2 in: reg_ss_n'
     - none
     - none
     - none
 
 # The following fields are optional
-  tag:          "vga, demo, game, graphics, retro, 3d"
+  tag:          "vga, demo, game, graphics, retro, 3d, spi"
   external_hw:  "VGA connector with RGB222 DAC"      # Describe any external hardware needed
   discord:      "algofoogle"
   doc_link:     "https://github.com/algofoogle/raybox-zero/blob/main/README.md"

@@ -276,7 +276,6 @@
     [ "flipflop8:CLK", "flipflop13:CLK", "green", [ "h-32.48", "v-154.75" ] ],
     [ "flipflop5:CLK", "flipflop10:CLK", "green", [ "h-31.52", "v-70.2" ] ],
     [ "flipflop1:CLK", "flipflop7:CLK", "green", [ "h0" ] ],
-    [ "ttin1:CLK", "flipflop1:CLK", "green", [ "v1.68", "h371.2" ] ],
     [ "ttin1:IN0", "flipflop1:D", "green", [ "h284.85", "v-181.9" ] ],
     [ "mux1:A", "ttin1:IN1", "green", [ "h-59.95", "v-75.31" ] ],
     [ "mux2:B", "ttin1:IN2", "green", [ "h-193.24", "v-26.03" ] ],
@@ -322,7 +321,8 @@
     [ "ttout1:EXTOUT4", "bargraph1:A5", "green", [ "h47.3", "v-1.16" ] ],
     [ "bargraph1:A6", "ttout1:EXTOUT5", "green", [ "h-17.33", "v2.35" ] ],
     [ "ttout1:EXTOUT6", "bargraph1:A7", "green", [ "h61.85", "v-6.86" ] ],
-    [ "bargraph1:A8", "ttout1:EXTOUT7", "green", [ "h-15.77", "v7.56" ] ]
+    [ "bargraph1:A8", "ttout1:EXTOUT7", "green", [ "h-15.77", "v7.56" ] ],
+    [ "ttin1:IN7", "flipflop1:CLK", "green", [ "h165.53", "v-171.06", "h151.57" ] ]
   ],
   "dependencies": {}
 }

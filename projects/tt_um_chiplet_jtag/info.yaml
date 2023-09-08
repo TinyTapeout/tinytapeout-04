@@ -1,0 +1,109 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    0        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+  source_files:        
+    - tt_um_chiplet_jtag.v
+    - generated_jtag.v
+  top_module:  "tt_um_chiplet_jtag" # put the name of your top module here, make it unique by prepending your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Verneri Hirvonen"
+  title:        "Poor Person's Boundary Scan"
+  language:     "Verilog"
+  description:  "JTAG test logic with a 8-bit TDR for 'external' boundary scan"
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+      The design contains JTAG test logic with four test data registers:
+      ```
+      1. boundary_scan
+      2. blink_in
+      3. blink_out
+      4. blink_dir
+      ```
+
+      boundary_scan is connected between fixed input and output registers and can be used to either read the input pins or drive the output pins.
+
+      blink_in, blink_out, and blink_dir are connected to pins 6 and 7 of the bidirectional IO and can be used to read/write the bidirectional pins.
+
+      The default clk and rst_n are left unconnected because the JTAG interface provides its own clock and reset and those are routed through user IO.
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+      The cocotb simulation contains helper routines for driving the JTAG state machine and can be used as a example of how to shift values into different JTAG internal registers.
+
+      In general the design is controlled with the following procedure:
+      ```
+      1. Reset core either through the TRSTn input or through a reset sequence on TMS. The reset sequence is achieved by holding TMS high and cycling TCK at least 5 times.
+      2. Shift in IR value to select appropriate TDR
+      3. Shift bits to TDR to read/write its value.
+      ```
+
+      Blinky pins are controlled with the following JTAG TDRs. Each TDR is two bits wide.
+      ```
+      - blink_in  IR=0x02 = blink pin inputs
+      - blink_out IR=0x03 = blink pin outputs
+      - blink_dir IR=0x04 = blink pin directions, high = output, low = input
+      ```
+
+      For example, to assign blink[0] high and blinky[1] low, execute the following sequence:
+      ```
+      1. Shift 0x04 to IR to select blink_dir TDR
+      2. Shift 0b11 to the selected TDR to set both pins as outputs
+      3. Shift 0x02 to IR to select blink_in TDR
+      4. Shift 0b01 to set blink[0] to high and blink[1] to low
+      ```
+
+
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - boundary_scan input 0
+    - boundary_scan input 1
+    - boundary_scan input 2
+    - boundary_scan input 3
+    - boundary_scan input 4
+    - boundary_scan input 5
+    - boundary_scan input 6
+    - boundary_scan input 7
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - boundary_scan output 0
+    - boundary_scan output 1
+    - boundary_scan output 2
+    - boundary_scan output 3
+    - boundary_scan output 4
+    - boundary_scan output 5
+    - boundary_scan output 6
+    - boundary_scan output 7
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - JTAG TCK (hardcoded input)
+    - JTAG TMS (hardcoded input)
+    - JTAG TDI (hardcoded input)
+    - JTAG TRSTn (hardcoded input)
+    - JTAG TDO (hardcoded output)
+    - JTAG state machine in state Test-Logic Reset (hardcoded output)
+    - Blink pin 0 (bidirectional)
+    - Blink pin 1 (bidirectional)
+
+# The following fields are optional
+  tag:          "jtag, test"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  "JTAG debug adapter"      # Describe any external hardware needed
+  discord:      "Vek#9149"      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  doc_link:     "https://github.com/chiplet/tt04-jtag/blob/main/README.md"      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     ""       # Clock frequency in Hz (if required)
+  picture:      ""      # relative path to a picture in your repository

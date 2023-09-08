@@ -1,0 +1,117 @@
+--- 
+# TinyTapeout project information
+project:
+  wokwi_id:    0        # If using wokwi, set this to your project's ID
+
+# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
+# Source files must be in ./src and you must list each source file separately
+  source_files:        
+    - tt_um_quardinlyttle_top.v
+  top_module:  "tt_um_quardinlyttle_top"      # Put the name of your top module here, must start with "tt_um_". Make it unique by including your github username
+
+# How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
+
+# Keep a track of the submission yaml
+yaml_version: 4
+
+# As everyone will have access to all designs, try to make it easy for someone new to your design to know what
+# it does and how to operate it. This info will be automatically collected and used to make a datasheet for the chip.
+#
+# Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
+documentation: 
+  author:       "Artin Ghanaatpisheh-Sanani and Quardin Lyttle "      # Your name
+  title:        "AQALU"      # Project title
+  language:     "Verilog" # other examples include Verilog, Amaranth, VHDL, etc
+  description:  "2 bit ALU with 4 Bit Opcode"      # Short description of what your project does
+
+# Longer description of how the project works. You can use standard markdown format.
+  how_it_works: |
+      4 bit Op Code ALU. OpCodes are as follows- 
+      
+       - 0000 AND
+       
+       - 0001 OR
+       
+       - 0010	NOT
+       
+       - 0011	XOR
+       
+       - 0100	NAND
+       
+       - 0101	NOR
+       
+       - 0110	XNOR
+       
+       - 0111	Addition
+       
+       - 1000	Subtraction
+       
+       - 1001	Multiplication
+       
+       - 1010	Compare
+       
+       - 1011	Shift L Logically
+       
+       - 1100	Shift R Logically
+       
+       - 1101	Shift L Arithmetically
+
+       - 1110	Shift R Arithmetically
+       
+       - 1111	Running Sum
+       
+       
+       **Running Sum** takes the current 4bit number at the input and continously adds it to the output every second. 
+
+       
+       **Compare** is 2'b10 when A is greater than B, 2'b01 when B is greater than A. 2'b11 when equal.
+
+       
+       **NOT** treats A and B as a combined 4bit input. 
+
+       
+       **Subtraction** anticipates am unsigned number input  (treats them as positive numbers essentially) however will give signed output depending on the operation. It acts as A-B. 
+
+# Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_to_test:  |
+      Testing can be done by connecting the outputs to LEDs and treating them as an 8 bit output. Seeing how they correspond to the selected OpCodes and inputs. 
+
+# A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
+  inputs:               
+    - OpCode 0
+    - OpCode 1
+    - OpCode 2
+    - OpCode 3
+    - B 0
+    - B 1
+    - A 0
+    - A 1
+# A description of what the outputs do (e.g. status LED, SPI MISO, etc)
+  outputs:
+    - segment a
+    - segment b
+    - segment c
+    - segment d
+    - segment e
+    - segment f
+    - segment g
+    - dot
+# A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
+  bidirectional:
+    - Output bit 0
+    - Output bit 1
+    - Output bit 2
+    - Output bit 3
+    - Output bit 4
+    - Output bit 5
+    - Output bit 6
+    - Output bit 7
+
+# The following fields are optional
+  tag:          "ALU, test, firstTapeOut"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  "an external circuit with LEDs or a BCD converter to represent the numerical outputs"      # Describe any external hardware needed
+  discord:      "donnel"      # NOTE: There are two indviduals for this project. Second discord namne is "artinsananii#5506" Your discord handle, used for communication and automatically assigning tapeout role after a submission 
+  doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     10000000       # Clock frequency in Hz (if required)
+  picture:      ""      # relative path to a picture in your repository (must be 512kb or less)

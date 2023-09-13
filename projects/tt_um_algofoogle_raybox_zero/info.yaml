@@ -45,43 +45,72 @@ documentation:
 
 # Longer description of how the project works. You can use standard markdown format.
   how_it_works: |
-      This is a framebuffer-less VGA display generator (i.e. it is 'racing the beam') that produces a simple
-      implementation of a "3D"-like ray casting game engine... just the graphics part of it.
-      It is inspired by Wolfenstein 3D, using a map that is a grid of wall blocks, with basic texture mapping.
-      
-      There is nothing yet but textured walls, and flat-coloured floor and ceiling. No doors or sprites, sorry.
-      Maybe that will come in version 2 (stay tuned for TT05!)
+      NOTE: Expect updates after the TT04 datasheet is made.
+      Check tt04-raybox-zero's README (https://github.com/algofoogle/tt04-raybox-zero)
+      for latest info.
 
-      The 'player' POV ("point of view") is controlled by SPI, which can be used to write the player position,
-      facing X/Y vector, and viewplane X/Y vector in one go.
+      This framebuffer-less VGA display generator is 'racing the beam' to yield a simple realtime
+      "3D"-like render of a game map using ray casting. It's inspired by Wolf3D and based on
+      Lode's Raycasting tutorial (https://lodev.org/cgtutor/raycasting.html). Think of it as
+      a primitive 'GPU' using a grid map of wall blocks, with basic texture mapping
+      and flat-coloured floor/ceiling. No doors or sprites -- but maybe in TT05?
+      In TT04's 130nm process we use 4x2 tiles (~0.16mm&sup2;) at ~48% density.
 
-      This design uses 4x2 tiles in the TT04 130nm process. 4 tiles is about 0.16 square millimetres.
+      Without a framebuffer, rendering/animation occurs at full speed. Registers store the
+      'POV' (Point of View) to render. It's expected that a host controller
+      implements game/motion logic and calculates the POV, then sending it to the chip via SPI
+      (`ss_n`/`sclk`/`mosi`). An MCU or low-spec CPU should do. I've been bit-banging
+      SPI with a Raspberry Pi Pico.
 
-      NOTE: To optimise the design and make it work without a framebuffer, this renders what is effectively a
-      portrait view, rotated. A portrait monitor (i.e. one rotated 90 degrees anti-clockwise) will display this
-      like the conventional first-person shooter view, but it could still be used in a conventional landscape
-      orientation if you imagine it is for a game where you have a first-person perspective of a flat 2D
-      platformer, endless runner, "Descent-style" game, whatever.
+      At reset the POV registers are set to an angled view of the inbuilt 16x16 grid map.
 
-      TBC.
+      NOTE: "FPS games" like Wolf3D use a landscape display, i.e. normal desktop monitor
+      orientation. I designed this as a portrait display (rotated 90&deg; clockwise) for silicon
+      area optimisations that come with rendering by scanline instead of by column. If you don't want
+      a sideways monitor, design a game/demo using this different perspective.
+      For example, image Mario's 1st-person view of his 2D platform world...
+
+      ### Features
+
+      *   640x480 VGA display at ~60Hz from 25MHz clock (25.175MHz ideal)
+      *   Registered and unregistered digital VGA outputs: RGB222 and H/VSYNC
+      *   Portrait "FPS" orientation
+      *   Hard-coded 16x16 map with 3 textures: light- and dark-side variations
+      *   SPI interface to set POV with debug option to see POV register bits
+      *   'SPI2' interface to set ceiling colour, floor colour, or floor 'leak'
+      *   Reset loads an interesting POV. Optional 'demo mode' inputs can vary it.
+      *   HBLANK and VBLANK outputs as optional interrupt requests
+
+      ### A warning about turning your screen on its side
+
+      As stated, this is designed to drive a display with a *portrait* orientation when
+      used as a "first person shooter" but BEWARE: The backlights failed on *two* old flat
+      panel VGA displays (from circa 2003) not long after I turned them on their sides.
+      Coincidence? Age? A CCFL failure mode? Not sure. I'm using a monitor from 2008 now.
 
 # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
   how_to_test:  |
-      TBC: Explain how to test your project
+      Attach a VGA connector's HSYNC and VSYNC to the chip's respective outs with (say) inline 100R resistors
+      for protection. Connect at least `red[1]`, `green[1]`, `blue[1]` with inline 270R resistors,
+      or better yet use an R2R DAC on each colour output *pair*. Make sure VGA GND is connected, of course.
 
-      `debug` can be asserted to show current state of POV (point-of-view) registers, which might come in handy
-      when trying to debug SPI writes.
+      Pull up `reg` to select 'registered outputs'. Without this, you will get the unregistered versions, which
+      might be murky or have some timing issues -- I included this option for testing purposes.
+      In the actual ASIC version of this, I expect the registered outputs will be much cleaner, but we'll see.
 
-      If `reg` input is asserted, VGA outputs are registered. Otherwise, they are just as they come out of internal combo logic.
-      I've done it this way so I can test the difference (if any).
+      Supply a 25MHz clock (or ideally 25.175MHz), and assert the `reset` signal, and you should get a
+      clockwise-90&deg;-rotated display of textured walls with dark grey ceiling (right-hand side)
+      and light grey floor (left-hand side).
 
-      `inc_px` and `inc_py` can be asserted to continuously increment their respective player X/Y position register.
-      Normally the registers should be updated via SPI, but this allows someone to at least see a demo in action
-      without having to implement the SPI host controller.
+      Pull up the `debug` input and you should see little squares show up in the corner of the screen that
+      represent the current state of the POV registers.
 
-      The "SPI2" ports (`reg_sclk`, etc.) are for access to all other registers that we can play with.
-      I decided to keep these separate because I implemented them very late, and didn't want to break the
-      existing SPI interface for POV register access.
+      Pull up either/both of `inc_px/py` and the view should drift along slowly.
+      This is 'demo mode'. Don't be alarmed when it goes through walls, or for periods when you see half the
+      screen is just grey and the other half is flickering different colours -- this just means you're moving
+      *through* a wall block.
+
+      Changing POV: https://github.com/algofoogle/tt04-raybox-zero#write-pov-via-spi
 
 # A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
   inputs:
@@ -97,16 +126,16 @@ documentation:
   outputs:
     - hsync_n
     - vsync_n
-    - blue[0]
-    - blue[1]
-    - green[0]
-    - green[1]
     - red[0]
     - red[1]
+    - green[0]
+    - green[1]
+    - blue[0]
+    - blue[1]
 # A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
   bidirectional:
-    - o_hblank
-    - o_vblank
+    - 'Out: o_hblank'
+    - 'Out: o_vblank'
     - 'SPI2 in: reg_sclk'
     - 'SPI2 in: reg_mosi'
     - 'SPI2 in: reg_ss_n'
@@ -118,6 +147,6 @@ documentation:
   tag:          "vga, demo, game, graphics, retro, 3d, spi"
   external_hw:  "VGA connector with RGB222 DAC"      # Describe any external hardware needed
   discord:      "algofoogle"
-  doc_link:     "https://github.com/algofoogle/raybox-zero/blob/main/README.md"
+  doc_link:     "https://github.com/algofoogle/tt04-raybox-zero/blob/main/README.md"
   clock_hz:     25000000       # Clock frequency in Hz (if required). 25.175MHz is ideal, but 25.0MHz is fine.
-  picture:      "doc/raybox-zero.png"
+  picture:      "doc/fpga-vs-sim-V2.jpg"

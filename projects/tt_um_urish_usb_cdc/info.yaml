@@ -40,14 +40,14 @@ documentation:
 
 # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
   how_to_test:  |
-      Set the clock frequency to 48 MHz. 
-      Connect usb_p and usb_n pins to D+ / D- USB pins through 68 ohm resistors. 
-      Pull up D+ with 1.5k resistor.
+      1. Connect `usb_p` and `usb_n` pins to D+ / D- USB pins either through 68 ohm resistors or directly (the resistors are recommended, but not mandatory).
+      2. Connect a 1.5k ohm resistor between `dp_pu_o` and `usb_p` (D+).
+      3. Set the clock frequency to 48 MHz.  
 
-      The device should appear as a serial port on your computer.
-      Data received from USB host will appear on the output pins (rx) when `rx_ready` goes high. 
+      The device should appear as a serial port on your computer, with vendor_id=1209 and product_id=5454 (https://pid.codes/1209/5454/).
+      Data received from USB host will appear on the output pins (`rx`) when `rx_ready` goes high. 
       You can send data to the USB device by waiting for `tx_ready` to go high,
-      setting the input pins (tx) to the byte you'd like to transmit, and setting `tx_valid` high.
+      setting the input pins (`tx`) to the byte you'd like to transmit, and setting `tx_valid` high.
 
 # A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
   inputs:               
@@ -82,8 +82,8 @@ documentation:
 
 # The following fields are optional
   tag:          "usb, serial"      # comma separated list of tags: test encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
-  external_hw:  ""      # Describe any external hardware needed
+  external_hw:  "USB breakout board, 1.5k ohm resistor"      # Describe any external hardware needed
   discord:      "urish"      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
   doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
   clock_hz:     48000000       # Clock frequency in Hz (if required)
-  picture:      ""      # relative path to a picture in your repository
+  picture:      "docs/terminal.png"      # relative path to a picture in your repository
